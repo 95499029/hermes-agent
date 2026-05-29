@@ -93,7 +93,6 @@ DOWNLOAD_URL_SCHEMA = {
             "dir": {
                 "type": "string",
                 "description": "Download directory. Defaults to ~/Downloads.",
-                "default": "/Users/ivan/Downloads",
             },
             "connections": {
                 "type": "integer",

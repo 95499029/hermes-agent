@@ -1303,6 +1303,8 @@ class WeixinAdapter(BasePlatformAdapter):
                     if (ret == SESSION_EXPIRED_ERRCODE or errcode == SESSION_EXPIRED_ERRCODE
                             or _is_stale_session_ret(ret, errcode, response.get("errmsg"))):
                         logger.debug("[%s] Session expired; retrying in 10s (re-authorize if this recurs)", self.name)
+                        # Wipe stale sync_buf so the next poll starts fresh
+                        _save_sync_buf(self._hermes_home, self._account_id, "")
                         await asyncio.sleep(10)
                         consecutive_failures = 0
                         continue
