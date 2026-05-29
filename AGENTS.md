@@ -1130,3 +1130,20 @@ not the specific names.
 
 Reviewers should reject new change-detector tests; authors should convert
 them into invariants before re-requesting review.
+
+---
+
+## macOS Agent Pitfalls (copied from SOUL.md)
+
+These are operational pitfalls that affect the agent running on macOS — relevant
+for any AI assistant working in this environment, not just the Hermes CLI itself.
+
+| Pitfall | Correct Approach |
+|---------|-----------------|
+| M4 GPU + mlx_whisper | `MLX_DISABLE_METAL=1` forces CPU mode |
+| whisper-small 转写技术内容 | fix_asr_errors.py post-process + spot-check |
+| Sequoia TCC.db 操作 | Never use SQLite/Python to read/write directly |
+| hermes chat 启动慢 | Disable unused MCP servers |
+| Python background 子进程 | Use `posix_spawnp` or `subprocess.Popen` |
+| ModelScope CDN 下载 | `curl -L -C -` single connection, not aria2c |
+| GGUF 损坏检测 | Check file size + llama_decode test |

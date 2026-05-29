@@ -92,6 +92,13 @@ TOOLSETS = {
         "tools": ["web_search", "web_extract"],
         "includes": []  # No other toolsets included
     },
+
+    "download": {
+        "description": "File download tools backed by aria2 RPC (URL/BT/磁力链)",
+        "tools": ["download_url", "download_status", "download_list", "download_stop",
+                   "download_bt", "download_magnet"],
+        "includes": []
+    },
     
     "search": {
         "description": "Web search only (no content extraction/scraping)",
@@ -348,6 +355,8 @@ TOOLSETS = {
         "description": "Editor integration (VS Code, Zed, JetBrains) — coding-focused tools without messaging, audio, or clarify UI",
         "tools": [
             "web_search", "web_extract",
+            "download_url", "download_status", "download_list", "download_stop",
+            "download_bt", "download_magnet",
             "terminal", "process",
             "read_file", "write_file", "patch", "search_files",
             "vision_analyze",

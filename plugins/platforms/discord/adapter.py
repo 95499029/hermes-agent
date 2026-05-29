@@ -660,7 +660,8 @@ class DiscordAdapter(BasePlatformAdapter):
                 logger.warning("Opus codec not found — voice channel playback disabled")
 
         if not self.config.token:
-            logger.error("[%s] No bot token configured", self.name)
+            logger.warning("[%s] No bot token configured — Discord adapter inactive", self.name)
+            self._set_fatal_error("no_token", "No bot token configured", retryable=False)
             return False
 
         try:

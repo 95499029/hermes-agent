@@ -171,6 +171,7 @@ def _append_unconfigured_rows(rows: list[dict], ctx: ConfigContext) -> list[dict
             {
                 "slug": entry.slug,
                 "name": _PROVIDER_LABELS.get(entry.slug, entry.label),
+                "category": entry.category,
                 "is_current": entry.slug.lower() == cur,
                 "is_user_defined": False,
                 "models": [],

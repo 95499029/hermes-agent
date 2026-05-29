@@ -35,6 +35,20 @@ logger = logging.getLogger(__name__)
 
 WEIXIN_COPY_LINE_WIDTH = 120
 
+def _get_message_log_path() -> Path:
+    from hermes_constants import get_hermes_home
+    return get_hermes_home() / "logs" / "weixin_messages.log"
+
+def _append_message_log(entry: str) -> None:
+    try:
+        log_path = _get_message_log_path()
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write(f"[{timestamp}] {entry}\n")
+    except Exception:
+        pass
+
 try:
     import aiohttp
 
@@ -1288,8 +1302,8 @@ class WeixinAdapter(BasePlatformAdapter):
                 if ret not in {0, None} or errcode not in {0, None}:
                     if (ret == SESSION_EXPIRED_ERRCODE or errcode == SESSION_EXPIRED_ERRCODE
                             or _is_stale_session_ret(ret, errcode, response.get("errmsg"))):
-                        logger.error("[%s] Session expired; pausing for 10 minutes", self.name)
-                        await asyncio.sleep(600)
+                        logger.debug("[%s] Session expired; retrying in 10s (re-authorize if this recurs)", self.name)
+                        await asyncio.sleep(10)
                         consecutive_failures = 0
                         continue
                     consecutive_failures += 1
@@ -1395,6 +1409,7 @@ class WeixinAdapter(BasePlatformAdapter):
             timestamp=datetime.now(),
         )
         logger.info("[%s] inbound from=%s type=%s media=%d", self.name, _safe_id(sender_id), source.chat_type, len(media_paths))
+        _append_message_log(f"INBOUND from={_safe_id(sender_id)} chat_type={source.chat_type} text={text!r} media={len(media_paths)}")
         await self.handle_message(event)
 
     @property
@@ -1663,6 +1678,7 @@ class WeixinAdapter(BasePlatformAdapter):
             for media_path, is_voice in media_files:
                 try:
                     await _deliver_media(media_path, is_voice)
+                    _append_message_log(f"OUTBOUND to={_safe_id(chat_id)} type=media success=True path={media_path!r}")
                 except Exception as exc:
                     logger.warning("[%s] media delivery failed for %s: %s", self.name, media_path, exc)
 
@@ -1670,6 +1686,7 @@ class WeixinAdapter(BasePlatformAdapter):
             for file_path in local_files:
                 try:
                     await _deliver_media(file_path, is_voice=False)
+                    _append_message_log(f"OUTBOUND to={_safe_id(chat_id)} type=file success=True path={file_path!r}")
                 except Exception as exc:
                     logger.warning("[%s] local file delivery failed for %s: %s", self.name, file_path, exc)
 
@@ -1686,9 +1703,11 @@ class WeixinAdapter(BasePlatformAdapter):
                 last_message_id = client_id
                 if idx < len(chunks) - 1 and self._send_chunk_delay_seconds > 0:
                     await asyncio.sleep(self._send_chunk_delay_seconds)
+            _append_message_log(f"OUTBOUND to={_safe_id(chat_id)} type=text success=True chunks={len(chunks)}")
             return SendResult(success=True, message_id=last_message_id)
         except Exception as exc:
             logger.error("[%s] send failed to=%s: %s", self.name, _safe_id(chat_id), exc)
+            _append_message_log(f"OUTBOUND to={_safe_id(chat_id)} type=text success=False error={exc!r}")
             return SendResult(success=False, error=str(exc))
 
     async def send_typing(self, chat_id: str, metadata: Optional[Dict[str, Any]] = None) -> None:

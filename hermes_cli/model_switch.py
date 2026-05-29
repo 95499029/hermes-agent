@@ -1454,6 +1454,7 @@ def list_authenticated_providers(
             "models": _cp_top,
             "total_models": _cp_total,
             "source": "canonical",
+            "category": _cp.category,
         })
         seen_slugs.add(_cp.slug.lower())
         _record_builtin_endpoint(_cp.slug)

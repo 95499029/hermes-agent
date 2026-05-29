@@ -7532,15 +7532,33 @@ class HermesCLI:
         selected = state.get("selected", 0)
         stage = state.get("stage")
         if stage == "provider":
-            providers = state.get("providers") or []
-            if selected >= len(providers):
+            choice_objs = state.get("_choice_objs") or []
+            # Resolve selected index to actual provider object
+            # (skip category headers which have None in choice_objs)
+            actual_idx = 0
+            for i in range(selected):
+                obj = choice_objs[i] if i < len(choice_objs) else None
+                if obj is not None and not (isinstance(obj, dict) and obj.get("_unconfigured_collapsed")):
+                    actual_idx += 1
+            # Check if selected is a category header or collapsed entry
+            if selected >= len(choice_objs):
                 self._close_model_picker()
                 return
-            provider_data = providers[selected]
-            # Use the curated model list from list_authenticated_providers()
-            # (same lists as `hermes model` and gateway pickers).
-            # Only fall back to the live provider catalog when the curated
-            # list is empty (e.g. user-defined endpoints with no curated list).
+            chosen_obj = choice_objs[selected]
+            # Category header — no-op, just redraw
+            if chosen_obj is None:
+                self._invalidate(min_interval=0.0)
+                return
+            # Collapsed unconfigured entry — expand it
+            if isinstance(chosen_obj, dict) and chosen_obj.get("_unconfigured_collapsed"):
+                unconfigured = chosen_obj.get("unconfigured") or []
+                # Switch to unconfigured selection stage
+                state["stage"] = "unconfigured"
+                state["unconfigured_list"] = unconfigured
+                state["selected"] = 0
+                self._invalidate(min_interval=0.0)
+                return
+            provider_data = chosen_obj
             model_list = provider_data.get("models", [])
             if not model_list:
                 try:
@@ -7556,6 +7574,24 @@ class HermesCLI:
             state["selected"] = 0
             self._invalidate(min_interval=0.0)
             return
+        if stage == "unconfigured":
+            # Show list of unconfigured providers as a flat list
+            unconfigured = state.get("unconfigured_list") or []
+            cancel_idx = len(unconfigured)
+            if selected >= cancel_idx:
+                # Back to provider stage
+                state["stage"] = "provider"
+                state["selected"] = 0
+                self._invalidate(min_interval=0.0)
+                return
+            provider_data = unconfigured[selected]
+            model_list = provider_data.get("models", [])
+            state["stage"] = "model"
+            state["provider_data"] = provider_data
+            state["model_list"] = model_list
+            state["selected"] = 0
+            self._invalidate(min_interval=0.0)
+            return
         if stage == "model":
             provider_data = state.get("provider_data") or {}
             model_list = state.get("model_list") or []
@@ -7563,7 +7599,7 @@ class HermesCLI:
             cancel_idx = len(model_list) + 1
             if selected == back_idx:
                 state["stage"] = "provider"
-                state["selected"] = next((i for i, p in enumerate(state.get("providers") or []) if p.get("slug") == provider_data.get("slug")), 0)
+                state["selected"] = 0
                 self._invalidate(min_interval=0.0)
                 return
             if selected >= cancel_idx:
@@ -10874,6 +10910,7 @@ class HermesCLI:
         submitted = False
         transcription_failed = False
         wav_path = None
+        _exit_after_cleanup = False  # True = skip restart / stop the chain
         try:
             if self._voice_recorder is None:
                 return
@@ -10949,9 +10986,13 @@ class HermesCLI:
                     self._voice_continuous = False
                     self._no_speech_count = 0
                     _cprint(f"{_DIM}No speech detected 3 times, continuous mode stopped.{_RST}")
-                    return
+                    _exit_after_cleanup = True
             else:
                 self._no_speech_count = 0
+
+        # Exit early if we hit the no-speech limit — skip restart logic below.
+        if _exit_after_cleanup:
+            return
 
             # If no transcript was submitted but continuous mode is active,
             # restart recording so the user can keep talking.
@@ -14145,18 +14186,52 @@ class HermesCLI:
                 return []
             stage = state.get("stage", "provider")
             if stage == "provider":
-                title = "⚙ Model Picker — Select Provider"
+                title = "⚙ Model Picker"
+                _providers = state.get("providers") or []
+
+                # Separate configured from unconfigured
+                configured = []
+                unconfigured = []
+                for p in _providers:
+                    if p.get("source") == "canonical" and not p.get("models") and not p.get("is_current"):
+                        unconfigured.append(p)
+                    else:
+                        configured.append(p)
+
+                # Group by category, preserve order
                 choices = []
-                _providers = state.get("providers")
-                for p in _providers if isinstance(_providers, list) else []:
+                choice_objs = []  # parallel list: {choice_str, provider_dict}
+                current_category = None
+                seen_categories = set()
+
+                for p in configured:
+                    cat = p.get("category", "")
+                    # Emit category header when entering a new category
+                    if cat and cat != current_category and cat not in seen_categories:
+                        choices.append(f" {cat}")
+                        choice_objs.append(None)
+                        seen_categories.add(cat)
+                        current_category = cat
                     count = p.get("total_models", len(p.get("models", [])))
-                    label = f"{p['name']} ({count} model{'s' if count != 1 else ''})"
+                    label = f" · {p['name']}"
+                    if count > 0:
+                        label += f" ({count})"
                     if p.get("is_current"):
-                        label += "  ← current"
+                        label += "  ←"
                     choices.append(label)
+                    choice_objs.append(p)
+
+                # Unconfigured: show count, collapse into one entry
+                if unconfigured:
+                    choices.append(" 未配置")
+                    choice_objs.append(None)
+                    choices.append(f" · 其他未配置 ({len(unconfigured)})  ← 点击展开")
+                    choice_objs.append({"_unconfigured_collapsed": True, "unconfigured": unconfigured})
+
                 choices.append("Cancel")
+                choice_objs.append(None)
                 hint = f"Current: {state.get('current_model', 'unknown')} on {state.get('current_provider', 'unknown')}"
-            else:
+            else:  # "model" stage
                 provider_data = state.get("provider_data") or {}
                 model_list = state.get("model_list") or []
                 title = f"⚙ Model Picker — {provider_data.get('name', provider_data.get('slug', 'Provider'))}"
@@ -14165,6 +14240,15 @@ class HermesCLI:
                     hint = f"Select a model ({len(model_list)} available)"
                 else:
                     hint = "No models listed for this provider. Use Back or Cancel."
+                choice_objs = []
+            if stage == "unconfigured":
+                title = "⚙ Model Picker — 未配置 Provider"
+                unconfigured = state.get("unconfigured_list") or []
+                choices = [p.get("name", p["slug"]) for p in unconfigured]
+                choices += ["← Back", "Cancel"]
+                hint = f"{len(unconfigured)} 个未配置的 Provider"
+                choice_objs = unconfigured + [None, None]
+                state["_choice_objs"] = choice_objs
 
             box_width = _panel_box_width(title, [hint] + choices, min_width=46, max_width=84)
             inner_text_width = max(8, box_width - 6)

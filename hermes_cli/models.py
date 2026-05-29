@@ -873,43 +873,50 @@ class ProviderEntry(NamedTuple):
     slug: str
     label: str
     tui_desc: str   # detailed description for `hermes model` TUI
+    category: str = ""   # group heading in the TUI picker (e.g. "云服务 API", "OAuth 登录")
 
 CANONICAL_PROVIDERS: list[ProviderEntry] = [
-    ProviderEntry("nous",           "Nous Portal",              "Nous Portal (Nous Research subscription)"),
-    ProviderEntry("openrouter",     "OpenRouter",               "OpenRouter (100+ models, pay-per-use)"),
-    ProviderEntry("novita",         "NovitaAI",                 "NovitaAI (AI-native cloud: Model API, Agent Sandbox, GPU Cloud)"),
-    ProviderEntry("lmstudio",       "LM Studio",                "LM Studio (local desktop app with built-in model server)"),
-    ProviderEntry("anthropic",      "Anthropic",                "Anthropic (Claude models — API key or Claude Code)"),
-    ProviderEntry("openai-codex",   "OpenAI Codex",             "OpenAI Codex"),
-    ProviderEntry("openai-api",     "OpenAI API",               "OpenAI API (api.openai.com, API key)"),
-    ProviderEntry("alibaba",        "Qwen Cloud",               "Qwen Cloud / DashScope Coding (Qwen + multi-provider)"),
-    ProviderEntry("xai-oauth",      "xAI Grok OAuth (SuperGrok / Premium+)", "xAI Grok OAuth (SuperGrok / Premium+)"),
-    ProviderEntry("xiaomi",         "Xiaomi MiMo",              "Xiaomi MiMo (MiMo-V2.5 and V2 models — pro, omni, flash)"),
-    ProviderEntry("tencent-tokenhub", "Tencent TokenHub",       "Tencent TokenHub (Hy3 Preview — direct API via tokenhub.tencentmaas.com)"),
-    ProviderEntry("nvidia",         "NVIDIA NIM",               "NVIDIA NIM (Nemotron models — build.nvidia.com or local NIM)"),
-    ProviderEntry("copilot",        "GitHub Copilot",           "GitHub Copilot (uses GITHUB_TOKEN or gh auth token)"),
-    ProviderEntry("copilot-acp",    "GitHub Copilot ACP",       "GitHub Copilot ACP (spawns `copilot --acp --stdio`)"),
-    ProviderEntry("huggingface",    "Hugging Face",             "Hugging Face Inference Providers (20+ open models)"),
-    ProviderEntry("gemini",         "Google AI Studio",         "Google AI Studio (Gemini models — native Gemini API)"),
-    ProviderEntry("google-gemini-cli", "Google Gemini (OAuth)",   "Google Gemini via OAuth + Code Assist (free tier supported; no API key needed)"),
-    ProviderEntry("deepseek",       "DeepSeek",                 "DeepSeek (DeepSeek-V3, R1, coder — direct API)"),
-    ProviderEntry("xai",            "xAI",                      "xAI (Grok models — direct API)"),
-    ProviderEntry("zai",            "Z.AI / GLM",               "Z.AI / GLM (Zhipu AI direct API)"),
-    ProviderEntry("kimi-coding",    "Kimi / Kimi Coding Plan",  "Kimi Coding Plan (api.kimi.com) & Moonshot API"),
-    ProviderEntry("kimi-coding-cn", "Kimi / Moonshot (China)",  "Kimi / Moonshot China (Moonshot CN direct API)"),
-    ProviderEntry("stepfun",        "StepFun Step Plan",       "StepFun Step Plan (agent/coding models via Step Plan API)"),
-    ProviderEntry("minimax",        "MiniMax",                  "MiniMax (global direct API)"),
-    ProviderEntry("minimax-oauth",  "MiniMax (OAuth)",          "MiniMax via OAuth browser login (Coding Plan, minimax.io)"),
-    ProviderEntry("minimax-cn",     "MiniMax (China)",          "MiniMax China (domestic direct API)"),
-    ProviderEntry("ollama-cloud",   "Ollama Cloud",             "Ollama Cloud (cloud-hosted open models — ollama.com)"),
-    ProviderEntry("arcee",          "Arcee AI",                 "Arcee AI (Trinity models — direct API)"),
-    ProviderEntry("gmi",            "GMI Cloud",                "GMI Cloud (multi-model direct API)"),
-    ProviderEntry("kilocode",       "Kilo Code",                "Kilo Code (Kilo Gateway API)"),
-    ProviderEntry("opencode-zen",   "OpenCode Zen",             "OpenCode Zen (35+ curated models, pay-as-you-go)"),
-    ProviderEntry("opencode-go",    "OpenCode Go",              "OpenCode Go (open models, $10/month subscription)"),
-    ProviderEntry("bedrock",        "AWS Bedrock",              "AWS Bedrock (Claude, Nova, Llama, DeepSeek — IAM or API key)"),
-    ProviderEntry("azure-foundry",  "Azure Foundry",            "Azure Foundry (OpenAI-style or Anthropic-style endpoint — your Azure AI deployment)"),
-    ProviderEntry("qwen-oauth",     "Qwen OAuth (Portal)",      "Qwen OAuth (reuses local Qwen CLI login)"),
+    # ── 本地运行（优先显示）────────────────────────────────────────────────
+    ProviderEntry("local",          "Local (MLX)",              "本地 mlx 引擎：Qwen2.5-Coder-14B + Qwen2.5-VL-3B（Mac Mini M4，Metal）",          "本地 / 自托管"),
+    ProviderEntry("lmstudio",       "LM Studio",                "LM Studio（本地桌面模型服务）",                                                                  "本地 / 自托管"),
+    ProviderEntry("ollama-cloud",    "Ollama Cloud",             "Ollama Cloud（云端开源模型 — ollama.com）",                                                     "本地 / 自托管"),
+    # ── 中国区服务 ─────────────────────────────────────────────────────────
+    ProviderEntry("minimax-cn",      "MiniMax (China)",          "MiniMax 中国（国内直连 API）",                                                                   "中国区"),
+    ProviderEntry("minimax",         "MiniMax (Global)",         "MiniMax 全球（api.minimaxi.chat）",                                                              "中国区"),
+    ProviderEntry("minimax-oauth",   "MiniMax (OAuth)",          "MiniMax 网页登录（minimax.io）",                                                                 "中国区"),
+    ProviderEntry("kimi-coding-cn", "Kimi / Moonshot CN",       "Kimi / Moonshot 国内（Moonshot CN 直连 API）",                                                 "中国区"),
+    ProviderEntry("kimi-coding",     "Kimi (Global)",            "Kimi Coding Plan（api.kimi.com）",                                                               "中国区"),
+    ProviderEntry("alibaba",         "Qwen Cloud / DashScope",   "Qwen Cloud / DashScope（阿里云）",                                                             "中国区"),
+    ProviderEntry("xiaomi",          "Xiaomi MiMo",              "Xiaomi MiMo（MiMo-V2.5 / V2 — pro, omni, flash）",                                              "中国区"),
+    ProviderEntry("stepfun",         "StepFun Step Plan",        "StepFun Step Plan（Step API）",                                                                 "中国区"),
+    ProviderEntry("tencent-tokenhub","Tencent TokenHub",         "Tencent TokenHub（Hy3 Preview — tokenhub.tencentmaas.com）",                                 "中国区"),
+    ProviderEntry("zai",             "Z.AI / GLM",               "Z.AI / GLM（Zhipu AI 直连 API）",                                                              "中国区"),
+    ProviderEntry("qwen-oauth",      "Qwen OAuth",               "Qwen OAuth（复用本地 Qwen CLI 登录）",                                                         "中国区"),
+    # ── 云服务 API ─────────────────────────────────────────────────────────
+    ProviderEntry("anthropic",       "Anthropic",                "Anthropic（Claude — API key）",                                                                 "云服务 API"),
+    ProviderEntry("openai-api",      "OpenAI API",               "OpenAI API（api.openai.com）",                                                                  "云服务 API"),
+    ProviderEntry("openai-codex",    "OpenAI Codex",             "OpenAI Codex",                                                                                  "云服务 API"),
+    ProviderEntry("gemini",          "Google AI Studio",         "Google AI Studio（Gemini — 原生 Gemini API）",                                                 "云服务 API"),
+    ProviderEntry("deepseek",        "DeepSeek",                 "DeepSeek（DeepSeek-V3 / R1 — 直连 API）",                                                      "云服务 API"),
+    ProviderEntry("openrouter",      "OpenRouter",               "OpenRouter（100+ 模型，pay-per-use）",                                                          "云服务 API"),
+    ProviderEntry("novita",          "NovitaAI",                 "NovitaAI（AI-native 云：Model API / Agent Sandbox / GPU Cloud）",                              "云服务 API"),
+    ProviderEntry("huggingface",     "Hugging Face",            "Hugging Face Inference Providers（20+ 开源模型）",                                            "云服务 API"),
+    ProviderEntry("xai",             "xAI",                      "xAI（Grok models — 直连 API）",                                                                 "云服务 API"),
+    ProviderEntry("nvidia",          "NVIDIA NIM",               "NVIDIA NIM（Nemotron — build.nvidia.com 或本地 NIM）",                                        "云服务 API"),
+    ProviderEntry("bedrock",         "AWS Bedrock",              "AWS Bedrock（Claude / Nova / Llama / DeepSeek — IAM 或 API key）",                             "云服务 API"),
+    ProviderEntry("azure-foundry",   "Azure Foundry",            "Azure Foundry（OpenAI-style 或 Anthropic-style 端点）",                                        "云服务 API"),
+    ProviderEntry("arcee",           "Arcee AI",                 "Arcee AI（Trinity — 直连 API）",                                                                "云服务 API"),
+    ProviderEntry("gmi",             "GMI Cloud",                "GMI Cloud（多模型直连 API）",                                                                   "云服务 API"),
+    ProviderEntry("kilocode",        "Kilo Code",                "Kilo Code（Kilo Gateway API）",                                                                 "云服务 API"),
+    ProviderEntry("opencode-zen",    "OpenCode Zen",             "OpenCode Zen（35+ 精选模型，pay-as-you-go）",                                                   "云服务 API"),
+    ProviderEntry("opencode-go",     "OpenCode Go",              "OpenCode Go（开源模型，$10/月订阅）",                                                           "云服务 API"),
+    # ── OAuth 登录 ─────────────────────────────────────────────────────────
+    ProviderEntry("copilot",         "GitHub Copilot",           "GitHub Copilot（GITHUB_TOKEN 或 gh auth token）",                                              "OAuth 登录"),
+    ProviderEntry("copilot-acp",     "GitHub Copilot ACP",       "GitHub Copilot ACP（spawns `copilot --acp --stdio`）",                                        "OAuth 登录"),
+    ProviderEntry("google-gemini-cli","Google Gemini (OAuth)",   "Google Gemini OAuth + Code Assist（免费层；无需 API key）",                                  "OAuth 登录"),
+    ProviderEntry("xai-oauth",       "xAI Grok OAuth",           "xAI Grok OAuth（SuperGrok / Premium+）",                                                      "OAuth 登录"),
+    # ── 特殊 ──────────────────────────────────────────────────────────────
+    ProviderEntry("nous",            "Nous Portal",              "Nous Portal（Nous Research 订阅）",                                                            "特殊"),
 ]
 
 # Auto-extend CANONICAL_PROVIDERS with any provider registered in providers/
@@ -926,7 +933,25 @@ try:
             continue  # non-api-key flows need bespoke picker UX; skip auto-inject
         _label = _pp.display_name or _pp.name
         _desc = _pp.description or f"{_label} (direct API)"
-        CANONICAL_PROVIDERS.append(ProviderEntry(_pp.name, _label, _desc))
+        # Infer category for auto-injected plugins from known slug patterns
+        _cat = ""
+        _slug_lower = _pp.name.lower()
+        if _slug_lower in {"local", "lmstudio", "ollama-cloud"}:
+            _cat = "本地 / 自托管"
+        elif _slug_lower in {"minimax-cn", "minimax", "minimax-oauth", "kimi-coding-cn",
+                             "kimi-coding", "alibaba", "alibaba-coding-plan", "xiaomi", "stepfun",
+                             "tencent-tokenhub", "zai", "qwen-oauth"}:
+            _cat = "中国区"
+        elif _slug_lower in {"anthropic", "openai-api", "openai-codex", "gemini",
+                             "deepseek", "openrouter", "novita", "huggingface",
+                             "xai", "nvidia", "bedrock", "azure-foundry",
+                             "arcee", "gmi", "kilocode", "opencode-zen", "opencode-go"}:
+            _cat = "云服务 API"
+        elif _slug_lower in {"copilot", "copilot-acp", "google-gemini-cli", "xai-oauth"}:
+            _cat = "OAuth 登录"
+        elif _slug_lower in {"nous", "custom"}:
+            _cat = "特殊"
+        CANONICAL_PROVIDERS.append(ProviderEntry(_pp.name, _label, _desc, _cat))
         _canonical_slugs.add(_pp.name)
 except Exception:
     pass
