@@ -142,22 +142,7 @@ def _truncate(text: str, limit: int) -> str:
     return text[: limit - 1] + "…"
 
 
-def _extract_json_blob(raw: str) -> Optional[dict]:
-    if not raw:
-        return None
-    stripped = _FENCE_RE.sub("", raw.strip())
-    first = stripped.find("{")
-    last = stripped.rfind("}")
-    if first == -1 or last == -1 or last <= first:
-        return None
-    candidate = stripped[first : last + 1]
-    try:
-        val = json.loads(candidate)
-    except (ValueError, json.JSONDecodeError):
-        return None
-    if not isinstance(val, dict):
-        return None
-    return val
+from hermes_cli.profile_describer import _extract_json_blob
 
 
 def _profile_author() -> str:
