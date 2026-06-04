@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for skip_confirm and invalidate_cache behavior in /skills install
 and /skills uninstall slash commands.
 

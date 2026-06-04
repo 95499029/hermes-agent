@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Domain Intelligence — Passive OSINT via Python stdlib.
 

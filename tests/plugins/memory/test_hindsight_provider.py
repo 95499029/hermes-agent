@@ -1,4 +1,5 @@
 """Tests for the Hindsight memory provider plugin.
+from __future__ import annotations
 
 Tests cover config loading, tool handlers (tags, max_tokens, types),
 prefetch (auto_recall, preamble, query truncation), sync_turn (auto_retain,

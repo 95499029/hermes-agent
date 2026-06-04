@@ -1,4 +1,5 @@
 """Tests for batch_runner checkpoint behavior — incremental writes, resume, atomicity."""
+from __future__ import annotations
 
 import json
 from pathlib import Path

@@ -1,4 +1,5 @@
 """Retry utilities — jittered backoff for decorrelated retries.
+from __future__ import annotations
 
 Replaces fixed exponential backoff with jittered delays to prevent
 thundering-herd retry spikes when multiple sessions hit the same

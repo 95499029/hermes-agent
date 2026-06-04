@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for Slack platform adapter.
 
 Covers: app_mention handler, send_document, send_video,

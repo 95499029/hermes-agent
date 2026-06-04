@@ -1,4 +1,5 @@
 """Tests for the combined /reasoning command.
+from __future__ import annotations
 
 Covers both reasoning effort level management and reasoning display toggle,
 plus the reasoning extraction and display pipeline from run_agent through CLI.

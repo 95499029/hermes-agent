@@ -1,4 +1,5 @@
 """Tests for cross-loop client cache isolation fix (#2681).
+from __future__ import annotations
 
 Verifies that _get_cached_client() returns different AsyncOpenAI clients
 when called from different event loops, preventing the httpx deadlock

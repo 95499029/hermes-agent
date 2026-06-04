@@ -1,4 +1,5 @@
 """Regression tests for the /model picker's credential-discovery paths.
+from __future__ import annotations
 
 Covers:
  - Normal path (tokens already in Hermes auth store)

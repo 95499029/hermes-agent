@@ -1,4 +1,5 @@
 """Tests for the KeyboardInterrupt guard around slash command dispatch.
+from __future__ import annotations
 
 A Ctrl+C during a slow slash command (e.g. /skills browse on a large
 skill tree, or /sessions list against a multi-GB SQLite DB) used to

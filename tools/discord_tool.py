@@ -1,4 +1,5 @@
 """Discord server introspection and management tool.
+from __future__ import annotations
 
 Provides the agent with the ability to interact with Discord servers
 when running on the Discord gateway. Uses Discord REST API directly

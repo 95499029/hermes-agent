@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Status command for hermes CLI.
 
 Shows the status of all Hermes Agent components.

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 test_yuanbao_pipeline.py - Unit tests for the inbound middleware pipeline.
 
 Tests cover:

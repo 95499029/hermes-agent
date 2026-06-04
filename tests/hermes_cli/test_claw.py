@@ -1,4 +1,5 @@
 """Tests for hermes claw commands."""
+from __future__ import annotations
 
 from argparse import Namespace
 import subprocess

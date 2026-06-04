@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 nutrition_search.py — Search USDA FoodData Central for nutrition info.
 

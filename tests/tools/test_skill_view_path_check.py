@@ -1,4 +1,5 @@
 """Tests for the skill_view path boundary check.
+from __future__ import annotations
 
 Regression test: the original check used a hardcoded "/" separator which
 fails on Windows where Path.resolve() returns backslash-separated paths.

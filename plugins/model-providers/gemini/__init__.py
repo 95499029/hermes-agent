@@ -1,4 +1,5 @@
 """Google Gemini provider profiles.
+from __future__ import annotations
 
 gemini:            Google AI Studio (API key) — uses GeminiNativeClient
 google-gemini-cli: Google Cloud Code Assist (OAuth) — uses GeminiCloudCodeClient

@@ -1,4 +1,5 @@
 """Tests for placeholder API key detection in hermes_cli.auth."""
+from __future__ import annotations
 
 from hermes_cli.auth import has_usable_secret
 

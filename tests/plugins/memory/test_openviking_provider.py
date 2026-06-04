@@ -1,4 +1,5 @@
 import json
+from __future__ import annotations
 import zipfile
 from types import SimpleNamespace
 from unittest.mock import MagicMock

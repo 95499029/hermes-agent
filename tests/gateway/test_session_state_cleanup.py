@@ -1,4 +1,5 @@
 """Regression tests for _release_running_agent_state and SessionDB shutdown.
+from __future__ import annotations
 
 Before this change, running-agent state lived in three dicts that drifted
 out of sync:

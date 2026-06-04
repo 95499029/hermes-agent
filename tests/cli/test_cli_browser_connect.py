@@ -1,4 +1,5 @@
 """Tests for CLI browser CDP auto-launch helpers."""
+from __future__ import annotations
 
 from contextlib import redirect_stdout
 from io import StringIO

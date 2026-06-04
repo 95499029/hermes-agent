@@ -1,4 +1,5 @@
 """Tests for tools/debug_helpers.py — DebugSession class."""
+from __future__ import annotations
 
 import json
 import os

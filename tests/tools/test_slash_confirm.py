@@ -1,4 +1,5 @@
 """Tests for tools/slash_confirm.py — the generic slash-command confirmation primitive.
+from __future__ import annotations
 
 Covers register/resolve/clear lifecycle, stale-entry behavior, confirm_id
 mismatch, handler exceptions, and async resolution.

@@ -1,4 +1,5 @@
 """Comprehensive tests for hermes_cli.profiles module.
+from __future__ import annotations
 
 Tests cover: validation, directory resolution, CRUD operations, active profile
 management, export/import, renaming, alias collision checks, profile isolation,

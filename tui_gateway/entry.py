@@ -1,4 +1,5 @@
 import os
+from __future__ import annotations
 import sys
 
 # Guard against a local utils/ (or other package) in CWD shadowing installed

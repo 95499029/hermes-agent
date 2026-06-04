@@ -1,4 +1,5 @@
 """Tests for Discord channel_prompts resolution and injection."""
+from __future__ import annotations
 
 import sys
 import threading

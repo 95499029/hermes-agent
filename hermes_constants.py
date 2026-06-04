@@ -1,4 +1,5 @@
 """Shared constants for Hermes Agent.
+from __future__ import annotations
 
 Import-safe module with no dependencies — can be imported from anywhere
 without risk of circular imports.

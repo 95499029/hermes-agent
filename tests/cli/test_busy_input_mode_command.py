@@ -1,4 +1,5 @@
 """Tests for the /busy CLI command and busy-input-mode config handling."""
+from __future__ import annotations
 
 import unittest
 from types import SimpleNamespace

@@ -1,4 +1,5 @@
 """Tests for MCP tools interactive configuration in hermes_cli.tools_config."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

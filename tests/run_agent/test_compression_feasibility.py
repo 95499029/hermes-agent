@@ -1,4 +1,5 @@
 """Tests for _check_compression_model_feasibility() — warns when the
+from __future__ import annotations
 auxiliary compression model's context is smaller than the main model's
 compression threshold.
 

@@ -1,4 +1,5 @@
 """Regression tests for the May 2026 xAI OAuth (SuperGrok / X Premium) bugs.
+from __future__ import annotations
 
 Three distinct failure modes the user community hit during rollout:
 

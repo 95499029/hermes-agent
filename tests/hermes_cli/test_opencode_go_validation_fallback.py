@@ -1,4 +1,5 @@
 """Tests for the static-catalog fallback in validate_requested_model.
+from __future__ import annotations
 
 OpenCode Go and OpenCode Zen publish an OpenAI-compatible API at paths that do
 NOT expose ``/models`` (the path returns the marketing site's HTML 404).  This

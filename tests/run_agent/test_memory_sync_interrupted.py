@@ -1,4 +1,5 @@
 """Regression guard for #15218 — external memory sync must skip interrupted turns.
+from __future__ import annotations
 
 Before this fix, ``run_conversation`` called
 ``memory_manager.sync_all(original_user_message, final_response)`` at the

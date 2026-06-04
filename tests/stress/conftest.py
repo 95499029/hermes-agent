@@ -1,4 +1,5 @@
 """pytest config for the stress/ subdirectory.
+from __future__ import annotations
 
 These tests are slow (30s+), spawn subprocesses, and are not run by
 default. Enable via `pytest --run-stress` or by running the scripts

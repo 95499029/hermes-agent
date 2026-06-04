@@ -1,4 +1,5 @@
 """Shared fixtures for the hermes-agent test suite.
+from __future__ import annotations
 
 Hermetic-test invariants enforced here (see AGENTS.md for rationale):
 

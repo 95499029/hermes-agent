@@ -1,4 +1,5 @@
 """Tests for SMS (Twilio) platform integration.
+from __future__ import annotations
 
 Covers config loading, format/truncate, echo prevention,
 requirements check, toolset verification, and Twilio signature validation.

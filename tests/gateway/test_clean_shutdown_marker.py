@@ -1,4 +1,5 @@
 """Tests for the clean shutdown marker that prevents unwanted session auto-resets.
+from __future__ import annotations
 
 When the gateway shuts down gracefully (hermes update, gateway restart, /restart),
 it writes a .clean_shutdown marker.  On the next startup, if the marker exists,

@@ -1,4 +1,5 @@
 """Tests for hermes_cli/tips.py — random tip display at session start."""
+from __future__ import annotations
 
 from hermes_cli.tips import TIPS, get_random_tip
 

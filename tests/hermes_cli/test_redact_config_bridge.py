@@ -1,4 +1,5 @@
 """Regression test for config.yaml `security.redact_secrets: false` toggle.
+from __future__ import annotations
 
 Bug: `agent/redact.py` snapshots `_REDACT_ENABLED` from the env var
 `HERMES_REDACT_SECRETS` at module-import time. `hermes_cli/main.py` at

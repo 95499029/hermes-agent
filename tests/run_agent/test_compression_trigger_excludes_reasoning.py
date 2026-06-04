@@ -1,4 +1,5 @@
 """Verify compression trigger excludes reasoning/completion tokens (#12026).
+from __future__ import annotations
 
 Thinking models (GLM-5.1, QwQ, DeepSeek R1) inflate completion_tokens with
 reasoning tokens that don't consume context window space.  The compression

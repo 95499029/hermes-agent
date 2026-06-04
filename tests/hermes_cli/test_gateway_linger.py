@@ -1,4 +1,5 @@
 """Tests for gateway linger auto-enable behavior on headless Linux installs."""
+from __future__ import annotations
 
 from types import SimpleNamespace
 

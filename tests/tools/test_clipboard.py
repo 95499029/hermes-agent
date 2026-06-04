@@ -1,4 +1,5 @@
 """Tests for clipboard image paste — clipboard extraction, multimodal conversion,
+from __future__ import annotations
 and CLI integration.
 
 Coverage:

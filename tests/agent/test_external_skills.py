@@ -1,4 +1,5 @@
 """Tests for external skill directories (skills.external_dirs config)."""
+from __future__ import annotations
 
 import json
 import os

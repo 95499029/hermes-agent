@@ -1,4 +1,5 @@
 """Regression tests for terminal config -> env-var bridging.
+from __future__ import annotations
 
 terminal_tool._get_env_config() reads ALL terminal settings from os.environ
 (TERMINAL_*).  config.yaml values therefore have to be bridged into env vars

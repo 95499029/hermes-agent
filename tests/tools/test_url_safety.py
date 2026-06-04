@@ -1,4 +1,5 @@
 """Tests for SSRF protection in url_safety module."""
+from __future__ import annotations
 
 import socket
 from unittest.mock import patch

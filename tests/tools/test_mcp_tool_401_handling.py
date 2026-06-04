@@ -1,4 +1,5 @@
 """Tests for MCP tool-handler auth-failure detection.
+from __future__ import annotations
 
 When a tool call raises UnauthorizedError / OAuthNonInteractiveError /
 httpx.HTTPStatusError(401), the handler should:

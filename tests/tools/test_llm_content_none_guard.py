@@ -1,4 +1,5 @@
 """Tests for None guard on response.choices[0].message.content.strip().
+from __future__ import annotations
 
 OpenAI-compatible APIs return ``message.content = None`` when the model
 responds with tool calls only or reasoning-only output (e.g. DeepSeek-R1,

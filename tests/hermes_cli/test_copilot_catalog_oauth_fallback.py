@@ -1,4 +1,5 @@
 """Catalog-API-key fallback for the Copilot ``/model`` picker.
+from __future__ import annotations
 
 Regression for #16708: when the user's only Copilot credential is a
 ``gho_*`` token (typically obtained via device-code login) stored in

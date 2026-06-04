@@ -1,4 +1,5 @@
 """Tests for agent.api_max_retries config surface.
+from __future__ import annotations
 
 Closes #11616 — make the hardcoded ``max_retries = 3`` in the agent's API
 retry loop user-configurable so fallback-provider setups can fail over

@@ -1,4 +1,5 @@
 """Tests for defensive terminal control-response stripping in the CLI.
+from __future__ import annotations
 
 Covers Cursor Position Report (CPR / DSR) responses that occasionally
 leak into the input buffer after terminal resize storms or multiplexer

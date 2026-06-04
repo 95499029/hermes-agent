@@ -1,4 +1,5 @@
 """Shared CLI output helpers for Hermes CLI modules.
+from __future__ import annotations
 
 Extracts the identical ``print_info/success/warning/error`` and ``prompt()``
 functions previously duplicated across setup.py, tools_config.py,

@@ -1,4 +1,5 @@
 """Regression tests for numbered fallbacks when TerminalMenu cannot initialize."""
+from __future__ import annotations
 
 import subprocess
 import sys

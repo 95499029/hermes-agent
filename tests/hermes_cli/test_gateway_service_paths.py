@@ -1,4 +1,5 @@
 from unittest.mock import patch
+from __future__ import annotations
 
 
 def test_service_path_skips_nonexistent_node_modules(tmp_path):

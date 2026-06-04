@@ -1,4 +1,5 @@
 """Tests for .env sanitization during load to prevent token duplication (#8908)."""
+from __future__ import annotations
 
 import tempfile
 from pathlib import Path

@@ -1,4 +1,5 @@
 """Regression guardrail: sequential _create_openai_client calls must not
+from __future__ import annotations
 share a closed transport across invocations.
 
 This is the behavioral twin of test_create_openai_client_kwargs_isolation.py.

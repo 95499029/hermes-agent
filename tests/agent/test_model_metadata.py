@@ -1,4 +1,5 @@
 """Tests for agent/model_metadata.py — token estimation, context lengths,
+from __future__ import annotations
 probing, caching, and error parsing.
 
 Coverage levels:

@@ -1,4 +1,5 @@
 """End-to-end integration tests for the MCP OAuth consolidation.
+from __future__ import annotations
 
 Exercises the full chain — manager, provider subclass, disk watch, 401
 dedup — with real file I/O and real imports (no transport mocks, no

@@ -1,4 +1,5 @@
 """Tests for CLI redraw helpers used to recover from terminal buffer drift.
+from __future__ import annotations
 
 Covers:
   - _force_full_redraw (#8688 cmux tab switch, /redraw, Ctrl+L)

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for Telegram document handling in gateway/platforms/telegram.py.
 
 Covers: document type detection, download/cache flow, size limits,

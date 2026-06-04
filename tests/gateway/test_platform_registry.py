@@ -1,4 +1,5 @@
 """Tests for the platform adapter registry and dynamic Platform enum."""
+from __future__ import annotations
 
 import os
 import pytest

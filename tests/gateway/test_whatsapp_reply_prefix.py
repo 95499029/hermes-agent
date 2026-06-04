@@ -1,4 +1,5 @@
 """Tests for WhatsApp reply_prefix config.yaml support.
+from __future__ import annotations
 
 Covers:
 - config.yaml whatsapp.reply_prefix bridging into PlatformConfig.extra

@@ -1,4 +1,5 @@
 """Tests for /background gateway slash command.
+from __future__ import annotations
 
 Tests the _handle_background_command handler (run a prompt in a separate
 background session) across gateway messenger platforms.

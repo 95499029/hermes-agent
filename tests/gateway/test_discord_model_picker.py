@@ -1,4 +1,5 @@
 """Regression tests for the Discord /model picker.
+from __future__ import annotations
 
 Uses the shared discord mock from tests/gateway/conftest.py (installed
 at collection time via _ensure_discord_mock()). Previously this file

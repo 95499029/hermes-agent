@@ -1,4 +1,5 @@
 """Tests for agent/insights.py — InsightsEngine analytics and reporting."""
+from __future__ import annotations
 
 import time
 import pytest

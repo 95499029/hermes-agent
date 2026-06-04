@@ -1,4 +1,5 @@
 """Tests for the unconditional hardline command blocklist.
+from __future__ import annotations
 
 The hardline list is a floor below yolo: a small set of commands so
 catastrophic they should never run via the agent, regardless of --yolo,

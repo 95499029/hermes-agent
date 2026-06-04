@@ -1,4 +1,5 @@
 """Tests for CRLF line-ending preservation in write_file and patch.
+from __future__ import annotations
 
 Without this, the agent silently normalizes Windows-line-ending files
 to LF whenever it edits them — and patch produces a mixed-ending file

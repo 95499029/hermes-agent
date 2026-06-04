@@ -1,4 +1,5 @@
 """OpenAI Responses API (Codex) transport.
+from __future__ import annotations
 
 Delegates to the existing adapter functions in agent/codex_responses_adapter.py.
 This transport owns format conversion and normalization — NOT client lifecycle,

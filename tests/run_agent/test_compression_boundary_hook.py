@@ -1,4 +1,5 @@
 """Test: the context engine is notified of a compression-boundary rollover.
+from __future__ import annotations
 
 When _compress_context rotates session_id (compression split), the active
 context engine receives on_session_start(new_sid, boundary_reason="compression",

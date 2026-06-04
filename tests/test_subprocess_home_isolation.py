@@ -1,4 +1,5 @@
 """Tests for per-profile subprocess HOME isolation (#4426).
+from __future__ import annotations
 
 Verifies that subprocesses (terminal, execute_code, background processes)
 receive a per-profile HOME directory while the Python process's own HOME

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for send_image_file() on Telegram, Discord, and Slack platforms,
 and MEDIA: .png extraction/routing in the base platform adapter.
 

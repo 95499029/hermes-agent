@@ -1,4 +1,5 @@
 """Tests for /queue message consumption after normal agent completion.
+from __future__ import annotations
 
 Verifies that messages queued via /queue (which store in
 adapter._pending_messages WITHOUT triggering an interrupt) are consumed

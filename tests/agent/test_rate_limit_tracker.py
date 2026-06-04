@@ -1,4 +1,5 @@
 """Tests for agent.rate_limit_tracker — header parsing and formatting."""
+from __future__ import annotations
 
 import time
 import pytest

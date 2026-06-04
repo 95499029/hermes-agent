@@ -1,4 +1,5 @@
 """Tests for LocalEnvironment recovery when ``self.cwd`` is deleted.
+from __future__ import annotations
 
 When a tool call inside the persistent terminal session ``rm -rf``'s its own
 working directory, the next ``subprocess.Popen(..., cwd=self.cwd)`` would

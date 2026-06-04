@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Comprehensive Test Suite for Web Tools Module
 

@@ -1,4 +1,5 @@
 """Tests that _try_activate_fallback updates the context compressor."""
+from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
 

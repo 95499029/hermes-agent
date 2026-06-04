@@ -1,4 +1,5 @@
 """Tests for get_tool_emoji in agent/display.py — skin + registry integration."""
+from __future__ import annotations
 
 from unittest.mock import patch as mock_patch, MagicMock
 

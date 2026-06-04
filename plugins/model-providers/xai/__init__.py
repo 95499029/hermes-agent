@@ -1,4 +1,5 @@
 """xAI (Grok) provider profile."""
+from __future__ import annotations
 
 from providers import register_provider
 from providers.base import ProviderProfile

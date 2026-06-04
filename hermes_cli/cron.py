@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Cron subcommand for hermes CLI.
 
 Handles standalone cron management commands like list, create, edit,

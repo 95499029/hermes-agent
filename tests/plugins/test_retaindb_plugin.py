@@ -1,4 +1,5 @@
 """Tests for the RetainDB memory plugin.
+from __future__ import annotations
 
 Covers: _Client HTTP client, _WriteQueue SQLite queue, _build_overlay formatter,
 RetainDBMemoryProvider lifecycle/tools/prefetch, thread management, connection pooling.

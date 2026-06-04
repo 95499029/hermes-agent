@@ -1,4 +1,5 @@
 """Test that skill_view registers required env vars in the passthrough registry."""
+from __future__ import annotations
 
 import json
 from unittest.mock import patch

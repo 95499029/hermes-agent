@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for Google Chat platform adapter.
 
 Covers: platform registration, env config loading, adapter init, connect

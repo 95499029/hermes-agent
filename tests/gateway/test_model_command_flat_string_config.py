@@ -1,4 +1,5 @@
 """Regression tests for gateway /model --global persistence when config.yaml
+from __future__ import annotations
 has a flat-string ``model:`` value instead of a nested dict.
 
 Before fix: ``cfg.setdefault("model", {})`` returned the existing string and

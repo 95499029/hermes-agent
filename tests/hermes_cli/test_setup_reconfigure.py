@@ -1,4 +1,5 @@
 """Tests for the setup wizard's returning-user behavior.
+from __future__ import annotations
 
 On an existing install:
 - Bare `hermes setup` drops straight into the full reconfigure wizard

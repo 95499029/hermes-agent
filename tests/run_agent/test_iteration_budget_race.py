@@ -1,4 +1,5 @@
 """Tests for IterationBudget thread safety.
+from __future__ import annotations
 
 The `used` property must acquire the lock before reading `_used` to prevent
 data races with concurrent `consume()` / `refund()` calls.

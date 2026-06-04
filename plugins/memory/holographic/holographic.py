@@ -1,4 +1,5 @@
 """Holographic Reduced Representations (HRR) with phase encoding.
+from __future__ import annotations
 
 HRRs are a vector symbolic architecture for encoding compositional structure
 into fixed-width distributed representations. This module uses *phase vectors*:

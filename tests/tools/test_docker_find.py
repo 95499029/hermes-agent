@@ -1,4 +1,5 @@
 """Tests for tools.environments.docker.find_docker — Docker CLI discovery."""
+from __future__ import annotations
 
 import os
 from unittest.mock import patch

@@ -1,4 +1,5 @@
 import logging
+from __future__ import annotations
 from io import StringIO
 import subprocess
 

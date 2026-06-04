@@ -1,4 +1,5 @@
 """Tests for Anthropic Sonnet long-context tier 429 handling.
+from __future__ import annotations
 
 When Claude Max users without "extra usage" hit the 1M context tier
 on Sonnet, Anthropic returns HTTP 429 "Extra usage is required for long

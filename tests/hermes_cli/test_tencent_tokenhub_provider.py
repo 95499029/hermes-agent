@@ -1,4 +1,5 @@
 """Tests for Tencent TokenHub provider support (Hy3 Preview)."""
+from __future__ import annotations
 
 import json
 import os

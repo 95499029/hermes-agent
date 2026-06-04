@@ -1,4 +1,5 @@
 """Singularity/Apptainer persistent container environment.
+from __future__ import annotations
 
 Security-hardened with --containall, --no-home, capability dropping.
 Supports configurable resource limits and optional filesystem persistence

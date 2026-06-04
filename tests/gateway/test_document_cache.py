@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for document cache utilities in gateway/platforms/base.py.
 
 Covers: get_document_cache_dir, cache_document_from_bytes,

@@ -1,4 +1,5 @@
 """Tests for agent/file_safety.py read guards — env file blocking.
+from __future__ import annotations
 
 Run with:  python -m pytest tests/agent/test_file_safety.py -v
 """

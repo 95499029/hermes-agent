@@ -1,4 +1,5 @@
 """Tests for Singularity/Apptainer preflight availability check.
+from __future__ import annotations
 
 Verifies that a clear error is raised when neither apptainer nor
 singularity is installed, instead of a cryptic FileNotFoundError.

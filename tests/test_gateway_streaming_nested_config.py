@@ -1,4 +1,5 @@
 """Regression test for #25676 — nested gateway.streaming config must be loaded."""
+from __future__ import annotations
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 

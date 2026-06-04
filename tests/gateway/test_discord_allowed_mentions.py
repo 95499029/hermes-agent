@@ -1,4 +1,5 @@
 """Tests for the Discord ``allowed_mentions`` safe-default helper.
+from __future__ import annotations
 
 Ensures the bot defaults to blocking ``@everyone`` / ``@here`` / role pings
 so an LLM response (or echoed user content) can't spam a whole server —

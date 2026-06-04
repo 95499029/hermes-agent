@@ -1,4 +1,5 @@
 """Tests for MCP tool-handler transport-session auto-reconnect.
+from __future__ import annotations
 
 When a Streamable HTTP MCP server garbage-collects its server-side
 session (idle TTL, server restart, pod rotation, …) it rejects

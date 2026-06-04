@@ -1,4 +1,5 @@
 """Tests for session resume history display — _display_resumed_history() and
+from __future__ import annotations
 _preload_resumed_session().
 
 Verifies that resuming a session shows a compact recap of the previous

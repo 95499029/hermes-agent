@@ -1,4 +1,5 @@
 """Verify load_transcript returns SQLite messages without any JSONL file."""
+from __future__ import annotations
 
 
 from gateway.session import SessionStore

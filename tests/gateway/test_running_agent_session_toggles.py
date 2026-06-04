@@ -1,4 +1,5 @@
 """Regression tests: /yolo and /verbose dispatch mid-agent-run.
+from __future__ import annotations
 
 When an agent is running, the gateway's running-agent guard rejects most
 slash commands with "⏳ Agent is running — /{cmd} can't run mid-turn"

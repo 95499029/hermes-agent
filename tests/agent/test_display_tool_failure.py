@@ -1,4 +1,5 @@
 """Tests for _detect_tool_failure + _trim_error + get_cute_tool_message
+from __future__ import annotations
 inline failure suffix rendering.
 
 Covers the user-visible promise: when a tool fails, the CLI shows a short,

@@ -1,4 +1,5 @@
 """Tests for /resume gateway slash command.
+from __future__ import annotations
 
 Tests the _handle_resume_command handler (switch to a previously-named session)
 across gateway messenger platforms.

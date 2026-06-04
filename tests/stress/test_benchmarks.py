@@ -1,4 +1,5 @@
 """Scale benchmarks for the Kanban kernel.
+from __future__ import annotations
 
 Measures:
   - dispatch_once latency at 100, 1000, 10000 tasks

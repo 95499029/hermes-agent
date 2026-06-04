@@ -1,4 +1,5 @@
 """Regression test: /compress works with context engine plugins.
+from __future__ import annotations
 
 Reported by @selfhostedsoul (Discord, Apr 2026) with the LCM plugin installed:
 

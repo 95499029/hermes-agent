@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Hermes Gateway - Multi-platform messaging integration.
 
 This module provides a unified gateway for connecting the Hermes agent

@@ -1,4 +1,5 @@
 """Regex-based secret redaction for logs and tool output.
+from __future__ import annotations
 
 Applies pattern matching to mask API keys, tokens, and credentials
 before they reach log files, verbose output, or gateway logs.

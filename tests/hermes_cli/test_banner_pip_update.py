@@ -1,4 +1,5 @@
 from unittest.mock import patch
+from __future__ import annotations
 
 
 def testcheck_via_pypi_detects_update():

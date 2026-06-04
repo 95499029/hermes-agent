@@ -1,4 +1,5 @@
 """Tests for /restart notification — the gateway notifies the requester on comeback."""
+from __future__ import annotations
 
 import json
 from pathlib import Path

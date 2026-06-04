@@ -1,4 +1,5 @@
 """Tests for the disk-cleanup plugin.
+from __future__ import annotations
 
 Covers the bundled plugin at ``plugins/disk-cleanup/``:
 

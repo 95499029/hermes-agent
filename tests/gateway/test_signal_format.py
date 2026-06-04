@@ -1,4 +1,5 @@
 """Tests for Signal _markdown_to_signal() formatting.
+from __future__ import annotations
 
 Covers the markdown-to-bodyRanges conversion pipeline: bold, italic,
 strikethrough, monospace, code blocks, headings, and — critically — the

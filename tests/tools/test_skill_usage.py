@@ -1,4 +1,5 @@
 """Tests for tools/skill_usage.py — sidecar telemetry + provenance filtering."""
+from __future__ import annotations
 
 import json
 import multiprocessing as mp

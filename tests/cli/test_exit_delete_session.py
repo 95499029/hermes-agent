@@ -1,4 +1,5 @@
 """Tests for `/exit --delete` and `/quit --delete` session deletion.
+from __future__ import annotations
 
 Ports the behavior from google-gemini/gemini-cli#19332: running `/exit` or
 `/quit` with the `--delete` flag arms a one-shot `_delete_session_on_exit`

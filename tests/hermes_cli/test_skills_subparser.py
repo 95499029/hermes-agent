@@ -1,4 +1,5 @@
 """Test that skills subparser doesn't conflict (regression test for #898)."""
+from __future__ import annotations
 
 import argparse
 

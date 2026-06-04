@@ -1,4 +1,5 @@
 """Tests for the prompt_toolkit /model picker scroll viewport.
+from __future__ import annotations
 
 Regression for: when a provider exposes many models (e.g. Ollama Cloud's
 36+), the picker rendered every choice into a Window with no max height,

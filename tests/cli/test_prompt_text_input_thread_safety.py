@@ -1,4 +1,5 @@
 """Tests for ``HermesCLI._prompt_text_input`` thread-safe input dispatch.
+from __future__ import annotations
 
 Raw ``input()`` prompts can race with prompt_toolkit when called from the TUI.
 The normal slash confirmations now use a prompt_toolkit-native modal, but

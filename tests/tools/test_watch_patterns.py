@@ -1,4 +1,5 @@
 """Tests for watch_patterns background process monitoring feature.
+from __future__ import annotations
 
 Covers:
   - ProcessSession.watch_patterns field

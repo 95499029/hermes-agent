@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Skills Hub — Source adapters and hub state management for the Hermes Skills Hub.
 

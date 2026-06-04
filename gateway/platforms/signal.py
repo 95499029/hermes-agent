@@ -1,4 +1,5 @@
 """Signal messenger platform adapter.
+from __future__ import annotations
 
 Connects to a signal-cli daemon running in HTTP mode.
 Inbound messages arrive via SSE (Server-Sent Events) streaming.

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 MCP Server Management CLI — ``hermes mcp`` subcommand.
 
 Implements ``hermes mcp add/remove/list/test/configure`` for interactive

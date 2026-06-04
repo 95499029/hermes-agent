@@ -1,4 +1,5 @@
 """Tests for hermes_logging — centralized logging setup."""
+from __future__ import annotations
 
 import logging
 import os

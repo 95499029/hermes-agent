@@ -1,4 +1,5 @@
 """Tests for interrupt handling in concurrent tool execution."""
+from __future__ import annotations
 
 import threading
 import time

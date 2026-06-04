@@ -1,4 +1,5 @@
 """Tests for cron/jobs.py — schedule parsing, job CRUD, and due-job detection."""
+from __future__ import annotations
 
 import threading
 import pytest

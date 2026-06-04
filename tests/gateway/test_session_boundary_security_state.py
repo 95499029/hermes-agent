@@ -1,4 +1,5 @@
 """Regression tests for approval-state cleanup on session boundaries."""
+from __future__ import annotations
 
 from datetime import datetime
 from unittest.mock import MagicMock

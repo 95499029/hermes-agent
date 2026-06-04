@@ -1,4 +1,5 @@
 """URL safety checks — blocks requests to private/internal network addresses.
+from __future__ import annotations
 
 Prevents SSRF (Server-Side Request Forgery) where a malicious prompt or
 skill could trick the agent into fetching internal resources like cloud

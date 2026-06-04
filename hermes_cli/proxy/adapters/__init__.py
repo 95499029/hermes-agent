@@ -1,4 +1,5 @@
 """Upstream adapter registry for the local proxy server.
+from __future__ import annotations
 
 Each adapter wraps a provider's OAuth state and exposes a uniform interface
 the proxy server can use to forward requests with a freshly-minted bearer

@@ -1,4 +1,5 @@
 """Tests for gateway /compress <focus> — focus topic on the gateway side."""
+from __future__ import annotations
 
 from datetime import datetime
 from unittest.mock import MagicMock, patch

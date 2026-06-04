@@ -1,4 +1,5 @@
 """Anthropic Messages API transport.
+from __future__ import annotations
 
 Delegates to the existing adapter functions in agent/anthropic_adapter.py.
 This transport owns format conversion and normalization — NOT client lifecycle.

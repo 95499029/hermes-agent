@@ -1,4 +1,5 @@
 """Tests for plugins/memory/honcho/session.py — HonchoSession and helpers."""
+from __future__ import annotations
 
 from datetime import datetime
 from types import SimpleNamespace

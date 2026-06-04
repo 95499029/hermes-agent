@@ -1,4 +1,5 @@
 """Models.dev registry integration — primary database for providers and models.
+from __future__ import annotations
 
 Fetches from https://models.dev/api.json — a community-maintained database
 of 4000+ models across 109+ providers.  Provides:

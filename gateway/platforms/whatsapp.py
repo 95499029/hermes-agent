@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 WhatsApp platform adapter.
 
 WhatsApp integration is more complex than Telegram/Discord because:

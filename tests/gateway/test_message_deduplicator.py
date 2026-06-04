@@ -1,4 +1,5 @@
 """Tests for MessageDeduplicator TTL enforcement (#10306).
+from __future__ import annotations
 
 Previously, is_duplicate() returned True for any previously seen ID without
 checking its age — expired entries were only purged when cache size exceeded

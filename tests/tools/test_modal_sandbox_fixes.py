@@ -1,4 +1,5 @@
 """Tests for Modal sandbox infrastructure fixes (TBLite baseline).
+from __future__ import annotations
 
 Covers the bugs discovered while setting up TBLite evaluation:
 1. Tool resolution — terminal + file tools load correctly

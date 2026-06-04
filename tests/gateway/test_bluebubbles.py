@@ -1,4 +1,5 @@
 """Tests for the BlueBubbles iMessage gateway adapter."""
+from __future__ import annotations
 import pytest
 
 from gateway.config import Platform, PlatformConfig

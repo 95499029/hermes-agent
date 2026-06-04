@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for media download retry logic added in PR #2982.
 
 Covers:

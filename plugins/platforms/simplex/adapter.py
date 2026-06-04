@@ -1,4 +1,5 @@
 """SimpleX Chat platform adapter (Hermes plugin).
+from __future__ import annotations
 
 Connects to a simplex-chat daemon running in WebSocket mode.
 Inbound messages arrive via a persistent WebSocket connection.

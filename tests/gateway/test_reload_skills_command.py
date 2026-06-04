@@ -1,4 +1,5 @@
 """Tests for the ``/reload-skills`` gateway slash command handler.
+from __future__ import annotations
 
 Verifies:
   * dispatcher routes ``/reload-skills`` to ``_handle_reload_skills_command``

@@ -1,4 +1,5 @@
 """Tests for #17775: unauthorized users must be blocked in the busy-session path.
+from __future__ import annotations
 
 When an active session exists for a shared thread (thread_sessions_per_user=False),
 messages from non-allowlisted users must be silently dropped — matching the cold-path

@@ -1,4 +1,5 @@
 """Test validation error prevention for strict APIs (Fireworks, etc.)"""
+from __future__ import annotations
 
 import sys
 import types

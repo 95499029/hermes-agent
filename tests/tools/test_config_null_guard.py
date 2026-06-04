@@ -1,4 +1,5 @@
 """Tests for config.get() null-coalescing in tool configuration.
+from __future__ import annotations
 
 YAML ``null`` values (or ``~``) for a present key make ``dict.get(key, default)``
 return ``None`` instead of the default — calling ``.lower()`` on that raises

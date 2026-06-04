@@ -1,4 +1,5 @@
 """Tests for delegate_tool toolset scoping.
+from __future__ import annotations
 
 Verifies that subagents cannot gain tools that the parent does not have.
 The LLM controls the `toolsets` parameter — without intersection with the

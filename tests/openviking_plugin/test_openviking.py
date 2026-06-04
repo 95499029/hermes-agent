@@ -1,4 +1,5 @@
 """Tests for plugins/memory/openviking/__init__.py — URI normalization and payload handling."""
+from __future__ import annotations
 
 import json
 

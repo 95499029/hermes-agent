@@ -1,4 +1,5 @@
 """Tests for KeyboardInterrupt handling in exit cleanup paths.
+from __future__ import annotations
 
 ``except Exception`` does not catch ``KeyboardInterrupt`` (which inherits
 from ``BaseException``).  A second Ctrl+C during exit cleanup must not

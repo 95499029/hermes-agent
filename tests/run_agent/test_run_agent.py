@@ -1,4 +1,5 @@
 """Unit tests for run_agent.py (AIAgent).
+from __future__ import annotations
 
 Tests cover pure functions, state/structure methods, and conversation loop
 pieces. The OpenAI client and tool loading are mocked so no network calls

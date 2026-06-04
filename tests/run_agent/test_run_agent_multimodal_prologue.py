@@ -1,4 +1,5 @@
 """Regression tests for run_conversation's prologue handling of multimodal content.
+from __future__ import annotations
 
 PR #5621 and earlier multimodal PRs hit an ``AttributeError`` in
 ``run_agent.run_conversation`` because the prologue unconditionally called

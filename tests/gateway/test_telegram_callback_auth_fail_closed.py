@@ -1,4 +1,5 @@
 """Tests for Telegram adapter fail-closed auth fallback (#24457).
+from __future__ import annotations
 
 The _is_callback_user_authorized fallback must deny users by default
 when TELEGRAM_ALLOWED_USERS is empty, instead of allowing everyone.

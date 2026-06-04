@@ -1,4 +1,5 @@
 """Tests for gateway.platforms.telegram_network – fallback transport layer.
+from __future__ import annotations
 
 Background
 ----------

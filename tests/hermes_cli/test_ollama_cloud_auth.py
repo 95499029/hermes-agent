@@ -1,4 +1,5 @@
 """Tests for Ollama Cloud authentication and /model switch fixes.
+from __future__ import annotations
 
 Covers:
 - OLLAMA_API_KEY resolution for custom endpoints pointing to ollama.com

@@ -1,4 +1,5 @@
 """Tests for the ResponsesApiTransport (Codex)."""
+from __future__ import annotations
 
 import json
 import pytest

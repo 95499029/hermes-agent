@@ -1,4 +1,5 @@
 """Tests that browser_navigate SSRF checks respect local-backend mode and
+from __future__ import annotations
 the allow_private_urls setting.
 
 Local backends (Camofox, headless Chromium without a cloud provider) skip

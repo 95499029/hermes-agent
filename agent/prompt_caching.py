@@ -1,4 +1,5 @@
 """Anthropic prompt caching strategy.
+from __future__ import annotations
 
 Single layout: ``system_and_3``. 4 cache_control breakpoints — system
 prompt + last 3 non-system messages, all at the same TTL (5m or 1h).

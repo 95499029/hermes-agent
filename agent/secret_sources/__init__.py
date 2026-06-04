@@ -1,4 +1,5 @@
 """External secret source integrations.
+from __future__ import annotations
 
 A secret source is anything that can supply environment-variable-shaped
 credentials at process startup, _after_ ~/.hermes/.env has loaded.  By

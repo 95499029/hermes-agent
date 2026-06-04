@@ -1,4 +1,5 @@
 """Tests for tools/cronjob_tools.py — prompt scanning, schedule/list/remove dispatchers."""
+from __future__ import annotations
 
 import json
 import pytest

@@ -1,4 +1,5 @@
 """Tests for staged inactivity timeout in gateway agent runs.
+from __future__ import annotations
 
 Tests cover:
 - Warning fires once when inactivity reaches gateway_timeout_warning threshold

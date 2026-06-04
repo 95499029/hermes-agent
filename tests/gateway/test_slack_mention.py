@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for Slack mention gating (require_mention / free_response_channels).
 
 Follows the same pattern as test_whatsapp_group_gating.py.

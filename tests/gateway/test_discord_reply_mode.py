@@ -1,4 +1,5 @@
 """Tests for Discord reply_to_mode functionality.
+from __future__ import annotations
 
 Covers the threading behavior control for multi-chunk replies:
 - "off": Never reply-reference to original message

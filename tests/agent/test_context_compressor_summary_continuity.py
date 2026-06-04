@@ -1,4 +1,5 @@
 """Regression tests for iterative context-summary continuity."""
+from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
 

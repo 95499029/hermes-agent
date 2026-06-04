@@ -1,4 +1,5 @@
 """Tests for Signal messenger platform adapter."""
+from __future__ import annotations
 import asyncio
 import base64
 import pytest

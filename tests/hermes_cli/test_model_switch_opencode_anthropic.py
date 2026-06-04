@@ -1,4 +1,5 @@
 """Regression tests for OpenCode /v1 stripping during /model switch.
+from __future__ import annotations
 
 When switching to an Anthropic-routed OpenCode model mid-session (e.g.
 ``/model minimax-m2.7`` on opencode-go, or ``/model claude-sonnet-4-6``

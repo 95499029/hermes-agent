@@ -1,4 +1,5 @@
 """Tests for gateway/mirror.py — session mirroring."""
+from __future__ import annotations
 
 import json
 from unittest.mock import patch, MagicMock

@@ -1,4 +1,5 @@
 """Tests for path traversal prevention in skill_view.
+from __future__ import annotations
 
 Regression tests for issue #220: skill_view file_path parameter allowed
 reading arbitrary files (e.g., ~/.hermes/.env) via path traversal.

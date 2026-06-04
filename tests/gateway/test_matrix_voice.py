@@ -1,4 +1,5 @@
 """Tests for Matrix voice message support (MSC3245).
+from __future__ import annotations
 
 Updated for the mautrix-python SDK (no more matrix-nio / nio imports).
 """

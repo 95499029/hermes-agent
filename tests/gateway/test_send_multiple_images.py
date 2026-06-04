@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for ``send_multiple_images`` native batching across platforms.
 
 Covers:

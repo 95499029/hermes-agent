@@ -1,4 +1,5 @@
 """Regression tests for issue #11016 — Telegram sessions trapped in
+from __future__ import annotations
 repeated 'Interrupting current task...' while /stop reports no active task.
 
 Covers three layers of the fix:

@@ -1,4 +1,5 @@
 """Regression tests for _wait_for_process subprocess cleanup on exception exit.
+from __future__ import annotations
 
 When the poll loop exits via KeyboardInterrupt or SystemExit (SIGTERM via
 cli.py signal handler, SIGINT on the main thread in non-interactive -q mode,

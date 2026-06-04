@@ -1,4 +1,5 @@
 """Tests for tools/skill_provenance.py — write-origin ContextVar."""
+from __future__ import annotations
 
 import contextvars
 

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Top-level argparse construction for the hermes CLI.
 
 Lives in its own module so other modules (e.g. ``relaunch.py``) can

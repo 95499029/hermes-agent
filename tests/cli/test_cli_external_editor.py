@@ -1,4 +1,5 @@
 """Tests for CLI external-editor support."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

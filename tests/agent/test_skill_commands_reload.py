@@ -1,4 +1,5 @@
 """Tests for ``agent.skill_commands.reload_skills``.
+from __future__ import annotations
 
 Covers the helper that powers ``/reload-skills`` (CLI + gateway slash command).
 The helper rescans the skills directory and returns a diff of what changed.

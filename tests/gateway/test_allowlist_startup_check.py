@@ -1,4 +1,5 @@
 """Tests for the startup allowlist warning check in gateway/run.py."""
+from __future__ import annotations
 
 import os
 from unittest.mock import patch

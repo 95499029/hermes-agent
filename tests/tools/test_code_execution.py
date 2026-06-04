@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 
 Tests for the code execution sandbox (programmatic tool calling).

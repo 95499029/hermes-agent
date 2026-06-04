@@ -1,4 +1,5 @@
 """Named RGB palettes for pixel_art() and pixel_art_video().
+from __future__ import annotations
 
 Palette RGB values sourced from pixel-art-studio (MIT License)
 https://github.com/Synero/pixel-art-studio — see ATTRIBUTION.md.

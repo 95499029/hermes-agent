@@ -1,4 +1,5 @@
 """Regression tests for install.sh Python environment sanitization.
+from __future__ import annotations
 
 When install.sh is launched from another Python-driven tool session, inherited
 PYTHONPATH/PYTHONHOME can shadow the freshly installed checkout. The installer

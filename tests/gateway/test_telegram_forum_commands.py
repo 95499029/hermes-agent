@@ -1,4 +1,5 @@
 """Tests for lazy forum command registration in TelegramAdapter."""
+from __future__ import annotations
 
 import asyncio
 from types import SimpleNamespace

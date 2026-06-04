@@ -1,4 +1,5 @@
 """Tests for opencode-go / opencode-zen flat-namespace model handling.
+from __future__ import annotations
 
 OpenCode Go is NOT a vendor/model aggregator like OpenRouter — its
 ``/v1/models`` endpoint returns bare IDs (``minimax-m2.7``, ``deepseek-v4-flash``)

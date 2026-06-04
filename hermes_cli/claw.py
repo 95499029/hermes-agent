@@ -1,4 +1,5 @@
 """hermes claw — OpenClaw migration commands.
+from __future__ import annotations
 
 Usage:
     hermes claw migrate              # Preview then migrate (always shows preview first)

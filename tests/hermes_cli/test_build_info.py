@@ -1,4 +1,5 @@
 """Tests for hermes_cli.build_info — baked-in build SHA resolution.
+from __future__ import annotations
 
 The build SHA is written by the Dockerfile's ``HERMES_GIT_SHA`` build-arg
 into ``<project_root>/.hermes_build_sha``.  These tests cover the read-side

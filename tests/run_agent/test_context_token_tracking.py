@@ -1,4 +1,5 @@
 """Tests for context token tracking in run_agent.py's usage extraction.
+from __future__ import annotations
 
 The context counter (status bar) must show the TOTAL prompt tokens including
 Anthropic's cached portions. This is an integration test for the token

@@ -1,4 +1,5 @@
 """Tests for foreground timeout cap in terminal_tool.
+from __future__ import annotations
 
 Ensures that foreground commands with timeout > FOREGROUND_MAX_TIMEOUT
 are rejected with an error suggesting background=true.

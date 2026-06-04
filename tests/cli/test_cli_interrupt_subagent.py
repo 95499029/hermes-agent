@@ -1,4 +1,5 @@
 """End-to-end test simulating CLI interrupt during subagent execution.
+from __future__ import annotations
 
 Reproduces the exact scenario:
 1. Parent agent calls delegate_task

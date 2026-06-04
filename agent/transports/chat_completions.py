@@ -1,4 +1,5 @@
 """OpenAI Chat Completions transport.
+from __future__ import annotations
 
 Handles the default api_mode ('chat_completions') used by ~16 OpenAI-compatible
 providers (OpenRouter, Nous, NVIDIA, Qwen, Ollama, DeepSeek, xAI, Kimi, etc.).

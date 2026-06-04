@@ -1,4 +1,5 @@
 """Tests for Telegram inline keyboard approval buttons."""
+from __future__ import annotations
 
 import os
 import sys

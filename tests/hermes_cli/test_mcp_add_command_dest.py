@@ -1,4 +1,5 @@
 """Regression test: ``hermes mcp add --command`` must not clobber the
+from __future__ import annotations
 top-level ``args.command`` subparser dest.
 
 The top-level argparse parser uses ``dest="command"`` for its subparsers

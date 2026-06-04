@@ -1,4 +1,5 @@
 """Tests for tui_gateway/entry.py sys.path hardening (issue #15989).
+from __future__ import annotations
 
 When the TUI backend is spawned by Node.js, the Python interpreter may have
 '' or '.' at the front of sys.path, allowing a local utils/ directory in CWD

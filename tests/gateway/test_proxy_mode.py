@@ -1,4 +1,5 @@
 """Tests for gateway proxy mode — forwarding messages to a remote API server."""
+from __future__ import annotations
 
 from unittest.mock import AsyncMock, MagicMock, patch
 

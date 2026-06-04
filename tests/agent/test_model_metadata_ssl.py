@@ -1,4 +1,5 @@
 """Tests for _resolve_requests_verify() env var precedence.
+from __future__ import annotations
 
 Verifies that custom provider `/models` fetches honour the three supported
 CA bundle env vars (HERMES_CA_BUNDLE, REQUESTS_CA_BUNDLE, SSL_CERT_FILE)

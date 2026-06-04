@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Platform adapters for messaging integrations.
 
 Each adapter handles:

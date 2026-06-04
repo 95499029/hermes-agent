@@ -1,4 +1,5 @@
 """Tests for text message batching across all gateway adapters.
+from __future__ import annotations
 
 When a user sends a long message, the messaging client splits it at the
 platform's character limit.  Each adapter should buffer rapid successive

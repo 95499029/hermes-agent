@@ -1,4 +1,5 @@
 """Tests for container-aware CLI routing (NixOS container mode).
+from __future__ import annotations
 
 When container.enable = true in the NixOS module, the activation script
 writes a .container-mode metadata file. The host CLI detects this and

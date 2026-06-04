@@ -1,4 +1,5 @@
 """Tests for agent/skill_commands.py — skill slash command scanning and platform filtering."""
+from __future__ import annotations
 
 import os
 from pathlib import Path

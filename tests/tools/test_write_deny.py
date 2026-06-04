@@ -1,4 +1,5 @@
 """Tests for _is_write_denied() — verifies deny list blocks sensitive paths on all platforms."""
+from __future__ import annotations
 
 import os
 

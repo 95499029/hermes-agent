@@ -1,4 +1,5 @@
 """Reproduction tests for #18370 fallout: lazy session creation regressions.
+from __future__ import annotations
 
 Tests cover:
 1. Bug #20001 — _finalize_session() uses stale session_key after compression rotation

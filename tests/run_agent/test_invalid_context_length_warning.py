@@ -1,4 +1,5 @@
 """Tests that invalid context_length values in config produce visible warnings."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

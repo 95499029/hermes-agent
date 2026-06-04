@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Tools package namespace.
 
 Keep package import side effects minimal. Importing ``tools`` should not

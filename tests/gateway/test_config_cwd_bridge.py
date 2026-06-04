@@ -1,4 +1,5 @@
 """Tests for the config.yaml → env var bridge logic in gateway/run.py.
+from __future__ import annotations
 
 Specifically tests that top-level `cwd:` and `backend:` in config.yaml
 are correctly bridged to TERMINAL_CWD / TERMINAL_ENV env vars as

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Extract skill metadata into website/static/api/skills.json for the Skills Hub page.
 
 Two data sources:

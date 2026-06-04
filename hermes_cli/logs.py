@@ -1,4 +1,5 @@
 """``hermes logs`` — view and filter Hermes log files.
+from __future__ import annotations
 
 Supports tailing, following, session filtering, level filtering,
 component filtering, and relative time ranges.  All log files live

@@ -1,4 +1,5 @@
 """Unit tests for tools/budget_config.py.
+from __future__ import annotations
 
 Covers default values, resolve_threshold() priority chain
 (pinned > tool_overrides > registry > default), immutability,

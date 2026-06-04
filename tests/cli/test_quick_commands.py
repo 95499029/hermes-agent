@@ -1,4 +1,5 @@
 """Tests for user-defined quick commands that bypass the agent loop."""
+from __future__ import annotations
 import os
 import subprocess
 from unittest.mock import MagicMock, patch

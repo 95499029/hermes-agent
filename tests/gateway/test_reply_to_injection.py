@@ -1,4 +1,5 @@
 """Tests for reply-to pointer injection in _prepare_inbound_message_text.
+from __future__ import annotations
 
 The `[Replying to: "..."]` prefix is a *disambiguation pointer*, not
 deduplication. It must always be injected when the user explicitly replies

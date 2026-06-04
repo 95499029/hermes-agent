@@ -1,4 +1,5 @@
 """Tests for setup.py configuration flows."""
+from __future__ import annotations
 import sys
 import types
 

@@ -1,4 +1,5 @@
 """Tests for tools/process_registry.py — ProcessRegistry query methods, pruning, checkpoint."""
+from __future__ import annotations
 
 import json
 import os

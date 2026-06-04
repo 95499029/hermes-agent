@@ -1,4 +1,5 @@
 """Tests for the WAL→DELETE journal-mode fallback on NFS / SMB / FUSE.
+from __future__ import annotations
 
 When ``PRAGMA journal_mode=WAL`` raises ``OperationalError("locking protocol")``
 (SQLITE_PROTOCOL — typical on NFS/SMB), Hermes must fall back to

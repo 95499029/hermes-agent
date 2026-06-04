@@ -1,4 +1,5 @@
 """Tests for duplicate reply suppression across the gateway stack.
+from __future__ import annotations
 
 Covers four fix paths:
   1. base.py: stale response suppressed when interrupt_event is set and a

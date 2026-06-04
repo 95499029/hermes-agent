@@ -1,4 +1,5 @@
 """Tests for Signal media delivery in send_message_tool.py."""
+from __future__ import annotations
 
 import asyncio
 import sys

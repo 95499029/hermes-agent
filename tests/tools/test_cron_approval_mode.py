@@ -1,4 +1,5 @@
 """Tests for approvals.cron_mode — configurable approval behavior for cron jobs."""
+from __future__ import annotations
 
 import pytest
 

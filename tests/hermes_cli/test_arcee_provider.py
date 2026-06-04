@@ -1,4 +1,5 @@
 """Tests for Arcee AI provider support — standard direct API provider."""
+from __future__ import annotations
 
 import types
 

@@ -1,4 +1,5 @@
 """Microsoft Foundry provider profile.
+from __future__ import annotations
 
 Azure Foundry exposes an OpenAI-compatible endpoint; users supply their own
 base URL at setup since endpoints are per-resource.

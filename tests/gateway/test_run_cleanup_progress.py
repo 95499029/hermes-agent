@@ -1,4 +1,5 @@
 """Tests for opt-in cleanup of temporary progress bubbles.
+from __future__ import annotations
 
 When ``display.platforms.<plat>.cleanup_progress: true`` is set for a
 platform whose adapter supports message deletion (e.g. Telegram), the

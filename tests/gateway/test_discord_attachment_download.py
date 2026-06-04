@@ -1,4 +1,5 @@
 """Tests for Discord attachment downloads via the authenticated bot session.
+from __future__ import annotations
 
 Covers the three download paths (image / audio / document) in
 ``DiscordAdapter._handle_message()`` and the shared ``_cache_discord_*``

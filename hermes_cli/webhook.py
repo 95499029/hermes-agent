@@ -1,4 +1,5 @@
 """hermes webhook — manage dynamic webhook subscriptions from the CLI.
+from __future__ import annotations
 
 Usage:
     hermes webhook subscribe <name> [options]

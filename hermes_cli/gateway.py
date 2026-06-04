@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Gateway subcommand for hermes CLI.
 
 Handles: hermes gateway [run|start|stop|restart|status|install|uninstall|setup]

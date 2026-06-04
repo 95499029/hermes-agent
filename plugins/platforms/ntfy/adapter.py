@@ -1,4 +1,5 @@
 """ntfy platform adapter (Hermes plugin).
+from __future__ import annotations
 
 Subscribes to a topic on ntfy.sh or any self-hosted ntfy server via
 HTTP streaming (``/json`` endpoint with ``poll=false``) and publishes

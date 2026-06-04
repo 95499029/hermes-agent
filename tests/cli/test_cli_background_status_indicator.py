@@ -1,4 +1,5 @@
 """Tests for the /background indicator in the CLI status bar.
+from __future__ import annotations
 
 The classic prompt_toolkit status bar shows `▶ N` when N tasks launched via
 `/background` are still running. Source of truth is `self._background_tasks`

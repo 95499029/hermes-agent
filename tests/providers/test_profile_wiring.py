@@ -1,4 +1,5 @@
 """Profile-path parity tests: verify profile path produces identical output to legacy flags.
+from __future__ import annotations
 
 Each test calls build_kwargs twice — once with legacy flags, once with provider_profile —
 and asserts the output is identical. This catches any behavioral drift between the two paths.

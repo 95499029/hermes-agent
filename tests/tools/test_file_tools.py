@@ -1,4 +1,5 @@
 """Tests for the file tools module (schema, handler wiring, error paths).
+from __future__ import annotations
 
 Tests verify tool schemas, handler dispatch, validation logic, and error
 handling without requiring a running terminal environment.

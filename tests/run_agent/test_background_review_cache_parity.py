@@ -1,4 +1,5 @@
 """Tests that the background review fork inherits the parent's cached system prompt.
+from __future__ import annotations
 
 Regression coverage for issue #25322 (and PR #17276's first root cause): the
 background review's outbound HTTP request must carry the same system bytes as

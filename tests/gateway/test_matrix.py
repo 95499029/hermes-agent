@@ -1,4 +1,5 @@
 """Tests for Matrix platform adapter (mautrix-python backend)."""
+from __future__ import annotations
 import asyncio
 import sys
 import types

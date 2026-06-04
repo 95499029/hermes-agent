@@ -1,4 +1,5 @@
 """Hermes native download tool — aria2 RPC-backed.
+from __future__ import annotations
 
 Provides structured download function calling:
   - download_url:   Download a file via a URL (HTTP/FTP/S3/etc.)

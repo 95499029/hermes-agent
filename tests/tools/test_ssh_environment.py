@@ -1,4 +1,5 @@
 """Tests for the SSH remote execution environment backend."""
+from __future__ import annotations
 
 import json
 import os

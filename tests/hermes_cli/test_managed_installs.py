@@ -1,4 +1,5 @@
 from types import SimpleNamespace
+from __future__ import annotations
 from unittest.mock import patch
 
 from hermes_cli.config import (

@@ -1,4 +1,5 @@
 """Tests for user-defined providers (providers: dict) in /model.
+from __future__ import annotations
 
 These tests ensure that providers defined in the config.yaml ``providers:`` section
 are properly resolved for model switching and that their full ``models:`` lists

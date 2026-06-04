@@ -1,4 +1,5 @@
 """Tests for bracketed-paste timeout safety valve (#16263).
+from __future__ import annotations
 
 Verifies the production helper in cli.py monkey-patches prompt_toolkit's
 Vt100Parser.feed() so the parser auto-escapes from bracketed-paste mode when

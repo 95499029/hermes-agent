@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Backup and import commands for hermes CLI.
 
 `hermes backup` creates a zip archive of the entire ~/.hermes/ directory

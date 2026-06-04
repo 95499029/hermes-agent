@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from __future__ import annotations
 
 from agent.account_usage import (
     AccountUsageSnapshot,

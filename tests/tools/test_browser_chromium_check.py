@@ -1,4 +1,5 @@
 """Tests for Chromium-presence detection in browser_tool.
+from __future__ import annotations
 
 Regression guard for the "browser tool advertised but Chromium missing"
 class of bug — where ``agent-browser`` CLI is discoverable but no

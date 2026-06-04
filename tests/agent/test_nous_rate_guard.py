@@ -1,4 +1,5 @@
 """Tests for agent/nous_rate_guard.py — cross-session Nous Portal rate limit guard."""
+from __future__ import annotations
 
 import json
 import os

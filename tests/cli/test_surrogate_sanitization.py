@@ -1,4 +1,5 @@
 """Tests for surrogate character sanitization in user input.
+from __future__ import annotations
 
 Surrogates (U+D800..U+DFFF) are invalid in UTF-8 and crash json.dumps()
 inside the OpenAI SDK. They can appear via clipboard paste from rich-text

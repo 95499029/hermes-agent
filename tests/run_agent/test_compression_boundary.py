@@ -1,4 +1,5 @@
 """Tests for context compression boundary alignment.
+from __future__ import annotations
 
 Verifies that _align_boundary_backward correctly handles tool result groups
 so that parallel tool calls are never split during compression.

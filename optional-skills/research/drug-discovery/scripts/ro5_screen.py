@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 ro5_screen.py — Batch Lipinski Ro5 + Veber screening via PubChem API.
 Usage: python3 ro5_screen.py aspirin ibuprofen paracetamol

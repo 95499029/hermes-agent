@@ -1,4 +1,5 @@
 """Tests for the /branch (/fork) command — session branching.
+from __future__ import annotations
 
 Verifies that:
 - Branching creates a new session with copied conversation history

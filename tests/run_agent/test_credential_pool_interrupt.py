@@ -1,4 +1,5 @@
 """Regression test for #26145: credential pool rotation after interrupt-resume.
+from __future__ import annotations
 
 When has_retried_429 is lost (user cancels between 429s), the pool should
 still rotate if the current credential is already marked exhausted.

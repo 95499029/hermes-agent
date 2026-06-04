@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Delivery routing for cron job outputs and agent responses.
 
 Routes messages to the appropriate destination based on:

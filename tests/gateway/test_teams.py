@@ -1,4 +1,5 @@
 """Tests for the Microsoft Teams platform adapter plugin."""
+from __future__ import annotations
 
 import json
 import sys

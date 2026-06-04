@@ -1,4 +1,5 @@
 """Regression tests for gateway shutdown cleaning up cached agent memory providers (issue #11205).
+from __future__ import annotations
 
 When the gateway shuts down, ``stop()`` called ``_finalize_shutdown_agents()``
 which only drained agents in ``_running_agents``.  Idle agents sitting in

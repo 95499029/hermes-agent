@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Fetch YouTube transcripts for Memento quiz generation.
 
 Requires: pip install youtube-transcript-api

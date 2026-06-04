@@ -1,4 +1,5 @@
 """Tests for skills/media/youtube-content/scripts/fetch_transcript.py (issue #22243)."""
+from __future__ import annotations
 
 import sys
 from pathlib import Path

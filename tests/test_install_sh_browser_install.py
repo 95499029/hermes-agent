@@ -1,4 +1,5 @@
 """Regression tests for install.sh browser setup.
+from __future__ import annotations
 
 Browser automation is optional. The installer should not leave Hermes
 half-installed just because Playwright's managed Chromium download hangs on an

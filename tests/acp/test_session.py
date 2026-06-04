@@ -1,4 +1,5 @@
 """Tests for acp_adapter.session — SessionManager and SessionState."""
+from __future__ import annotations
 
 import contextlib
 import io

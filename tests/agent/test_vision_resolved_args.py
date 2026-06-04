@@ -1,4 +1,5 @@
 """Test that call_llm vision path passes resolved provider args, not raw ones."""
+from __future__ import annotations
 
 from unittest.mock import patch, MagicMock
 

@@ -1,4 +1,5 @@
 """Tests for the async-memory Honcho improvements.
+from __future__ import annotations
 
 Covers:
   - write_frequency parsing (async / turn / session / int)

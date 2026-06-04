@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Verify that every gateway platform — built-in and plugin — has a connection
 checker so ``GatewayConfig.get_connected_platforms()`` doesn't silently drop
 platforms with bespoke auth requirements.

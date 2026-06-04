@@ -1,4 +1,5 @@
 """Tests for feishu_doc_tool and feishu_drive_tool — registration and schema validation."""
+from __future__ import annotations
 
 import importlib
 import unittest

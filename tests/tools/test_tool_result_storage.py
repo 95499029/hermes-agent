@@ -1,4 +1,5 @@
 """Tests for tools/tool_result_storage.py -- 3-layer tool result persistence."""
+from __future__ import annotations
 
 import pytest
 from unittest.mock import MagicMock, patch

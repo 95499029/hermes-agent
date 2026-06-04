@@ -1,4 +1,5 @@
 from types import SimpleNamespace
+from __future__ import annotations
 
 from agent.agent_init import _merge_custom_provider_extra_body
 

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Regression tests for the shared-container task_id mapping.
 
 The top-level agent and all delegate_task subagents share a single

@@ -1,4 +1,5 @@
 """Tests for CLI voice mode integration -- command parsing, markdown stripping,
+from __future__ import annotations
 state management, streaming TTS activation, voice message prefix, _vprint."""
 
 import ast

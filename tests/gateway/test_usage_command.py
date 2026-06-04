@@ -1,4 +1,5 @@
 """Tests for gateway /usage command — agent cache lookup and output fields."""
+from __future__ import annotations
 
 import threading
 from unittest.mock import MagicMock, patch

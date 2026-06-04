@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Tests for read_file_tool safety guards: device-path blocking,
 character-count limits, file deduplication, and dedup reset on

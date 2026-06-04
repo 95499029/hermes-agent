@@ -1,4 +1,5 @@
 """Tests for issue #860 — SQLite session transcript deduplication.
+from __future__ import annotations
 
 Verifies that:
 1. _flush_messages_to_session_db uses _last_flushed_db_idx to avoid re-writing

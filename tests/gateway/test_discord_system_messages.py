@@ -1,4 +1,5 @@
 """Tests for Discord system message filtering (thread renames, pins, etc.)."""
+from __future__ import annotations
 
 import pytest
 import unittest

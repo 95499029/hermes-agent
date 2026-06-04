@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Run a real interrupt test with actual AIAgent + delegate child.
 
 Not a pytest test — runs directly as a script for live testing.

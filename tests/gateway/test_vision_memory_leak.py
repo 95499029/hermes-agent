@@ -1,4 +1,5 @@
 """Tests for _enrich_message_with_vision — regression for #5719.
+from __future__ import annotations
 
 The auxiliary vision LLM can echo system-prompt memory-context back into
 its analysis output.  The boundary fix in gateway/run.py runs the generic

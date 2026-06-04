@@ -1,4 +1,5 @@
 """Tests for the MCPServerTask reconnect signal.
+from __future__ import annotations
 
 When the OAuth layer cannot recover in-place (e.g., external refresh of a
 single-use refresh_token made the SDK's in-memory refresh fail), the tool

@@ -1,4 +1,5 @@
 """Tests for agent.models_dev — models.dev registry integration."""
+from __future__ import annotations
 from unittest.mock import patch, MagicMock
 
 from agent.models_dev import (

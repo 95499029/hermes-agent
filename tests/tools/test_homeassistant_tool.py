@@ -1,4 +1,5 @@
 """Tests for the Home Assistant tool module.
+from __future__ import annotations
 
 Tests real logic: entity filtering, payload building, response parsing,
 handler validation, and availability gating.

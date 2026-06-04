@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Extract text from documents using marker-pdf. High-quality OCR + layout analysis.
 
 Requires ~3-5GB disk (PyTorch + models downloaded on first use).

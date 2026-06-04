@@ -1,4 +1,5 @@
 """Provider parity tests: verify that AIAgent builds correct API kwargs
+from __future__ import annotations
 and handles responses properly for all supported providers.
 
 Ensures changes to one provider path don't silently break another.

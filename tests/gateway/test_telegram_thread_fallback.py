@@ -1,4 +1,5 @@
 """Tests for Telegram topic/thread routing fallbacks.
+from __future__ import annotations
 
 Supergroup forum topics route with ``message_thread_id``. Hermes-created
 private DM topic lanes are different: live Telegram testing showed they only

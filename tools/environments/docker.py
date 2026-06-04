@@ -1,4 +1,5 @@
 """Docker execution environment for sandboxed command execution.
+from __future__ import annotations
 
 Security hardened (cap-drop ALL, no-new-privileges, PID limits),
 configurable resource limits (CPU, memory, disk), and optional filesystem

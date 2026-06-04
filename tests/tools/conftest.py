@@ -1,4 +1,5 @@
 """Shared fixtures for tests/tools/ web-provider tests.
+from __future__ import annotations
 
 Per-file subprocess isolation means each test file gets a fresh interpreter,
 so module-level state (like the web-search-provider registry) is empty when

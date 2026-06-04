@@ -1,4 +1,5 @@
 """Tests for plugin CLI registration system.
+from __future__ import annotations
 
 Covers:
   - PluginContext.register_cli_command()

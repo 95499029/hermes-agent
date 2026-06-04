@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Regex-based security pattern definitions for the security-guidance plugin.
 
 Pure data + one pure helper. No env-var reads, no I/O — kept side-effect-free

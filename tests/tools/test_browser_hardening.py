@@ -1,4 +1,5 @@
 """Tests for browser_tool.py hardening: caching, security, thread safety, truncation."""
+from __future__ import annotations
 
 import inspect
 from unittest.mock import MagicMock, patch

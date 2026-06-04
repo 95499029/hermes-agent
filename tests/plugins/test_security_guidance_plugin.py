@@ -1,4 +1,5 @@
 """Tests for the security-guidance plugin.
+from __future__ import annotations
 
 Covers ``plugins/security-guidance/``:
 

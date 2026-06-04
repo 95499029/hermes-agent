@@ -1,4 +1,5 @@
 """Tests for tools/vision_tools.py — URL validation, type hints, error logging."""
+from __future__ import annotations
 
 import json
 import logging

@@ -1,4 +1,5 @@
 """Tests for acp_adapter.auth — provider detection."""
+from __future__ import annotations
 
 from acp_adapter.auth import (
     TERMINAL_SETUP_AUTH_METHOD_ID,

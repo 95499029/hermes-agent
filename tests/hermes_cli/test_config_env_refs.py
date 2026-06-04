@@ -1,4 +1,5 @@
 import textwrap
+from __future__ import annotations
 
 from hermes_cli.config import load_config, save_config
 

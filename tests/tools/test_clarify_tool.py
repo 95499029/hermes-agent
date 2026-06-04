@@ -1,4 +1,5 @@
 """Tests for tools/clarify_tool.py - Interactive clarifying questions."""
+from __future__ import annotations
 
 import json
 from typing import List, Optional

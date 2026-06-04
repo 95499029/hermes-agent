@@ -1,4 +1,5 @@
 """Telegram-specific gateway filtering for noisy status/error output."""
+from __future__ import annotations
 
 from gateway.config import Platform
 from gateway.run import (

@@ -1,4 +1,5 @@
 """Regression tests for Copilot api_mode recomputation during /model switch.
+from __future__ import annotations
 
 When switching models within the Copilot provider (e.g. GPT-5 → Claude),
 the stale api_mode from resolve_runtime_provider must be overridden with

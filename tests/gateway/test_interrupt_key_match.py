@@ -1,4 +1,5 @@
 """Tests verifying interrupt key consistency between adapter and gateway.
+from __future__ import annotations
 
 Regression test for a bug where monitor_for_interrupt() in _run_agent used
 source.chat_id to query the adapter, but the adapter stores interrupts under

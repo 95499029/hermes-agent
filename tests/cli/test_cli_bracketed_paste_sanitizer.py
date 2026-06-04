@@ -1,4 +1,5 @@
 """Tests for defensive bracketed-paste wrapper stripping in the CLI."""
+from __future__ import annotations
 
 from cli import _strip_leaked_bracketed_paste_wrappers
 

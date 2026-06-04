@@ -1,4 +1,5 @@
 from hermes_cli.gateway import _runtime_health_lines
+from __future__ import annotations
 
 
 def test_runtime_health_lines_include_fatal_platform_and_startup_reason(monkeypatch):

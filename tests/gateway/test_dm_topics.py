@@ -1,4 +1,5 @@
 """Tests for Telegram DM Private Chat Topics (Bot API 9.4).
+from __future__ import annotations
 
 Covers:
 - _setup_dm_topics: loading persisted thread_ids from config

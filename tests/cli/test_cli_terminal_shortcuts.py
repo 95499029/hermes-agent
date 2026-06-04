@@ -1,4 +1,5 @@
 """Regression tests for terminal navigation/focus escape sequences.
+from __future__ import annotations
 
 Ghostty/macOS window and tab navigation can deliver terminal focus reports
 (CSI I / CSI O) to the running TUI. These must be consumed by the input parser,

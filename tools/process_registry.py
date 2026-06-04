@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Process Registry -- In-memory registry for managed background processes.
 
 Tracks processes spawned via terminal(background=true), providing:

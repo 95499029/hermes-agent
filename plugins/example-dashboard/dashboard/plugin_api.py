@@ -1,4 +1,5 @@
 """Example dashboard plugin — backend API routes.
+from __future__ import annotations
 
 Mounted at /api/plugins/example/ by the dashboard plugin system.
 

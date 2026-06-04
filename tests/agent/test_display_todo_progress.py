@@ -1,4 +1,5 @@
 """Tests for get_cute_tool_message todo progress display.
+from __future__ import annotations
 
 Verifies the completion status rendering (done/total ✓) on all three
 todo tool call paths: read, create (merge=False), update (merge=True).

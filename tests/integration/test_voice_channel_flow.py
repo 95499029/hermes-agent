@@ -1,4 +1,5 @@
 """Integration tests for Discord voice channel audio flow.
+from __future__ import annotations
 
 Uses real NaCl encryption and Opus codec (no mocks for crypto/codec).
 Does NOT require a Discord connection — tests the VoiceReceiver

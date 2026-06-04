@@ -1,4 +1,5 @@
 """Tests for the Discord server introspection and management tool."""
+from __future__ import annotations
 
 import json
 import urllib.error

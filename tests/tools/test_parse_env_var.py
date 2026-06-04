@@ -1,4 +1,5 @@
 """Tests for _parse_env_var and _get_env_config env-var validation."""
+from __future__ import annotations
 
 import importlib
 import json

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for timezone support (hermes_time module + integration points).
 
 Covers:

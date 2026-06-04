@@ -1,4 +1,5 @@
 """Tests for tool call argument repair in the streaming assembly path.
+from __future__ import annotations
 
 The streaming path (run_agent._call_chat_completions) assembles tool call
 deltas into full arguments.  When a model truncates or malforms the JSON

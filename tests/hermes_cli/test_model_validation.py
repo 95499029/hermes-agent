@@ -1,4 +1,5 @@
 """Tests for provider-aware `/model` validation in hermes_cli.models."""
+from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
 

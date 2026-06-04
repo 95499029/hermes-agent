@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for subagent progress relay (issue #169).
 
 Verifies that:

@@ -1,4 +1,5 @@
 """Regression guard: DISCORD_ALLOWED_ROLES must be guild-scoped, not global.
+from __future__ import annotations
 
 Prior to this fix, ``_is_allowed_user`` iterated ``self._client.guilds`` and
 returned True if the user held any allowed role in ANY mutual guild. This

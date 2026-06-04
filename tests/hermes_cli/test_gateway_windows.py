@@ -1,4 +1,5 @@
 """Tests for hermes_cli.gateway_windows."""
+from __future__ import annotations
 
 from pathlib import Path
 

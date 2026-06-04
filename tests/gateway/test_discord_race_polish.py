@@ -1,4 +1,5 @@
 """Discord adapter race polish: concurrent join_voice_channel must not
+from __future__ import annotations
 double-invoke channel.connect() on the same guild."""
 
 import asyncio

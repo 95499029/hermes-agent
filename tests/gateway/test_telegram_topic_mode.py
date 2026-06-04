@@ -1,4 +1,5 @@
 """Tests for Telegram private-chat topic-mode routing.
+from __future__ import annotations
 
 Topic mode makes the root Telegram DM a system lobby while user-created
 Telegram topics act as independent Hermes session lanes.

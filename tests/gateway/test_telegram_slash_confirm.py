@@ -1,4 +1,5 @@
 """Regression guard: send_slash_confirm must use format_message + MARKDOWN_V2."""
+from __future__ import annotations
 
 import sys
 from pathlib import Path

@@ -1,4 +1,5 @@
 """Tests for /compress <focus> — guided compression with focus topic.
+from __future__ import annotations
 
 Inspired by Claude Code's /compact <focus> feature.
 """

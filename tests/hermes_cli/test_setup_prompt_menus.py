@@ -1,4 +1,5 @@
 from hermes_cli import setup as setup_mod
+from __future__ import annotations
 
 
 def test_prompt_strips_bracketed_paste_markers(monkeypatch):

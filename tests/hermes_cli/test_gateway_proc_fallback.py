@@ -1,4 +1,5 @@
 """Tests for /proc-based gateway PID detection in Docker environments.
+from __future__ import annotations
 
 Verifies that _scan_gateway_pids() uses /proc/*/cmdline when available
 (Docker without procps) and falls back to ps only when /proc is absent.

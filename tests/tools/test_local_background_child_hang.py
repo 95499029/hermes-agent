@@ -1,4 +1,5 @@
 """Regression tests for issue #8340.
+from __future__ import annotations
 
 When a user command backgrounds a child process (``cmd &``, ``setsid cmd &
 disown``, etc.), the backgrounded grandchild inherits the write-end of our

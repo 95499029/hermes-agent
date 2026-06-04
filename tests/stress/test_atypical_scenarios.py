@@ -1,4 +1,5 @@
 """Atypical user scenarios and configurations.
+from __future__ import annotations
 
 Exercises the kernel against user inputs and environments that the
 normal tests assume away:

@@ -1,4 +1,5 @@
 """Regression: text_to_speech_tool output_path must reject '..' traversal.
+from __future__ import annotations
 
 The TTS surface accepts agent/user-supplied absolute paths (writing to a
 chosen file is the whole point). What it must reject is paths that use

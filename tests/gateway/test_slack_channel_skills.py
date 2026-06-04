@@ -1,4 +1,5 @@
 """Tests for Slack channel_skill_bindings auto-skill resolution."""
+from __future__ import annotations
 from unittest.mock import MagicMock
 
 

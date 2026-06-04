@@ -1,4 +1,5 @@
 """Tests for _coalesce_session_name_args — multi-word session name merging."""
+from __future__ import annotations
 
 from hermes_cli.main import _coalesce_session_name_args
 

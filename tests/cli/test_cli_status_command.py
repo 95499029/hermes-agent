@@ -1,4 +1,5 @@
 """Tests for CLI /status command behavior."""
+from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 from types import SimpleNamespace

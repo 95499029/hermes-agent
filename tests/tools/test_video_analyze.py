@@ -1,4 +1,5 @@
 """Tests for video_analyze tool in tools/vision_tools.py."""
+from __future__ import annotations
 
 import asyncio
 import json

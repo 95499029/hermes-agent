@@ -1,4 +1,5 @@
 """Regression guard for #14920: wildcard "*" in Discord channel config lists.
+from __future__ import annotations
 
 Setting ``allowed_channels: "*"``, ``free_response_channels: "*"``, or
 ``ignored_channels: "*"`` in config (or their ``DISCORD_*_CHANNELS`` env var

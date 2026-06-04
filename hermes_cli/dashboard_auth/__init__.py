@@ -1,4 +1,5 @@
 """Dashboard authentication provider framework.
+from __future__ import annotations
 
 The dashboard auth gate engages only when the dashboard binds to a
 non-loopback host without ``--insecure``. In that mode, every request must

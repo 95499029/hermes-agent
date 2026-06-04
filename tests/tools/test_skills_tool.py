@@ -1,4 +1,5 @@
 """Tests for tools/skills_tool.py — skill discovery and viewing."""
+from __future__ import annotations
 
 import json
 import os

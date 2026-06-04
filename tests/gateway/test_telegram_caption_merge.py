@@ -1,4 +1,5 @@
 """Tests for TelegramPlatform._merge_caption caption deduplication logic."""
+from __future__ import annotations
 
 
 from gateway.platforms.telegram import TelegramAdapter

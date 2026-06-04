@@ -1,4 +1,5 @@
 """Base class for all Hermes execution environment backends.
+from __future__ import annotations
 
 Unified spawn-per-call model: every command spawns a fresh ``bash -c`` process.
 A session snapshot (env vars, functions, aliases) is captured once at init and

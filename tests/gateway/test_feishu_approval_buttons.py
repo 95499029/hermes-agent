@@ -1,4 +1,5 @@
 """Tests for Feishu interactive card approval buttons."""
+from __future__ import annotations
 
 import importlib.util
 import json

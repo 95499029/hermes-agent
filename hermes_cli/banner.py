@@ -1,4 +1,5 @@
 """Welcome banner, ASCII art, skills summary, and update check for the CLI.
+from __future__ import annotations
 
 Pure display functions with no HermesCLI state dependency.
 """

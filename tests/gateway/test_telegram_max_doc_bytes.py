@@ -1,4 +1,5 @@
 """Tests for Telegram document-size cap.
+from __future__ import annotations
 
 The public Telegram Bot API caps `getFile` at 20MB. A locally-hosted
 `telegram-bot-api` server raises that ceiling to 2GB. We treat the presence

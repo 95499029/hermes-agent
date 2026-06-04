@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Configuration management for Hermes Agent.
 
 Config files are stored in ~/.hermes/ for easy access:

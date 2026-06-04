@@ -1,4 +1,5 @@
 """Tests for per-provider TTS input-character limits.
+from __future__ import annotations
 
 Replaces the old global ``MAX_TEXT_LENGTH = 4000`` cap that truncated every
 provider at 4000 chars even though OpenAI allows 4096, xAI allows 15000,

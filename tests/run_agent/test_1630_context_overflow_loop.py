@@ -1,4 +1,5 @@
 """Tests for #1630 — gateway infinite 400 failure loop prevention.
+from __future__ import annotations
 
 Verifies that:
 1. Generic 400 errors with large sessions are treated as context-length errors

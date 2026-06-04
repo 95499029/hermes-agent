@@ -1,4 +1,5 @@
 from types import ModuleType, SimpleNamespace
+from __future__ import annotations
 from unittest.mock import MagicMock, patch
 import json
 import sys

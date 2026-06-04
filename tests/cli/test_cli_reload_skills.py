@@ -1,4 +1,5 @@
 """Tests for the ``/reload-skills`` CLI slash command (``HermesCLI._reload_skills``).
+from __future__ import annotations
 
 The CLI handler prints the diff (name + description) for the user and —
 when any skills were added or removed — queues a one-shot note on

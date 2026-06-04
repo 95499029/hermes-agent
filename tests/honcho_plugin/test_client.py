@@ -1,4 +1,5 @@
 """Tests for plugins/memory/honcho/client.py — Honcho client configuration."""
+from __future__ import annotations
 
 import importlib.util
 import json

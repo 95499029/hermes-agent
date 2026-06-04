@@ -1,4 +1,5 @@
 """Tests for the Windows / Git Bash MSYS-path normalization in
+from __future__ import annotations
 ``LocalEnvironment``.
 
 Background

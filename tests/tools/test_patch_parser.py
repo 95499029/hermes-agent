@@ -1,4 +1,5 @@
 """Tests for the V4A patch format parser."""
+from __future__ import annotations
 
 from types import SimpleNamespace
 

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for Telegram polling network error recovery.
 
 Specifically tests the fix for #3173 — when start_polling() fails after a

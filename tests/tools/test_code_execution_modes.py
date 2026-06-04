@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Tests for execute_code's strict / project execution modes.
 
 The mode switch controls two things:

@@ -1,4 +1,5 @@
 """CLI entry point for the hermes-agent ACP adapter.
+from __future__ import annotations
 
 Loads environment variables from ``~/.hermes/.env``, configures logging
 to write to stderr (so stdout is reserved for ACP JSON-RPC transport),

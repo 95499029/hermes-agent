@@ -1,4 +1,5 @@
 """Behavior tests for the skill review / combined review prompts.
+from __future__ import annotations
 
 The review prompts steer the background review agent toward actively updating
 the skill library after most sessions, with a strong bias toward:

@@ -1,4 +1,5 @@
 """Abstract base for provider transports.
+from __future__ import annotations
 
 A transport owns the data path for one api_mode:
   convert_messages → convert_tools → build_kwargs → normalize_response

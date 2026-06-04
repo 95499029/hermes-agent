@@ -1,4 +1,5 @@
 """Tests for per-file consecutive patch-failure tracking.
+from __future__ import annotations
 
 When the agent repeatedly fails to patch the same file with similar but
 non-matching old_strings, it's usually stuck in a loop with a stale view

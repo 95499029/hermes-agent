@@ -1,4 +1,5 @@
 """Tests for Discord thread participation persistence.
+from __future__ import annotations
 
 Verifies that _threads (ThreadParticipationTracker) survives adapter restarts by
 being persisted to ~/.hermes/discord_threads.json.

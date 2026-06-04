@@ -1,4 +1,5 @@
 """Regression test: /retry must return the agent response, not None.
+from __future__ import annotations
 
 Before the fix in PR #441, _handle_retry_command() called
 _handle_message(retry_event) but discarded its return value with `return None`,

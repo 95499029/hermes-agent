@@ -1,4 +1,5 @@
 """Tests for the central tool registry."""
+from __future__ import annotations
 
 import json
 import threading

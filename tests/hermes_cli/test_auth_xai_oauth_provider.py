@@ -1,4 +1,5 @@
 """Tests for xAI Grok OAuth — tokens stored in Hermes auth store (~/.hermes/auth.json)."""
+from __future__ import annotations
 
 import base64
 import json

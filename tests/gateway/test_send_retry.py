@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for BasePlatformAdapter._send_with_retry and _is_retryable_error.
 
 Verifies that:

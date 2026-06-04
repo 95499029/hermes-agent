@@ -1,4 +1,5 @@
 """Tests for WSL detection and WSL-aware gateway behavior."""
+from __future__ import annotations
 
 import subprocess
 from types import SimpleNamespace

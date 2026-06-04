@@ -1,4 +1,5 @@
 """Tests for Anthropic OAuth setup flow behavior."""
+from __future__ import annotations
 
 from hermes_cli.config import load_env, save_env_value
 

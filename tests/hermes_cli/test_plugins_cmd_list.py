@@ -1,4 +1,5 @@
 import argparse
+from __future__ import annotations
 import json
 
 from hermes_cli import plugins_cmd

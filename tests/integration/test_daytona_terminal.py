@@ -1,4 +1,5 @@
 """Integration tests for the Daytona terminal backend.
+from __future__ import annotations
 
 Requires DAYTONA_API_KEY to be set. Run with:
     TERMINAL_ENV=daytona pytest tests/integration/test_daytona_terminal.py -v

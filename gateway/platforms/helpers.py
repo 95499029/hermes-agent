@@ -1,4 +1,5 @@
 """Shared helper classes for gateway platform adapters.
+from __future__ import annotations
 
 Extracts common patterns that were duplicated across 5-7 adapters:
 message deduplication, text batch aggregation, markdown stripping,

@@ -1,4 +1,5 @@
 """Tests for optional-skills/productivity/memento-flashcards/scripts/memento_cards.py"""
+from __future__ import annotations
 
 import csv
 import json

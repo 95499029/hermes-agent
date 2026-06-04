@@ -1,4 +1,5 @@
 """Tests for hermes_state.py — SessionDB SQLite CRUD, FTS5 search, export."""
+from __future__ import annotations
 
 import time
 import pytest

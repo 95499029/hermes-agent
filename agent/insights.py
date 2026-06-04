@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Session Insights Engine for Hermes Agent.
 
 Analyzes historical session data from the SQLite state database to produce

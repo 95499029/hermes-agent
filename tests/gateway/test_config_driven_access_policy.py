@@ -1,4 +1,5 @@
 """Tests for config-driven platform access policies at the gateway layer.
+from __future__ import annotations
 
 Background (#34515): WeCom, Weixin, Yuanbao, and QQBot expose a documented
 config-driven access surface (``dm_policy`` / ``group_policy`` / ``allow_from``

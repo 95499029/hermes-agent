@@ -1,4 +1,5 @@
 """Tests for fallback credential pool isolation.
+from __future__ import annotations
 
 Verifies that fallback activation isolates the credential pool from the
 primary provider, preventing two bugs:

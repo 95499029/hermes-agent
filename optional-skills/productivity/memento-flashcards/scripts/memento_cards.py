@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Memento card storage, spaced-repetition engine, and CSV I/O.
 
 Stdlib-only. All output is JSON for agent parsing.

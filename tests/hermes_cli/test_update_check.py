@@ -1,4 +1,5 @@
 """Tests for the update check mechanism in hermes_cli.banner."""
+from __future__ import annotations
 
 import json
 import os

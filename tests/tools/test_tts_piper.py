@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for the native Piper TTS provider.
 
 These tests pin the resolution / caching / dispatch paths for Piper

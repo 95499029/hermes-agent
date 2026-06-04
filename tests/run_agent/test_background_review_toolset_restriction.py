@@ -1,4 +1,5 @@
 """Tests that the background review agent restricts tools at runtime, not at schema time.
+from __future__ import annotations
 
 Regression coverage for issue #15204 (the background skill-review agent must
 not perform non-skill side effects like terminal, send_message, delegate_task)

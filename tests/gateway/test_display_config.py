@@ -1,4 +1,5 @@
 """Tests for gateway.display_config — per-platform display/verbosity resolver."""
+from __future__ import annotations
 
 
 # ---------------------------------------------------------------------------

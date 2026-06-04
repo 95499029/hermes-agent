@@ -1,4 +1,5 @@
 """E2E: dispatcher spawns real Python subprocess workers.
+from __future__ import annotations
 
 This validates the IPC + lifecycle story that mocks can't:
   - spawn_fn returns a real PID

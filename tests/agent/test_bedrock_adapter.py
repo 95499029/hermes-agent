@@ -1,4 +1,5 @@
 """Tests for the AWS Bedrock Converse API adapter.
+from __future__ import annotations
 
 Covers:
   - AWS credential detection and region resolution

@@ -1,4 +1,5 @@
 """Pack a directory into a DOCX, PPTX, or XLSX file.
+from __future__ import annotations
 
 Validates with auto-repair, condenses XML formatting, and creates the Office file.
 

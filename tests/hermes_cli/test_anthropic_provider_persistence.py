@@ -1,4 +1,5 @@
 """Tests for Anthropic credential persistence helpers."""
+from __future__ import annotations
 
 from hermes_cli.config import load_env
 

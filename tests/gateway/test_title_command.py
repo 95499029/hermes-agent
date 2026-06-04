@@ -1,4 +1,5 @@
 """Tests for /title gateway slash command.
+from __future__ import annotations
 
 Tests the _handle_title_command handler (set/show session titles)
 across all gateway messenger platforms.

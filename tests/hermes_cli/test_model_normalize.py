@@ -1,4 +1,5 @@
 """Tests for hermes_cli.model_normalize — provider-aware model name normalization.
+from __future__ import annotations
 
 Covers issue #5211: opencode-go model names with dots (e.g. minimax-m2.7)
 must NOT be mangled to hyphens (minimax-m2-7).

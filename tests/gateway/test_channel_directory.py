@@ -1,4 +1,5 @@
 """Tests for gateway/channel_directory.py — channel resolution and display."""
+from __future__ import annotations
 
 import asyncio
 import json

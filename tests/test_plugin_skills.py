@@ -1,4 +1,5 @@
 """Tests for namespaced plugin skill registration and resolution.
+from __future__ import annotations
 
 Covers:
 - agent/skill_utils namespace helpers

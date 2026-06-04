@@ -1,4 +1,5 @@
 import asyncio
+from __future__ import annotations
 from collections import OrderedDict
 from unittest.mock import AsyncMock, MagicMock
 

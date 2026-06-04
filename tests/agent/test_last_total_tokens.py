@@ -1,4 +1,5 @@
 """Test that last_total_tokens is correctly set by ContextCompressor."""
+from __future__ import annotations
 
 from agent.context_compressor import ContextCompressor
 

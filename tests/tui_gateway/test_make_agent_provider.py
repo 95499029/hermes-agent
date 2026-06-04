@@ -1,4 +1,5 @@
 """Regression test for #11884: _make_agent must resolve runtime provider.
+from __future__ import annotations
 
 Without resolve_runtime_provider(), bare-slug models in config
 (e.g. ``claude-opus-4-6`` with ``model.provider: anthropic``) leave

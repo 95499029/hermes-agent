@@ -1,4 +1,5 @@
 """Tests for hermes_cli.doctor."""
+from __future__ import annotations
 
 import os
 import sys

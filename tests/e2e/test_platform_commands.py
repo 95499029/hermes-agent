@@ -1,4 +1,5 @@
 """E2E tests for gateway slash commands (Telegram, Discord).
+from __future__ import annotations
 
 Each test drives a message through the full async pipeline:
     adapter.handle_message(event)

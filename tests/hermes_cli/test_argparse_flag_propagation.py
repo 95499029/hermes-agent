@@ -1,4 +1,5 @@
 """Tests for parent→subparser flag propagation.
+from __future__ import annotations
 
 When flags like --yolo, -w, -s exist on both the parent parser and the 'chat'
 subparser, placing the flag BEFORE the subcommand (e.g. 'hermes --yolo chat')

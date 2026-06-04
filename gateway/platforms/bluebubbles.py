@@ -1,4 +1,5 @@
 """BlueBubbles iMessage platform adapter.
+from __future__ import annotations
 
 Uses the local BlueBubbles macOS server for outbound REST sends and inbound
 webhooks.  Supports text messaging, media attachments (images, voice, video,

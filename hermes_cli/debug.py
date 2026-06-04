@@ -1,4 +1,5 @@
 """``hermes debug`` debug tools for Hermes Agent.
+from __future__ import annotations
 
 Currently supports:
     hermes debug share    Upload debug report (system info + logs) to a

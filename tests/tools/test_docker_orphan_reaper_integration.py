@@ -1,4 +1,5 @@
 """Integration tests for the docker orphan-reaper wiring in terminal_tool.
+from __future__ import annotations
 
 The reaper itself is unit-tested in tests/tools/test_docker_environment.py
 under the "Orphan reaper" section. These tests cover the terminal_tool-side

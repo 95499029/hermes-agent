@@ -1,4 +1,5 @@
 """Tests for _detect_file_drop — file path detection that prevents
+from __future__ import annotations
 dragged/pasted absolute paths from being mistaken for slash commands."""
 
 

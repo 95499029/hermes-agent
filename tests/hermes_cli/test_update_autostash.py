@@ -1,4 +1,5 @@
 from pathlib import Path
+from __future__ import annotations
 from subprocess import CalledProcessError
 from types import SimpleNamespace
 

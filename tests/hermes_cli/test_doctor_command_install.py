@@ -1,4 +1,5 @@
 """Tests for the Command Installation check in hermes doctor."""
+from __future__ import annotations
 
 import sys
 import types

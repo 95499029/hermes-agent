@@ -1,4 +1,5 @@
 """Tests for _query_local_context_length and the local server fallback in
+from __future__ import annotations
 get_model_context_length.
 
 All tests use synthetic inputs — no filesystem or live server required.

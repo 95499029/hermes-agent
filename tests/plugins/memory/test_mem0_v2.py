@@ -1,4 +1,5 @@
 """Tests for Mem0 API v2 compatibility — filters param and dict response unwrapping.
+from __future__ import annotations
 
 Salvaged from PRs #5301 (qaqcvc) and #5117 (vvvanguards).
 """

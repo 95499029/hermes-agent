@@ -1,4 +1,5 @@
 """Tests for pre-API-call message-sequence repair.
+from __future__ import annotations
 
 Covers ``_repair_message_sequence`` and the extended
 ``_drop_trailing_empty_response_scaffolding`` behavior that rewinds past

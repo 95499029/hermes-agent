@@ -1,4 +1,5 @@
 """Tests for save_config_value() in cli.py — atomic write behavior."""
+from __future__ import annotations
 
 import yaml
 from unittest.mock import MagicMock

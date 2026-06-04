@@ -1,4 +1,5 @@
 """Regression tests for MCP error messages when str(exc) is empty.
+from __future__ import annotations
 
 Issue #19417: ClosedResourceError (and similar exceptions raised without a
 message argument) produced ``MCP call failed: ClosedResourceError: `` with

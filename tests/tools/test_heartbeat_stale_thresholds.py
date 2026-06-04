@@ -1,4 +1,5 @@
 """Tests for delegate heartbeat stale threshold configuration."""
+from __future__ import annotations
 
 
 

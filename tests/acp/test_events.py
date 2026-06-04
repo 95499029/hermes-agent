@@ -1,4 +1,5 @@
 """Tests for acp_adapter.events — callback factories for ACP notifications."""
+from __future__ import annotations
 
 import asyncio
 import gc

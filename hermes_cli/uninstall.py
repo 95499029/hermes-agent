@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Hermes Agent Uninstaller.
 
 Provides options for:

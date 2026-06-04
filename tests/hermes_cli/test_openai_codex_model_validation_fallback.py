@@ -1,4 +1,5 @@
 """Regression tests for OpenAI Codex model validation when the listing lags behind
+from __future__ import annotations
 actually usable backend model IDs.
 
 The bug originally reported in #16172: `/model` and `switch_model()` rejected

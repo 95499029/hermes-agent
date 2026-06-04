@@ -1,4 +1,5 @@
 """Tests for Telegram native partial-quote handling in _build_message_event.
+from __future__ import annotations
 
 When a Telegram user replies using Telegram's native quote feature to
 select only part of a prior message, the adapter must use ``message.quote.text``

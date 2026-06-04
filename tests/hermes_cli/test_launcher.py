@@ -1,4 +1,5 @@
 """Tests for the top-level `./hermes` launcher script."""
+from __future__ import annotations
 
 import runpy
 import sys

@@ -1,4 +1,5 @@
 """Tests for providers config entry validation and normalization.
+from __future__ import annotations
 
 Covers Issue #9332: camelCase keys silently ignored, non-URL strings
 accepted as base_url, and unknown keys go unreported.

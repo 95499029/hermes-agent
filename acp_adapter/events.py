@@ -1,4 +1,5 @@
 """Callback factories for bridging AIAgent events to ACP notifications.
+from __future__ import annotations
 
 Each factory returns a callable with the signature that AIAgent expects
 for its callbacks. Internally, the callbacks push ACP session updates

@@ -1,4 +1,5 @@
 """Tests for _setup_feishu() in hermes_cli/gateway.py.
+from __future__ import annotations
 
 Verifies that the interactive setup writes env vars that correctly drive the
 Feishu adapter: credentials, connection mode, DM policy, and group policy.

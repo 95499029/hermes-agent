@@ -1,4 +1,5 @@
 """Tests for CLI manual compression messaging."""
+from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
 

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for --yes / --force flag separation in `hermes skills install`.
 
 --yes / -y  → skip_confirm (bypass interactive prompt, needed in TUI mode)

@@ -1,4 +1,5 @@
 """Regression tests for /sethome env-var resolution.
+from __future__ import annotations
 
 The `/sethome` command writes to a platform's home-target env var. Two platforms
 don't follow the `{PLATFORM}_HOME_CHANNEL` convention: matrix uses

@@ -1,4 +1,5 @@
 """Tests for banner toolset name normalization and skin color usage."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

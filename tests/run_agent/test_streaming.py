@@ -1,4 +1,5 @@
 """Tests for streaming token delivery infrastructure.
+from __future__ import annotations
 
 Tests the unified streaming API call, delta callbacks, tool-call
 suppression, provider fallback, and CLI streaming display.

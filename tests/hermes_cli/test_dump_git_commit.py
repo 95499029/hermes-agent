@@ -1,4 +1,5 @@
 """Tests for hermes_cli.dump._get_git_commit — git SHA resolution for ``hermes dump``.
+from __future__ import annotations
 
 ``hermes dump`` prints the running commit so support bug reports identify the
 exact version.  Source installs resolve it live via ``git rev-parse``; the

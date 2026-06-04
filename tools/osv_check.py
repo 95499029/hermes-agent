@@ -1,4 +1,5 @@
 """OSV malware check for MCP extension packages.
+from __future__ import annotations
 
 Before launching an MCP server via npx/uvx, queries the OSV (Open Source
 Vulnerabilities) API to check if the package has any known malware advisories

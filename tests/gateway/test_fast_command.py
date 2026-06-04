@@ -1,4 +1,5 @@
 """Tests for gateway /fast support and Priority Processing routing."""
+from __future__ import annotations
 
 import sys
 import threading

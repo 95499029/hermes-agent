@@ -1,4 +1,5 @@
 """Regression tests for issue #30768 and #32383.
+from __future__ import annotations
 
 ``_prompt_text_input_modal`` uses a queue-based modal that relies on
 prompt_toolkit key bindings receiving keyboard events.  On Windows the

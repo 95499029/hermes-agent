@@ -1,4 +1,5 @@
 """Tests for the pre_gateway_dispatch plugin hook.
+from __future__ import annotations
 
 The hook allows plugins to intercept incoming messages before auth and
 agent dispatch. It runs in _handle_message and acts on returned action

@@ -1,4 +1,5 @@
 """Tests for the ``/bundles`` gateway slash command handler.
+from __future__ import annotations
 
 Verifies that:
 - ``_handle_bundles_command`` returns useful text when no bundles are

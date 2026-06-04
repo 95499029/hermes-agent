@@ -1,4 +1,5 @@
 import sys
+from __future__ import annotations
 
 import hermes_cli.model_switch as ms
 from hermes_cli.model_switch import DirectAlias

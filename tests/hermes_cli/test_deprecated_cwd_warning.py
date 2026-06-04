@@ -1,4 +1,5 @@
 """Tests for warn_deprecated_cwd_env_vars() migration warning."""
+from __future__ import annotations
 
 
 

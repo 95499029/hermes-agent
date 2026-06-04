@@ -1,4 +1,5 @@
 """Tests for /approve and /deny gateway commands.
+from __future__ import annotations
 
 Verifies that dangerous command approvals use the blocking gateway approval
 mechanism — the agent thread blocks until the user responds with /approve

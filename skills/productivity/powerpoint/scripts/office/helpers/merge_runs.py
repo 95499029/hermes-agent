@@ -1,4 +1,5 @@
 """Merge adjacent runs with identical formatting in DOCX.
+from __future__ import annotations
 
 Merges adjacent <w:r> elements that have identical <w:rPr> properties.
 Works on runs in paragraphs and inside tracked changes (<w:ins>, <w:del>).

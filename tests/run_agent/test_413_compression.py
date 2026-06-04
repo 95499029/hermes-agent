@@ -1,4 +1,5 @@
 """Tests for payload/context-length → compression retry logic in AIAgent.
+from __future__ import annotations
 
 Verifies that:
 - HTTP 413 errors trigger history compression and retry

@@ -1,4 +1,5 @@
 """Shared fixtures for gateway e2e tests (Telegram, Discord).
+from __future__ import annotations
 
 These tests exercise the full async message flow:
     adapter.handle_message(event)

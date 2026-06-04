@@ -1,4 +1,5 @@
 """Tests for trajectory_compressor AsyncOpenAI event loop binding.
+from __future__ import annotations
 
 The AsyncOpenAI client was created once at __init__ time and stored as an
 instance attribute. When process_directory() calls asyncio.run() — which

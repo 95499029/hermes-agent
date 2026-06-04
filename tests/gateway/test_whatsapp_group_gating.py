@@ -1,4 +1,5 @@
 import json
+from __future__ import annotations
 from unittest.mock import AsyncMock
 
 from gateway.config import Platform, PlatformConfig, load_gateway_config

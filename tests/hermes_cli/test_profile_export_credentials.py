@@ -1,4 +1,5 @@
 """Tests for credential exclusion during profile export.
+from __future__ import annotations
 
 Profile exports should NEVER include auth.json or .env — these contain
 API keys, OAuth tokens, and credential pool data. Users share exported

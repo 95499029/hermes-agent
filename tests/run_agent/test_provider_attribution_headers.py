@@ -1,4 +1,5 @@
 """Attribution default_headers applied per provider via base-URL detection."""
+from __future__ import annotations
 from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 

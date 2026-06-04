@@ -1,4 +1,5 @@
 """Tests for BasePlatformAdapter topic-aware session handling."""
+from __future__ import annotations
 
 import asyncio
 import json

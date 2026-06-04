@@ -1,4 +1,5 @@
 """Security regression tests: Discord component views honor role allowlists.
+from __future__ import annotations
 
 The four interactive component views (ExecApprovalView, SlashConfirmView,
 UpdatePromptView, ModelPickerView) historically accepted only

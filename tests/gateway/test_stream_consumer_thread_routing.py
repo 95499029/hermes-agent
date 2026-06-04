@@ -1,4 +1,5 @@
 """Regression tests for stream consumer thread/topic routing fix.
+from __future__ import annotations
 
 Verifies that GatewayStreamConsumer correctly passes reply_to on the first
 message send, ensuring messages land in the correct topic/thread instead of

@@ -1,4 +1,5 @@
 """Tests for `hermes update --yes / -y` — assume yes for interactive prompts.
+from __future__ import annotations
 
 Covers:
   1. argparse parses the flag

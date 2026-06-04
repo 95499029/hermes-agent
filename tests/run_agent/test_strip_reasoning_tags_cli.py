@@ -1,4 +1,5 @@
 """Tests for cli.py::_strip_reasoning_tags — specifically the tool-call
+from __future__ import annotations
 XML stripping added in openclaw/openclaw#67318 port.
 
 The CLI has its own copy of the stripper because it needs to run on the

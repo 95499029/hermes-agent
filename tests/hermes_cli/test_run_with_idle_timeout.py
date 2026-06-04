@@ -1,4 +1,5 @@
 """Coverage for _run_with_idle_timeout — the streaming subprocess helper.
+from __future__ import annotations
 
 Kept in a dedicated test file because the tests spawn real ``subprocess.Popen``
 instances; pytest-isolate runs each test file in its own worker process, so

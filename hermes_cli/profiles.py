@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Profile management for multiple isolated Hermes instances.
 
 Each profile is a fully independent HERMES_HOME directory with its own

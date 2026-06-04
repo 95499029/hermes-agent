@@ -1,4 +1,5 @@
 """Tests for non-interactive setup and first-run headless behavior."""
+from __future__ import annotations
 
 from argparse import Namespace
 from unittest.mock import patch

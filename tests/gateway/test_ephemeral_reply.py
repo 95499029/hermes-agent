@@ -1,4 +1,5 @@
 """Tests for EphemeralReply — system-notice auto-delete in gateway adapters.
+from __future__ import annotations
 
 Slash-command handlers in ``gateway/run.py`` can return an
 ``EphemeralReply`` wrapper to request auto-deletion of the reply message

@@ -1,4 +1,5 @@
 """Regression tests for CLI /retry history replacement semantics."""
+from __future__ import annotations
 
 from tests.cli.test_cli_init import _make_cli
 

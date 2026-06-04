@@ -1,4 +1,5 @@
 from types import SimpleNamespace
+from __future__ import annotations
 from unittest.mock import MagicMock, patch
 
 from cli import HermesCLI, _rich_text_from_ansi

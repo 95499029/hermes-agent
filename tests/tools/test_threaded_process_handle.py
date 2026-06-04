@@ -1,4 +1,5 @@
 """Tests for _ThreadedProcessHandle — the adapter for SDK backends."""
+from __future__ import annotations
 
 import threading
 import time

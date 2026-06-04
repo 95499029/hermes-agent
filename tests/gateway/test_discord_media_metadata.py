@@ -1,4 +1,5 @@
 import inspect
+from __future__ import annotations
 
 from plugins.platforms.discord.adapter import DiscordAdapter
 

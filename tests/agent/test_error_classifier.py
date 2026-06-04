@@ -1,4 +1,5 @@
 """Tests for agent.error_classifier — structured API error classification."""
+from __future__ import annotations
 
 import pytest
 from agent.error_classifier import (

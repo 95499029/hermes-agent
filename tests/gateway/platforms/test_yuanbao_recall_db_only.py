@@ -1,4 +1,5 @@
 """Yuanbao recall: branch A1 (exact id) and A2 (content-match) against DB-only transcripts.
+from __future__ import annotations
 
 state.db persists the platform-side ``message_id`` via the
 ``platform_message_id`` column (added in the salvage of PR #29211) and

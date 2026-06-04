@@ -1,4 +1,5 @@
 """Test that AuthError triggers fallback provider resolution (#7230)."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

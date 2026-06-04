@@ -1,4 +1,5 @@
 """Tests for gateway.platforms.feishu — Feishu scan-to-create registration."""
+from __future__ import annotations
 
 import json
 from unittest.mock import patch, MagicMock

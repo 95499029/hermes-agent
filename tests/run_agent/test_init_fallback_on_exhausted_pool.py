@@ -1,4 +1,5 @@
 """Regression test for #17929: AIAgent.__init__ should try fallback_model
+from __future__ import annotations
 when primary provider credentials are exhausted."""
 import pytest
 from unittest.mock import patch, MagicMock

@@ -1,4 +1,5 @@
 """Regression tests for Docker HOME overrides under s6/with-contenv."""
+from __future__ import annotations
 
 from pathlib import Path
 

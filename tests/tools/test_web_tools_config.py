@@ -1,4 +1,5 @@
 """Tests for web backend client configuration and singleton behavior.
+from __future__ import annotations
 
 Coverage:
   _get_firecrawl_client() — configuration matrix, singleton caching,

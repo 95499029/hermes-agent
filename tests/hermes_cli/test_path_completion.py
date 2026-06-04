@@ -1,4 +1,5 @@
 """Tests for file path autocomplete in the CLI completer."""
+from __future__ import annotations
 
 import os
 from unittest.mock import MagicMock

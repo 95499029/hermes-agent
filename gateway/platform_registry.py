@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Platform Adapter Registry
 
 Allows platform adapters (built-in and plugin) to self-register so the gateway

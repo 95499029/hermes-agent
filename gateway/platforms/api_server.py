@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 OpenAI-compatible API server platform adapter.
 
 Exposes an HTTP server with endpoints:

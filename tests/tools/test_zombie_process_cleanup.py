@@ -1,4 +1,5 @@
 """Tests for zombie process cleanup — verifies processes spawned by tools
+from __future__ import annotations
 are properly reaped when agent sessions end.
 
 Reproduction for issue #7131: zombie process accumulation on long-running

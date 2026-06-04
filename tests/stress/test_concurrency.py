@@ -1,4 +1,5 @@
 """Multi-process concurrency stress test for the Kanban kernel.
+from __future__ import annotations
 
 5 worker processes race for claims on a shared DB with 100 tasks. Each
 worker loops: claim -> simulate work -> complete. Asserts the invariants

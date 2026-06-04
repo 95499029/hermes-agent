@@ -1,4 +1,5 @@
 """Tests for the resume_pending session continuity path.
+from __future__ import annotations
 
 Covers the behaviour introduced to fix the ``Gateway shutting down ...
 task will be interrupted`` follow-up bug (spec: PR #11852, builds on

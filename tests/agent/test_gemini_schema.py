@@ -1,4 +1,5 @@
 """Tests for agent.gemini_schema — OpenAI→Gemini tool parameter translation."""
+from __future__ import annotations
 
 from agent.gemini_schema import (
     sanitize_gemini_schema,

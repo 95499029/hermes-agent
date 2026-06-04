@@ -1,4 +1,5 @@
 """Simplify tracked changes by merging adjacent w:ins or w:del elements.
+from __future__ import annotations
 
 Merges adjacent <w:ins> elements from the same author into a single element.
 Same for <w:del> elements. This makes heavily-redlined documents easier to

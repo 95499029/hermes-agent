@@ -1,4 +1,5 @@
 """Tests for browser_console tool and browser_vision annotate param."""
+from __future__ import annotations
 
 import json
 import os

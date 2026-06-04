@@ -1,4 +1,5 @@
 """Tests for probe_mcp_server_tools() in tools.mcp_tool."""
+from __future__ import annotations
 
 import asyncio
 from types import SimpleNamespace

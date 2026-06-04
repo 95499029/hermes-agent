@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 OSS Forensics Evidence Store Manager
 Manages a JSON-based evidence store for forensic investigations.

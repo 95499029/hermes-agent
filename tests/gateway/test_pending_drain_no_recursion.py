@@ -1,4 +1,5 @@
 """Regression test for #17758 — chained pending-message drains must not
+from __future__ import annotations
 grow the call stack.
 
 Before the fix, ``_process_message_background`` finished a turn, found a

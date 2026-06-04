@@ -1,4 +1,5 @@
 """Tests for stacked tool progress scrollback lines in the CLI TUI.
+from __future__ import annotations
 
 When tool_progress_mode is "all" or "new", _on_tool_progress should print
 persistent lines to scrollback on tool.completed, restoring the stacked

@@ -1,4 +1,5 @@
 """Tests for CLI/TUI CWD resolution in load_cli_config().
+from __future__ import annotations
 
 Rules:
 - Local backend CLI/TUI: always os.getcwd(), ignoring config and inherited env.

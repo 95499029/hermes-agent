@@ -1,4 +1,5 @@
 """Tests for acp_adapter.permissions."""
+from __future__ import annotations
 
 import asyncio
 import inspect

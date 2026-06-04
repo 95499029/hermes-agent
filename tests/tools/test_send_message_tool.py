@@ -1,4 +1,5 @@
 """Tests for tools/send_message_tool.py."""
+from __future__ import annotations
 
 import asyncio
 import json

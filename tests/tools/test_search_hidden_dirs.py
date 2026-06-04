@@ -1,4 +1,5 @@
 """Tests that search_files excludes hidden directories by default.
+from __future__ import annotations
 
 Regression for #1558: the agent read a 3.5MB skills hub catalog cache
 file (.hub/index-cache/clawhub_catalog_v1.json) that contained adversarial

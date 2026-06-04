@@ -1,4 +1,5 @@
 """Tests for GatewayRunner._format_session_info — session config surfacing."""
+from __future__ import annotations
 
 import pytest
 from unittest.mock import patch

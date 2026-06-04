@@ -1,4 +1,5 @@
 """Tests for session auto-reset notifications.
+from __future__ import annotations
 
 Verifies that:
 - _should_reset() returns a reason string ("idle" or "daily") instead of bool

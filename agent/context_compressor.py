@@ -1,4 +1,5 @@
 """Automatic context window compression for long conversations.
+from __future__ import annotations
 
 Self-contained class with its own OpenAI client for summarization.
 Uses auxiliary model (cheap/fast) to summarize middle turns while

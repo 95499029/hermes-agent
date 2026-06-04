@@ -1,4 +1,5 @@
 """Tests for utils.atomic_json_write — crash-safe JSON file writes."""
+from __future__ import annotations
 
 import json
 from pathlib import Path

@@ -1,4 +1,5 @@
 """Tests for Discord incoming document/file attachment handling.
+from __future__ import annotations
 
 Covers the document branch in DiscordAdapter._handle_message() —
 the `else` clause of the attachment content-type loop that was added

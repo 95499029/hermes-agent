@@ -1,4 +1,5 @@
 """Harder concurrency stress: mixed operations + larger scale.
+from __future__ import annotations
 
 Scales to 500 tasks, 10 workers, 60s runtime. Each worker randomly:
   - claims + completes (70%)

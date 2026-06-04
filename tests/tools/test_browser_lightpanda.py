@@ -1,4 +1,5 @@
 """Tests for Lightpanda engine support in browser_tool.py."""
+from __future__ import annotations
 
 import json
 import os

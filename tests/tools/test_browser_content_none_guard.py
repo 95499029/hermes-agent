@@ -1,4 +1,5 @@
 """Tests for None guard on browser_tool LLM response content.
+from __future__ import annotations
 
 browser_tool.py has two call sites that access response.choices[0].message.content
 without checking for None — _extract_relevant_content (line 996) and

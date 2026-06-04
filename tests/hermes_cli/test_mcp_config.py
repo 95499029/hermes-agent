@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for hermes_cli.mcp_config — ``hermes mcp`` subcommands.
 
 These tests mock the MCP server connection layer so they run without

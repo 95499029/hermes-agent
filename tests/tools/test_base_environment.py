@@ -1,4 +1,5 @@
 """Tests for BaseEnvironment unified execution model.
+from __future__ import annotations
 
 Tests _wrap_command(), _extract_cwd_from_output(), _embed_stdin_heredoc(),
 init_session() failure handling, and the CWD marker contract.

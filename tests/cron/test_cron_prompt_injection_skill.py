@@ -1,4 +1,5 @@
 """Regression guard: skill content loaded at cron runtime must be scanned.
+from __future__ import annotations
 
 #3968 attack chain: `_scan_cron_prompt` runs on the user-supplied prompt
 at cron-create/cron-update time but the skill content loaded inside

@@ -1,4 +1,5 @@
 """Tests for tool token estimation and curses_ui status_fn support."""
+from __future__ import annotations
 
 
 import pytest

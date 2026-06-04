@@ -1,4 +1,5 @@
 """Tests for SessionDB.get_anchored_view — anchored window + session bookends.
+from __future__ import annotations
 
 Used by the discovery shape of session_search: an FTS5 match becomes the
 anchor, the call returns goal (bookend_start) + match (window) + resolution

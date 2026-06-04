@@ -1,4 +1,5 @@
 from unittest.mock import patch
+from __future__ import annotations
 
 
 def test_pip_install_detected_when_no_git_dir(tmp_path):

@@ -1,4 +1,5 @@
 """Tests for credential file passthrough and skills directory mounting."""
+from __future__ import annotations
 
 import os
 from pathlib import Path

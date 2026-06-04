@@ -1,4 +1,5 @@
 """Tests for gateway /status behavior and token persistence."""
+from __future__ import annotations
 
 from datetime import datetime
 import time

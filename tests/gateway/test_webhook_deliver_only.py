@@ -1,4 +1,5 @@
 """Tests for the webhook adapter's ``deliver_only`` route mode.
+from __future__ import annotations
 
 ``deliver_only`` lets external services (Supabase webhooks, monitoring
 alerts, background jobs, other agents) push plain-text notifications to

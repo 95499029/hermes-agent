@@ -1,4 +1,5 @@
 """Tests for cmd_update — branch fallback when remote branch doesn't exist."""
+from __future__ import annotations
 
 import subprocess
 from types import SimpleNamespace

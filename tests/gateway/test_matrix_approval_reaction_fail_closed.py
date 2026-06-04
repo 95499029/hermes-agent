@@ -1,4 +1,5 @@
 """Tests for Matrix adapter fail-closed approval reaction auth.
+from __future__ import annotations
 
 When MATRIX_ALLOWED_USERS is not configured, _on_reaction must deny
 approval reactions by default unless GATEWAY_ALLOW_ALL_USERS=true.

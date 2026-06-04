@@ -1,4 +1,5 @@
 """Tests for hermes tools disable/enable/list command (backend)."""
+from __future__ import annotations
 from argparse import Namespace
 from unittest.mock import patch
 

@@ -1,4 +1,5 @@
 """Tests for Google Workspace gws bridge and CLI wrapper."""
+from __future__ import annotations
 
 import importlib.util
 import json

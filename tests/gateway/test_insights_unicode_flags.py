@@ -1,4 +1,5 @@
 """Tests for Unicode dash normalization in /insights command flag parsing.
+from __future__ import annotations
 
 Telegram on iOS auto-converts -- to em/en dashes. The /insights handler
 normalizes these before parsing --days and --source flags.

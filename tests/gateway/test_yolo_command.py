@@ -1,4 +1,5 @@
 """Tests for gateway /yolo session scoping."""
+from __future__ import annotations
 
 import os
 

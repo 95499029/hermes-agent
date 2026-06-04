@@ -1,4 +1,5 @@
 from unittest.mock import Mock, patch
+from __future__ import annotations
 
 
 HOST = "example-host"

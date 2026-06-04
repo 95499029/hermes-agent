@@ -1,4 +1,5 @@
 """Test that HERMES_SESSION_ID is exposed as an env var and ContextVar."""
+from __future__ import annotations
 
 import os
 import sys

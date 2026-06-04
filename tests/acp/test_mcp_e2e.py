@@ -1,4 +1,5 @@
 """End-to-end tests for ACP MCP server registration and tool-result reporting.
+from __future__ import annotations
 
 Exercises the full flow through the ACP server layer:
   new_session(mcpServers) → MCP tools registered → prompt() →

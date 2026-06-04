@@ -1,4 +1,5 @@
 """Tests for the scrolling viewport logic in _curses_prompt_choice (issue #5755).
+from __future__ import annotations
 
 The "More providers" submenu has 13 entries (11 extended + custom + cancel).
 Before the fix, _curses_prompt_choice rendered items starting unconditionally

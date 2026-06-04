@@ -1,4 +1,5 @@
 """Tests for optional-skills/productivity/memento-flashcards/scripts/youtube_quiz.py"""
+from __future__ import annotations
 
 import json
 import sys

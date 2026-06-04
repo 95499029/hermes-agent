@@ -1,4 +1,5 @@
 """Tests for /v1/runs endpoints: start, status, events, and stop.
+from __future__ import annotations
 
 Covers:
 - POST /v1/runs — start a run (202)

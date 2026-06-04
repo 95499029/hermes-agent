@@ -1,4 +1,5 @@
 """Unit tests for AIAgent pre/post-LLM-call guardrails.
+from __future__ import annotations
 
 Covers three static methods on AIAgent (inspired by PR #1321 — @alireza78a):
   - _sanitize_api_messages()    — Phase 1: orphaned tool pair repair

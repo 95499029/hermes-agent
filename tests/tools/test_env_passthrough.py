@@ -1,4 +1,5 @@
 """Tests for tools.env_passthrough — skill and config env var passthrough."""
+from __future__ import annotations
 
 import os
 import pytest

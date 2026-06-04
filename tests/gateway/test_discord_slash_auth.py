@@ -1,4 +1,5 @@
 """Security regression tests: slash commands honor on_message authorization gates.
+from __future__ import annotations
 
 Slash invocations (``_run_simple_slash``, ``_handle_thread_create_slash``)
 historically bypassed every gate ``on_message`` enforces — DISCORD_ALLOWED_USERS,

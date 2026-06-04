@@ -1,4 +1,5 @@
 """Tests for hermes_cli/webhook.py — webhook subscription CLI."""
+from __future__ import annotations
 
 import json
 import os

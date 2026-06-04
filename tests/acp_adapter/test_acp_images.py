@@ -1,4 +1,5 @@
 import base64
+from __future__ import annotations
 
 import pytest
 from acp.schema import (

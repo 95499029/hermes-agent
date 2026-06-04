@@ -1,4 +1,5 @@
 """Tests for Telegram bot mention detection (bug #12545).
+from __future__ import annotations
 
 The old implementation used a naive substring check
 (`f"@{bot_username}" in text.lower()`), which incorrectly matched partial

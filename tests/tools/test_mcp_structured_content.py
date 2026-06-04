@@ -1,4 +1,5 @@
 """Tests for MCP tool structuredContent preservation."""
+from __future__ import annotations
 
 import asyncio
 import json

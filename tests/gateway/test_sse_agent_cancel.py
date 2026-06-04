@@ -1,4 +1,5 @@
 """Tests for SSE client disconnect → agent task cancellation.
+from __future__ import annotations
 
 When a streaming /v1/chat/completions client disconnects mid-stream
 (network drop, browser tab close), the agent is interrupted via

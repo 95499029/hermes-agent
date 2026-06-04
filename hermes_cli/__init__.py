@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Hermes CLI - Unified command-line interface for Hermes Agent.
 
 Provides subcommands for:

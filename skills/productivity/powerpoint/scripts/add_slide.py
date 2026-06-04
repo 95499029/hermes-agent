@@ -1,4 +1,5 @@
 """Add a new slide to an unpacked PPTX directory.
+from __future__ import annotations
 
 Usage: python add_slide.py <unpacked_dir> <source>
 

@@ -1,4 +1,5 @@
 """Regression test for TUI v2 blitz bug: explicit /model --provider switch
+from __future__ import annotations
 silently fell back to the old primary provider on the next turn because the
 fallback chain — seeded from config at agent __init__ — kept entries for the
 provider the user just moved away from.

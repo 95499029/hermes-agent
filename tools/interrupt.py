@@ -1,4 +1,5 @@
 """Per-thread interrupt signaling for all tools.
+from __future__ import annotations
 
 Provides thread-scoped interrupt tracking so that interrupting one agent
 session does not kill tools running in other sessions.  This is critical

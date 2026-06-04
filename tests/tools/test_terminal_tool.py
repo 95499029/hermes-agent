@@ -1,4 +1,5 @@
 """Regression tests for sudo detection and sudo password handling."""
+from __future__ import annotations
 
 import tools.terminal_tool as terminal_tool
 

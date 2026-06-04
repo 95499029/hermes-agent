@@ -1,4 +1,5 @@
 """Tests for the ``transform_llm_output`` plugin hook.
+from __future__ import annotations
 
 The hook fires inside ``AIAgent.run_conversation`` once the tool-calling
 loop has produced a final response. Driving the full agent loop from a

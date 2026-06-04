@@ -1,4 +1,5 @@
 """Tests for agent/skill_bundles.py — YAML-defined skill bundles."""
+from __future__ import annotations
 
 import os
 from pathlib import Path

@@ -1,4 +1,5 @@
 """Schema-shape tests for the built-in memory tool.
+from __future__ import annotations
 
 The memory tool previously used ``allOf: [{if: ..., then: {required: ...}}]``
 at the top level of ``parameters`` to hint per-action required fields.  That

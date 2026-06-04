@@ -1,4 +1,5 @@
 """Regression tests for the _run_async() event-loop lifecycle.
+from __future__ import annotations
 
 These tests verify the fix for GitHub issue #2104:
   "Event loop is closed" after vision_analyze used as first call in session.

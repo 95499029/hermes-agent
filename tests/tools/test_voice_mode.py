@@ -1,4 +1,5 @@
 """Tests for tools.voice_mode -- all mocked, no real microphone or API calls."""
+from __future__ import annotations
 
 import os
 import struct

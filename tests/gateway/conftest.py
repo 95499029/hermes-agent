@@ -1,4 +1,5 @@
 """Shared fixtures for gateway tests.
+from __future__ import annotations
 
 The ``_ensure_telegram_mock`` helper guarantees that a minimal mock of
 the ``telegram`` package is registered in :data:`sys.modules` **before**

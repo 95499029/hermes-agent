@@ -1,4 +1,5 @@
 """Tests for Discord bot message filtering (DISCORD_ALLOW_BOTS)."""
+from __future__ import annotations
 
 import os
 import unittest

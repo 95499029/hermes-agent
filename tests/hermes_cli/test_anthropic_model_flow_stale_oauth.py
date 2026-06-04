@@ -1,4 +1,5 @@
 """Tests for Bug #12905 fix — stale OAuth token detection in hermes model flow.
+from __future__ import annotations
 
 Bug 3: `hermes model` with `provider=anthropic` skips OAuth re-authentication
 when a stale ANTHROPIC_TOKEN exists in ~/.hermes/.env but no valid

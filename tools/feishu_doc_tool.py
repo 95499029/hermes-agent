@@ -1,4 +1,5 @@
 """Feishu Document Tool -- read document content via Feishu/Lark API.
+from __future__ import annotations
 
 Provides ``feishu_doc_read`` for reading document content as plain text.
 Uses the same lazy-import + BaseRequest pattern as feishu_comment.py.

@@ -1,4 +1,5 @@
 """Minimal e2e tests for Discord mention stripping + /command detection.
+from __future__ import annotations
 
 Covers the fix for slash commands not being recognized when sent via
 @mention in a channel, especially after auto-threading.

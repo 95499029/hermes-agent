@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Skill Manager Tool -- Agent-Managed Skill Creation & Editing
 

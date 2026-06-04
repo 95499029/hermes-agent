@@ -1,4 +1,5 @@
 """Shared path validation helpers for tool implementations.
+from __future__ import annotations
 
 Extracts the ``resolve() + relative_to()`` and ``..`` traversal check
 patterns previously duplicated across skill_manager_tool, skills_tool,

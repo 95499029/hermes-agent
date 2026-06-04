@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Gateway configuration management.
 
 Handles loading and validating configuration for:

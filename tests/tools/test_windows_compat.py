@@ -1,4 +1,5 @@
 """Tests for Windows compatibility of process management code.
+from __future__ import annotations
 
 Verifies that os.setsid and os.killpg are never called unconditionally,
 and that each module uses a platform guard before invoking POSIX-only functions.

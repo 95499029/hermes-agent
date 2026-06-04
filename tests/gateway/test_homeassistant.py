@@ -1,4 +1,5 @@
 """Tests for the Home Assistant gateway adapter.
+from __future__ import annotations
 
 Tests real logic: state change formatting, event filtering pipeline,
 cooldown behavior, config integration, and adapter initialization.

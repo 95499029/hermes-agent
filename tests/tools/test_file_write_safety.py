@@ -1,4 +1,5 @@
 """Tests for file write safety and HERMES_WRITE_SAFE_ROOT sandboxing.
+from __future__ import annotations
 
 Based on PR #1085 by ismoilh (salvaged).
 """

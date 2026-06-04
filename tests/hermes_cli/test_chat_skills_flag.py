@@ -1,4 +1,5 @@
 import sys
+from __future__ import annotations
 
 
 def test_top_level_skills_flag_defaults_to_chat(monkeypatch):

@@ -1,4 +1,5 @@
 """Test interrupt propagation from parent to child agents.
+from __future__ import annotations
 
 Reproduces the CLI scenario: user sends a message while delegate_task is
 running, main thread calls parent.interrupt(), child should stop.

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for cross-platform audio/voice media routing.
 
 These tests pin the expected delivery path for audio media files across

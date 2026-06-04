@@ -1,4 +1,5 @@
 """Tests for hermes_cli.auth._default_verify platform-aware fallback.
+from __future__ import annotations
 
 On macOS with Homebrew Python, the system OpenSSL cannot locate the
 system trust store, so we explicitly load certifi's bundle. On other

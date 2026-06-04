@@ -1,4 +1,5 @@
 """Tests for the allowed_{channels,chats,rooms} whitelist extension
+from __future__ import annotations
 added alongside PR #7401 (Slack).
 
 Covers: Telegram, Matrix, Mattermost, DingTalk.

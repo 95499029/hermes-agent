@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Unified self-relaunch for Hermes CLI.
 
 Preserves critical flags (--tui, --dev, --profile, --model, etc.) across

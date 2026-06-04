@@ -1,4 +1,5 @@
 """Regression harness for the dashboard auth gate.
+from __future__ import annotations
 
 Phase 0 — establish a baseline pin on the current (pre-OAuth) behavior so
 later phases can prove they didn't break loopback mode.

@@ -1,4 +1,5 @@
 """Tests for FileSyncManager — mtime tracking, deletion detection, transactional rollback."""
+from __future__ import annotations
 
 import os
 import time

@@ -1,4 +1,5 @@
 """Tests for MiniMax auxiliary client URL normalization.
+from __future__ import annotations
 
 MiniMax and MiniMax-CN set inference_base_url to the /anthropic path.
 The auxiliary client uses the OpenAI SDK, which needs /v1 instead.

@@ -1,4 +1,5 @@
 """Tests for gateway/sticker_cache.py — sticker description cache."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

@@ -1,4 +1,5 @@
 """Tests for BasePlatformAdapter._keep_typing timeout-per-tick behavior.
+from __future__ import annotations
 
 When the gateway is waiting on a long upstream provider response (e.g.
 Anthropic/opus-4.7 first-token latency climbing during an upstream blip),

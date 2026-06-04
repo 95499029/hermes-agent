@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Email platform adapter for the Hermes gateway.
 
 Allows users to interact with Hermes by sending emails.

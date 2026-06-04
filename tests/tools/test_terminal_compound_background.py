@@ -1,4 +1,5 @@
 """Regression tests for _rewrite_compound_background.
+from __future__ import annotations
 
 Context: bash parses ``A && B &`` as ``(A && B) &`` — it forks a subshell
 for the compound and backgrounds the subshell. Inside the subshell, B

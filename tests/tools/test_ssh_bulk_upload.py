@@ -1,4 +1,5 @@
 """Tests for SSH bulk upload via tar pipe."""
+from __future__ import annotations
 
 import os
 import subprocess

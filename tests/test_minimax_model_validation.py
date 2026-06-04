@@ -1,4 +1,5 @@
 """Tests for MiniMax model validation via static catalog (issues #12611, #12460, #12399, #12547).
+from __future__ import annotations
 
 MiniMax and MiniMax-CN providers don't expose /v1/models, so validate_requested_model()
 must validate against the static catalog instead of probing the live API.

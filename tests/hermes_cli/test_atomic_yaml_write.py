@@ -1,4 +1,5 @@
 """Tests for utils.atomic_yaml_write — crash-safe YAML file writes."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

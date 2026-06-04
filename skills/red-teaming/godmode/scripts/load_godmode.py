@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Loader for G0DM0D3 scripts. Handles the exec-scoping issues.
 
 Usage in execute_code:

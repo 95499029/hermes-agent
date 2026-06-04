@@ -1,4 +1,5 @@
 """Tests for MCP stability fixes — event loop handler, PID tracking, shutdown robustness."""
+from __future__ import annotations
 
 import asyncio
 import signal

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Generate a meme image by overlaying text on a template.
 
 Usage:

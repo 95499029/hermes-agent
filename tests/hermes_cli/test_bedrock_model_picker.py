@@ -1,4 +1,5 @@
 """Tests for AWS Bedrock integration in the model picker and provider catalog.
+from __future__ import annotations
 
 Covers the three paths changed by fix/bedrock-provider-model-ids-live-discovery:
 

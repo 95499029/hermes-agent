@@ -1,4 +1,5 @@
 """Tests for terminal.shell_init_files / terminal.auto_source_bashrc.
+from __future__ import annotations
 
 A bash ``-l -c`` invocation does NOT source ``~/.bashrc``, so tools that
 register themselves there (nvm, asdf, pyenv) stay invisible to the

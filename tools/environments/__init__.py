@@ -1,4 +1,5 @@
 """Hermes execution environment backends.
+from __future__ import annotations
 
 Each backend provides the same interface (BaseEnvironment ABC) for running
 shell commands in a specific execution context: local, Docker, SSH,

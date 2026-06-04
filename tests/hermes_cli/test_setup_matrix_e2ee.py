@@ -1,4 +1,5 @@
 """Test that setup.py has shutil available for Matrix E2EE auto-install."""
+from __future__ import annotations
 import ast
 
 

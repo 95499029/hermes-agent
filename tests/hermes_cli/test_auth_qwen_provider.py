@@ -1,4 +1,5 @@
 """Tests for Qwen OAuth provider authentication (hermes_cli/auth.py).
+from __future__ import annotations
 
 Covers: _qwen_cli_auth_path, _read_qwen_cli_tokens, _save_qwen_cli_tokens,
 _qwen_access_token_is_expiring, _refresh_qwen_cli_tokens,

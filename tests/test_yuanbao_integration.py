@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 test_yuanbao_integration.py - Yuanbao 模块集成测试
 
 验证各模块能正确组装和交互：

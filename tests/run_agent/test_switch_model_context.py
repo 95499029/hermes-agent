@@ -1,4 +1,5 @@
 """Tests that switch_model does not inherit stale context_length overrides."""
+from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
 

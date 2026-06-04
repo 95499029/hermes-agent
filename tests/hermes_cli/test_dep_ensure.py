@@ -1,4 +1,5 @@
 from unittest.mock import patch
+from __future__ import annotations
 
 
 def test_ensure_dependency_skips_when_present():

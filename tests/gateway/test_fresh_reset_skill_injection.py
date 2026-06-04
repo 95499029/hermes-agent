@@ -1,4 +1,5 @@
 """Regression tests for topic/channel skill auto-injection after /new or /reset.
+from __future__ import annotations
 
 Covers the fix for issue #6508.
 

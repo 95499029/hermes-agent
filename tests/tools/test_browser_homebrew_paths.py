@@ -1,4 +1,5 @@
 """Tests for macOS Homebrew PATH discovery in browser_tool.py."""
+from __future__ import annotations
 
 import json
 import os

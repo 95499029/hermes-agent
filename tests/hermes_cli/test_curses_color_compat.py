@@ -1,4 +1,5 @@
 """Tests for curses color compatibility on low-color terminals (Docker).
+from __future__ import annotations
 
 Regression test for #13688: ``hermes plugins`` crashes with
 ``curses.error: init_pair() : color number is greater than COLORS-1``

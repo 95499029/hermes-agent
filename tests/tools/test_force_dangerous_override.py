@@ -1,4 +1,5 @@
 """Regression tests for skills guard policy precedence.
+from __future__ import annotations
 
 Official/builtin skills should follow the INSTALL_POLICY table even when their
 scan verdict is dangerous, and --force should override blocked verdicts for

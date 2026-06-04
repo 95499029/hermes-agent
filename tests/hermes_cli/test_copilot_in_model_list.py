@@ -1,4 +1,5 @@
 """Tests for GitHub Copilot entries shown in the /model picker."""
+from __future__ import annotations
 
 import os
 from unittest.mock import patch

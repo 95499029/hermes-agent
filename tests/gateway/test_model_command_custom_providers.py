@@ -1,4 +1,5 @@
 """Regression tests for gateway /model support of config.yaml custom_providers."""
+from __future__ import annotations
 
 import yaml
 import pytest

@@ -1,4 +1,5 @@
 """Tests for toolset_distributions.py — distribution CRUD, sampling, validation."""
+from __future__ import annotations
 
 import pytest
 

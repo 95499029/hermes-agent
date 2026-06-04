@@ -1,4 +1,5 @@
 """Tests for the Mistral (Voxtral) TTS provider in tools/tts_tool.py."""
+from __future__ import annotations
 
 import base64
 from unittest.mock import MagicMock, patch

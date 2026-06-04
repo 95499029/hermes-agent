@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for MEDIA tag extraction from tool results.
 
 Verifies that MEDIA tags (e.g., from TTS tool) are only extracted from

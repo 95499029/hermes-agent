@@ -1,4 +1,5 @@
 """Tests for _web_ui_build_needed — staleness check for the web UI dist.
+from __future__ import annotations
 
 Critical invariant: the Vite build outputs to hermes_cli/web_dist/
 (vite.config.ts: outDir: "../hermes_cli/web_dist"), NOT web/dist/.

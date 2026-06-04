@@ -1,4 +1,5 @@
 """Shared OpenRouter API client for Hermes tools.
+from __future__ import annotations
 
 Provides a single lazy-initialized AsyncOpenAI client that all tool modules
 can share.  Routes through the centralized provider router in

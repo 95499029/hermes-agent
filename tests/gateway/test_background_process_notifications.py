@@ -1,4 +1,5 @@
 """Tests for configurable background process notification modes.
+from __future__ import annotations
 
 The gateway process watcher pushes status updates to users' chats when
 background terminal commands run.  ``display.background_process_notifications``

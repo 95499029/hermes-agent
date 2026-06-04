@@ -1,4 +1,5 @@
 import json
+from __future__ import annotations
 from types import SimpleNamespace
 
 import tools.terminal_tool as terminal_tool_module

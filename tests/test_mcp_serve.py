@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for mcp_serve — Hermes MCP server.
 
 Three layers of tests:

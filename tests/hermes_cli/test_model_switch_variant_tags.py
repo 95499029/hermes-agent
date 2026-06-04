@@ -1,4 +1,5 @@
 """Tests for OpenRouter variant tag preservation in model switching.
+from __future__ import annotations
 
 Regression test for GitHub PR #6088 / Discord report: OpenRouter model IDs
 with variant suffixes like ``:free``, ``:extended``, ``:fast`` were being

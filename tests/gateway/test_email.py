@@ -1,4 +1,5 @@
 """Tests for the Email gateway platform adapter.
+from __future__ import annotations
 
 Covers:
 1. Platform enum exists with correct value

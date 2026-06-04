@@ -1,4 +1,5 @@
 """Tests for the Feishu gateway integration."""
+from __future__ import annotations
 
 import asyncio
 import json

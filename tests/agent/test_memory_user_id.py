@@ -1,4 +1,5 @@
 """Tests for per-user memory scoping via user_id threading.
+from __future__ import annotations
 
 Verifies that gateway user_id flows from AIAgent -> MemoryManager -> plugins,
 so each gateway user gets their own memory bucket instead of sharing a static one.

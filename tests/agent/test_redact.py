@@ -1,4 +1,5 @@
 """Tests for agent.redact -- secret masking in logs and output."""
+from __future__ import annotations
 
 import logging
 

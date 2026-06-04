@@ -1,4 +1,5 @@
 """TelegramAdapter send-path health gating after reconnect storms.
+from __future__ import annotations
 
 After sustained Bad Gateway / TimedOut reconnect cycles, the PTB httpx client
 can enter a wedged state where ``bot.send_message()`` returns a valid Message

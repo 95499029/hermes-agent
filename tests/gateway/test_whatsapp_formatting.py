@@ -1,4 +1,5 @@
 """Tests for WhatsApp message formatting and chunking.
+from __future__ import annotations
 
 Covers:
 - format_message(): markdown → WhatsApp syntax conversion

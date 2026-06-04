@@ -1,4 +1,5 @@
 """Regression tests for #13636 — CloudCode / Gemini CLI rate-limit fallback.
+from __future__ import annotations
 
 _pool_may_recover_from_rate_limit() is the hinge between credential-pool
 rotation and fallback-provider activation.  For CloudCode (Gemini CLI /

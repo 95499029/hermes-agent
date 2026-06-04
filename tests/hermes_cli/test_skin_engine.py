@@ -1,4 +1,5 @@
 """Tests for hermes_cli.skin_engine — the data-driven skin/theme system."""
+from __future__ import annotations
 
 import pytest
 

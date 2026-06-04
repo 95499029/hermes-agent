@@ -1,4 +1,5 @@
 import sys
+from __future__ import annotations
 from types import ModuleType, SimpleNamespace
 
 import pytest

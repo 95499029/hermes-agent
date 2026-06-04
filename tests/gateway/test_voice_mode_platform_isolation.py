@@ -1,4 +1,5 @@
 """Tests for voice mode platform isolation (bug #12542).
+from __future__ import annotations
 
 Voice mode state stored as {chat_id: mode} without a platform namespace
 caused collisions: Telegram chat '123' and Slack chat '123' shared the

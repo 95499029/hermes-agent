@@ -1,4 +1,5 @@
 """Tests for tool argument type coercion.
+from __future__ import annotations
 
 When LLMs return tool call arguments, they frequently put numbers as strings
 ("42" instead of 42) and booleans as strings ("true" instead of true).

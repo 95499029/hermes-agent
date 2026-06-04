@@ -1,4 +1,5 @@
 """Tests for agent.auxiliary_client resolution chain, provider overrides, and model overrides."""
+from __future__ import annotations
 
 import base64
 import json

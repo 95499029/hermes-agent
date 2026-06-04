@@ -1,4 +1,5 @@
 """Tests for hybrid browser-backend routing (LAN/localhost auto-local).
+from __future__ import annotations
 
 When a cloud browser provider (Browserbase / Browser-Use / Firecrawl) is
 configured globally, ``browser.auto_local_for_private_urls`` (default True)

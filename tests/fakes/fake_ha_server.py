@@ -1,4 +1,5 @@
 """Fake Home Assistant server for integration testing.
+from __future__ import annotations
 
 Provides a real HTTP + WebSocket server (via aiohttp.web) that mimics the
 Home Assistant API surface used by hermes-agent:

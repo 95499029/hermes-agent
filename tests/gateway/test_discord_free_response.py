@@ -1,4 +1,5 @@
 """Tests for Discord free-response defaults and mention gating."""
+from __future__ import annotations
 
 from datetime import datetime, timezone
 from types import SimpleNamespace

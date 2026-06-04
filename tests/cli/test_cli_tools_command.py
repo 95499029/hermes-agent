@@ -1,4 +1,5 @@
 """Tests for /tools slash command handler in the interactive CLI."""
+from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
 

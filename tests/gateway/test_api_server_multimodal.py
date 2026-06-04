@@ -1,4 +1,5 @@
 """End-to-end tests for inline image inputs on /v1/chat/completions and /v1/responses.
+from __future__ import annotations
 
 Covers the multimodal normalization path added to the API server.  Unlike the
 adapter-level tests that patch ``_run_agent``, these tests patch

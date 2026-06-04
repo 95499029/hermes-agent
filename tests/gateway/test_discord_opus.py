@@ -1,4 +1,5 @@
 """Tests for Discord Opus codec loading — must use ctypes.util.find_library."""
+from __future__ import annotations
 
 import inspect
 import types

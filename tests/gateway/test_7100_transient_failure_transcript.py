@@ -1,4 +1,5 @@
 """Tests for #7100 — transient failures (429/timeout) must not drop the
+from __future__ import annotations
 user message from the transcript.
 
 The #1630 fix introduced a blanket skip of transcript writes on any

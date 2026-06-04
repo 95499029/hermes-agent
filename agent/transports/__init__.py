@@ -1,4 +1,5 @@
 """Transport layer types and registry for provider response normalization.
+from __future__ import annotations
 
 Usage:
     from agent.transports import get_transport

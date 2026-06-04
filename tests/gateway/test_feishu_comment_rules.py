@@ -1,4 +1,5 @@
 """Tests for feishu_comment_rules — 3-tier access control rule engine."""
+from __future__ import annotations
 
 import json
 import os

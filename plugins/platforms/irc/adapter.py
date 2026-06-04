@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 IRC Platform Adapter for Hermes Agent.
 
 A plugin-based gateway adapter that connects to an IRC server and relays

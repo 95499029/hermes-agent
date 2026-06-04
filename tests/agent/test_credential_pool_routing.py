@@ -1,4 +1,5 @@
 """Tests for credential pool preservation through turn config and 429 recovery.
+from __future__ import annotations
 
 Covers:
 1. CLI _resolve_turn_agent_config passes credential_pool to runtime dict

@@ -1,4 +1,5 @@
 import json
+from __future__ import annotations
 from unittest.mock import patch
 
 from hermes_cli.codex_models import DEFAULT_CODEX_MODELS, get_codex_model_ids

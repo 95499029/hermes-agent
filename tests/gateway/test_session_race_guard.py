@@ -1,4 +1,5 @@
 """Tests for the session race guard that prevents concurrent agent runs.
+from __future__ import annotations
 
 The sentinel-based guard ensures that when _handle_message passes the
 "is an agent already running?" check and proceeds to the slow async

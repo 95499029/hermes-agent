@@ -1,4 +1,5 @@
 """Regression tests for #17140.
+from __future__ import annotations
 
 TTS provider tools must resolve API keys from ``~/.hermes/.env`` (via
 ``hermes_cli.config.get_env_value``) and not only from ``os.environ`` —

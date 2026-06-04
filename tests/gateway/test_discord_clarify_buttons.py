@@ -1,4 +1,5 @@
 """Tests for Discord clarify button rendering and resolution.
+from __future__ import annotations
 
 Mirrors test_telegram_clarify_buttons.py for the Discord ``send_clarify``
 override and the ``ClarifyChoiceView`` callbacks. Discord uses ``discord.ui.View``

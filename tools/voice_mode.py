@@ -1,4 +1,5 @@
 """Voice Mode -- Push-to-talk audio recording and playback for the CLI.
+from __future__ import annotations
 
 Provides audio capture via sounddevice, WAV encoding via stdlib wave,
 STT dispatch via tools.transcription_tools, and TTS playback via

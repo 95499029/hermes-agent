@@ -1,4 +1,5 @@
 """Tests for transcript history offset fix.
+from __future__ import annotations
 
 Regression tests for a bug where the gateway transcript lost 1 message
 per turn from turn 2 onwards.  The raw transcript history includes

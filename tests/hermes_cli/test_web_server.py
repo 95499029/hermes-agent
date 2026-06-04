@@ -1,4 +1,5 @@
 """Tests for hermes_cli.web_server and related config utilities."""
+from __future__ import annotations
 
 import os
 import json

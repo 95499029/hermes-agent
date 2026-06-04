@@ -1,4 +1,5 @@
 """Integration tests for the AWS Bedrock provider wiring.
+from __future__ import annotations
 
 Verifies that the Bedrock provider is correctly registered in the
 provider registry, model catalog, and runtime resolution pipeline.

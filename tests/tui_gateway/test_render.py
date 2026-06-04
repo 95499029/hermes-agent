@@ -1,4 +1,5 @@
 """Tests for tui_gateway.render — rendering bridge fallback behavior."""
+from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
 

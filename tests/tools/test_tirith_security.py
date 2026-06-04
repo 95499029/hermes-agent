@@ -1,4 +1,5 @@
 """Tests for the tirith security scanning subprocess wrapper."""
+from __future__ import annotations
 
 import io
 import json

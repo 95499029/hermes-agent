@@ -1,4 +1,5 @@
 """Tests for gateway/platforms/base.py — MessageEvent, media extraction, message truncation."""
+from __future__ import annotations
 
 import os
 import time

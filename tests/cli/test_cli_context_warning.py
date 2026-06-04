@@ -1,4 +1,5 @@
 """Tests for the low context length warning in the CLI banner."""
+from __future__ import annotations
 
 import os
 from types import SimpleNamespace

@@ -1,4 +1,5 @@
 from unittest.mock import MagicMock, patch
+from __future__ import annotations
 from hermes_cli.plugins import VALID_HOOKS, PluginManager
 from cli import HermesCLI
 

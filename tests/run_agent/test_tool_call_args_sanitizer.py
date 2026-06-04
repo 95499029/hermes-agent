@@ -1,4 +1,5 @@
 """Tests for AIAgent._sanitize_tool_call_arguments."""
+from __future__ import annotations
 
 import copy
 import logging

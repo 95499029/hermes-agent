@@ -1,4 +1,5 @@
 """Tests for the planned-stop marker watcher thread (gateway/run.py).
+from __future__ import annotations
 
 The watcher is the Windows-fallback path for the v0.13.0 session-resume
 feature — on Windows ``asyncio.add_signal_handler`` raises

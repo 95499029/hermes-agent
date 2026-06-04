@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 maps_client.py - CLI tool for maps, geocoding, routing, POI search, and more.
 Uses only Python stdlib. Data from OpenStreetMap/Nominatim, Overpass API, OSRM,

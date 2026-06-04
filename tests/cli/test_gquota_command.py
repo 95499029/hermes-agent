@@ -1,4 +1,5 @@
 from unittest.mock import MagicMock, patch
+from __future__ import annotations
 
 
 def test_gquota_uses_chat_console_when_tui_is_live():

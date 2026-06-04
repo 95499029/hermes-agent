@@ -1,4 +1,5 @@
 """Tests for OpenRouter response caching header injection."""
+from __future__ import annotations
 
 from types import SimpleNamespace
 from unittest.mock import patch

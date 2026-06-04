@@ -1,4 +1,5 @@
 """Tests for DM thread session isolation.
+from __future__ import annotations
 
 DM thread sessions must start empty — no parent transcript seeding.
 Thread context is handled by platform adapters (e.g. Slack's

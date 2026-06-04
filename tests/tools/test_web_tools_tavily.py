@@ -1,4 +1,5 @@
 """Tests for Tavily web backend integration.
+from __future__ import annotations
 
 Coverage:
   _tavily_request() — API key handling, endpoint construction, error propagation.

@@ -1,4 +1,5 @@
 """Tests for the /voice command and auto voice reply in the gateway."""
+from __future__ import annotations
 
 import importlib.util
 import json

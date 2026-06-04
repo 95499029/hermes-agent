@@ -1,4 +1,5 @@
 """Tests for the MCP OAuth manager (tools/mcp_oauth_manager.py).
+from __future__ import annotations
 
 The manager consolidates the eight scattered MCP-OAuth call sites into a
 single object with disk-mtime watch, dedup'd 401 handling, and a provider

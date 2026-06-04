@@ -1,4 +1,5 @@
 """Tests for Telegram message reactions tied to processing lifecycle hooks."""
+from __future__ import annotations
 
 from types import SimpleNamespace
 from unittest.mock import AsyncMock

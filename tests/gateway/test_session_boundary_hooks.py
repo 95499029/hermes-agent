@@ -1,4 +1,5 @@
 """Tests that on_session_finalize and on_session_reset plugin hooks fire in the gateway."""
+from __future__ import annotations
 from datetime import datetime
 from types import SimpleNamespace
 from unittest.mock import AsyncMock, MagicMock, patch

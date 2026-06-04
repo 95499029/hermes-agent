@@ -1,4 +1,5 @@
 """Regression tests for loading feedback on slow slash commands."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

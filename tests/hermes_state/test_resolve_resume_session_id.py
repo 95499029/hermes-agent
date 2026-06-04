@@ -1,4 +1,5 @@
 """Regression guard for #15000: --resume <id> after compression loses messages.
+from __future__ import annotations
 
 Context compression ends the current session and forks a new child session
 (linked by ``parent_session_id``). The SQLite flush cursor is reset, so

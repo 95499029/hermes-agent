@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Base platform adapter interface.
 
 All platform adapters (Telegram, Discord, WhatsApp, Weixin, and more) inherit from this

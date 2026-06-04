@@ -1,4 +1,5 @@
 """Regression tests for cron prompt injection scanner bypass.
+from __future__ import annotations
 
 The original regex `ignore\\s+(previous|all|above|prior)\\s+instructions`
 only allowed ONE word between "ignore" and "instructions", so multi-word

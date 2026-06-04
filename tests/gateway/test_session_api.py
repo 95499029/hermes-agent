@@ -1,4 +1,5 @@
 """Focused tests for API server session-control endpoints."""
+from __future__ import annotations
 
 from unittest.mock import AsyncMock, patch
 

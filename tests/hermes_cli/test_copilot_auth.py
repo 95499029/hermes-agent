@@ -1,4 +1,5 @@
 """Tests for hermes_cli.copilot_auth — Copilot token validation and resolution."""
+from __future__ import annotations
 
 import pytest
 from unittest.mock import patch

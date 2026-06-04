@@ -1,4 +1,5 @@
 """Tests for the activity-heartbeat behavior of the blocking gateway approval wait.
+from __future__ import annotations
 
 Regression test for false gateway inactivity timeouts firing while the agent
 is legitimately blocked waiting for a user to respond to a dangerous-command

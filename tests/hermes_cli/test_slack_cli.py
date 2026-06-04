@@ -1,4 +1,5 @@
 """Tests for Slack CLI helpers."""
+from __future__ import annotations
 
 from hermes_cli.slack_cli import _build_full_manifest
 

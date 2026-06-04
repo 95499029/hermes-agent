@@ -1,4 +1,5 @@
 """Tests for the memory provider interface, manager, and builtin provider."""
+from __future__ import annotations
 
 import json
 import pytest

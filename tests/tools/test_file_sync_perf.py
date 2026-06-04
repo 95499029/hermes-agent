@@ -1,4 +1,5 @@
 """Reproducible perf benchmark for file sync overhead.
+from __future__ import annotations
 
 Measures actual env.execute() wall-clock time, no LLM in the loop.
 Run with: uv run pytest tests/tools/test_file_sync_perf.py -v -o "addopts=" -s

@@ -1,4 +1,5 @@
 """Regression tests for Telegram channel_post updates.
+from __future__ import annotations
 
 Telegram channel broadcasts are delivered as ``Update.channel_post`` rather than
 ``Update.message``.  The adapter should use ``effective_message`` so channel

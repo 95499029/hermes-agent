@@ -1,4 +1,5 @@
 """Guardrail: _create_openai_client must not mutate its input kwargs.
+from __future__ import annotations
 
 #10933 injected an httpx.Client directly into the caller's ``client_kwargs``.
 When the dict was ``self._client_kwargs``, the shared transport was torn down

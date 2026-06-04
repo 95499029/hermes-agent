@@ -1,4 +1,5 @@
 """Tests for subprocess env sanitization in LocalEnvironment.
+from __future__ import annotations
 
 Verifies that Hermes-managed provider, tool, and gateway env vars are
 stripped from subprocess environments so external CLIs are not silently

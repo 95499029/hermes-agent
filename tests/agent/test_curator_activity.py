@@ -1,4 +1,5 @@
 """Regression tests for curator skill activity timestamps."""
+from __future__ import annotations
 
 import importlib
 from datetime import datetime, timedelta, timezone

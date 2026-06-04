@@ -1,4 +1,5 @@
 """Tests for tools.skills_ast_audit — opt-in AST diagnostic scanner."""
+from __future__ import annotations
 
 import sys
 

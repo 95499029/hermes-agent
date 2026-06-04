@@ -1,4 +1,5 @@
 from types import SimpleNamespace
+from __future__ import annotations
 
 from agent.usage_pricing import (
     CanonicalUsage,

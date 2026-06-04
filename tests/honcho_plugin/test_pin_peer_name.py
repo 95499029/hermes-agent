@@ -1,4 +1,5 @@
 """Tests for the ``pinPeerName`` / ``pinUserPeer`` config flag.
+from __future__ import annotations
 
 Under a gateway (Telegram, Discord, Slack, ...) Hermes passes the
 platform-native user ID as ``runtime_user_peer_name`` into

@@ -1,4 +1,5 @@
 """Copilot / GitHub Models provider profile.
+from __future__ import annotations
 
 Copilot uses per-model api_mode routing:
   - GPT-5+ / Codex models → codex_responses

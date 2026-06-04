@@ -1,4 +1,5 @@
 """Regression test for install.sh root-mode uv Python install path.
+from __future__ import annotations
 
 When installing as root with the FHS layout (INSTALL_DIR=/usr/local/lib/...),
 ``uv python install`` must place the managed Python under a world-readable

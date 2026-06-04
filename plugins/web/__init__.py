@@ -1,4 +1,5 @@
 # Bundled web search providers — plugins/web/.
+from __future__ import annotations
 #
 # Each subdirectory follows the image_gen plugin layout:
 #   plugins/web/<name>/{plugin.yaml, __init__.py, provider.py}

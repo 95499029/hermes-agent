@@ -1,4 +1,5 @@
 """Tests for Bug #12905 fixes in agent/anthropic_adapter.py — macOS Keychain support."""
+from __future__ import annotations
 
 import json
 from unittest.mock import patch, MagicMock

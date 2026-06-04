@@ -1,4 +1,5 @@
 """Tests for hermes_cli/skills_config.py and skills_tool disabled filtering."""
+from __future__ import annotations
 from unittest.mock import patch
 
 

@@ -1,4 +1,5 @@
 """Tests that plugin context engines get update_model() called during init.
+from __future__ import annotations
 
 Regression test for #9071 — plugin engines were never initialized with
 context_length, causing the CLI status bar to show 'ctx --'.

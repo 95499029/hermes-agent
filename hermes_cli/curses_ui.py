@@ -1,4 +1,5 @@
 """Shared curses-based UI components for Hermes CLI.
+from __future__ import annotations
 
 Used by `hermes tools` and `hermes skills` for interactive checklists.
 Provides a curses multi-select with keyboard navigation, plus a

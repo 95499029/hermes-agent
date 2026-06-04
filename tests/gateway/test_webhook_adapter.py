@@ -1,4 +1,5 @@
 """Unit tests for the generic webhook platform adapter.
+from __future__ import annotations
 
 Covers:
 - HMAC signature validation (GitHub, GitLab, generic)

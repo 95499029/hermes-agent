@@ -1,4 +1,5 @@
 """Tests for agent/context_compressor.py — compression logic, thresholds, truncation fallback."""
+from __future__ import annotations
 
 import pytest
 from unittest.mock import patch, MagicMock

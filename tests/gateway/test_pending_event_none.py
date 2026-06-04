@@ -1,4 +1,5 @@
 """Tests for pending follow-up extraction in recursive _run_agent calls.
+from __future__ import annotations
 
 When pending_event is None (Path B: pending comes from interrupt_message),
 accessing pending_event.channel_prompt previously raised AttributeError.

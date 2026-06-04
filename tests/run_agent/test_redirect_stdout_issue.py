@@ -1,4 +1,5 @@
 """Verify that redirect_stdout in _run_single_child is process-wide.
+from __future__ import annotations
 
 This demonstrates that contextlib.redirect_stdout changes sys.stdout
 for ALL threads, not just the current one. This means during subagent

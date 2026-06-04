@@ -1,4 +1,5 @@
 """Tests for MiniMax provider hardening — context lengths, thinking, catalog, beta headers, transport."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

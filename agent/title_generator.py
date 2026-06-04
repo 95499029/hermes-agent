@@ -1,4 +1,5 @@
 """Auto-generate short session titles from the first user/assistant exchange.
+from __future__ import annotations
 
 Runs asynchronously after the first response is delivered so it never
 adds latency to the user-facing reply.

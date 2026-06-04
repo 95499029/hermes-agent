@@ -1,4 +1,5 @@
 """Tests for the ContextEngine ABC and plugin slot."""
+from __future__ import annotations
 
 import json
 import pytest

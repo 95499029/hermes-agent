@@ -1,4 +1,5 @@
 """Static dashboard tests for the Profiles navigation copy."""
+from __future__ import annotations
 from pathlib import Path
 
 

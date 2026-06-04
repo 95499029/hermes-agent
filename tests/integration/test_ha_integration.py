@@ -1,4 +1,5 @@
 """Integration tests for Home Assistant (tool + gateway).
+from __future__ import annotations
 
 Spins up a real in-process fake HA server (HTTP + WebSocket) and exercises
 the full adapter and tool handler paths over real TCP connections.

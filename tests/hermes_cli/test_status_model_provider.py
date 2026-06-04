@@ -1,4 +1,5 @@
 """Tests for hermes_cli.status model/provider display."""
+from __future__ import annotations
 
 from types import SimpleNamespace
 

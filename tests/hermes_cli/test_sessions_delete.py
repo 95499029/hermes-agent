@@ -1,4 +1,5 @@
 import sys
+from __future__ import annotations
 
 
 def test_sessions_delete_accepts_unique_id_prefix(monkeypatch, capsys):

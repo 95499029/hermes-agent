@@ -1,4 +1,5 @@
 """Tests for AIAgent._summarize_background_review_actions.
+from __future__ import annotations
 
 Regression coverage for issue #14944: the background memory/skill review used
 to re-surface tool results that were already present in the conversation

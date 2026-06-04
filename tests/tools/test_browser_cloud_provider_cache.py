@@ -1,4 +1,5 @@
 """Tests for ``_get_cloud_provider()`` caching policy.
+from __future__ import annotations
 
 Regression coverage for issue #22324: a transient ``None`` from the resolver
 must not be cached for the lifetime of the process. Cache only when:

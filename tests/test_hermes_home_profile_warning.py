@@ -1,4 +1,5 @@
 """Tests for get_hermes_home() profile-mode fallback warning.
+from __future__ import annotations
 
 Regression test for https://github.com/NousResearch/hermes-agent/issues/18594.
 

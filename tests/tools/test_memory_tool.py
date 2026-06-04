@@ -1,4 +1,5 @@
 """Tests for tools/memory_tool.py — MemoryStore, security scanning, and tool dispatcher."""
+from __future__ import annotations
 
 import json
 import pytest

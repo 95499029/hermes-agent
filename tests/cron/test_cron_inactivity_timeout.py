@@ -1,4 +1,5 @@
 """Tests for cron job inactivity-based timeout.
+from __future__ import annotations
 
 Tests cover:
 - Active agent runs indefinitely (no inactivity timeout)

@@ -1,4 +1,5 @@
 """Regression tests: slash commands must bypass the base adapter's active-session guard.
+from __future__ import annotations
 
 When an agent is running, the base adapter's Level 1 guard in
 handle_message() intercepts all incoming messages and queues them as

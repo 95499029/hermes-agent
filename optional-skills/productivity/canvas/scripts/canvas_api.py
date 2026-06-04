@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Canvas LMS API CLI for Hermes Agent.
 
 A thin CLI wrapper around the Canvas REST API.

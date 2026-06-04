@@ -1,4 +1,5 @@
 """Tests for the /fast CLI command and service-tier config handling."""
+from __future__ import annotations
 
 import unittest
 from types import SimpleNamespace

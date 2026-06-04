@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Cron job scheduling system for Hermes Agent.
 
 This module provides scheduled task execution, allowing the agent to:

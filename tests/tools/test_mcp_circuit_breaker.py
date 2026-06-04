@@ -1,4 +1,5 @@
 """Tests for MCP tool-handler circuit-breaker recovery.
+from __future__ import annotations
 
 The circuit breaker in ``tools/mcp_tool.py`` is intended to short-circuit
 calls to an MCP server that has failed ``_CIRCUIT_BREAKER_THRESHOLD``

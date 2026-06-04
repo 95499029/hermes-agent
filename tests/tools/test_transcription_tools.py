@@ -1,4 +1,5 @@
 """Tests for tools.transcription_tools — three-provider STT pipeline.
+from __future__ import annotations
 
 Covers the full provider matrix (local, groq, openai), fallback chains,
 model auto-correction, config loading, validation edge cases, and

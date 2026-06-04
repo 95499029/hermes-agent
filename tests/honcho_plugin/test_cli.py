@@ -1,4 +1,5 @@
 """Tests for plugins/memory/honcho/cli.py."""
+from __future__ import annotations
 
 from types import SimpleNamespace
 

@@ -1,4 +1,5 @@
 """Anthropic Messages API adapter for Hermes Agent.
+from __future__ import annotations
 
 Translates between Hermes's internal OpenAI-style message format and
 Anthropic's Messages API. Follows the same pattern as the codex_responses

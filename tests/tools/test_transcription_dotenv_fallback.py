@@ -1,4 +1,5 @@
 """Regression tests for the transcription_tools variant of #17140.
+from __future__ import annotations
 
 Same class of bug as ``tools/tts_tool.py`` (fixed in PR #17163): the STT
 provider call sites read API keys via ``os.getenv()``, which bypasses

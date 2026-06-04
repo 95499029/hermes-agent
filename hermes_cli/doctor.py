@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Doctor command for hermes CLI.
 
 Diagnoses issues with Hermes Agent setup.

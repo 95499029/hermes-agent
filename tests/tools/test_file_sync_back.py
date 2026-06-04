@@ -1,4 +1,5 @@
 """Tests for FileSyncManager.sync_back() — pull remote changes to host."""
+from __future__ import annotations
 
 import io
 import logging

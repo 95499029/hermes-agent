@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Shared platform registry for Hermes Agent.
 
 Single source of truth for platform metadata consumed by both

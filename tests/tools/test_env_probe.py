@@ -1,4 +1,5 @@
 """Tests for tools/env_probe.py — local Python toolchain probe."""
+from __future__ import annotations
 
 import sys
 

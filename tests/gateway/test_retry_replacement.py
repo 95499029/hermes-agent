@@ -1,4 +1,5 @@
 """Regression tests for /retry replacement semantics."""
+from __future__ import annotations
 
 from unittest.mock import AsyncMock, MagicMock
 

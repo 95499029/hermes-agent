@@ -1,4 +1,5 @@
 """Skill write-origin provenance — ContextVar for distinguishing agent-sediment skill writes from foreground user-directed writes.
+from __future__ import annotations
 
 The curator only consolidates/prunes skills it autonomously created via the
 background self-improvement review fork. Skills a user asks a foreground

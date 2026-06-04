@@ -1,4 +1,5 @@
 """Tests for the AsyncHttpxClientWrapper.__del__ neuter fix.
+from __future__ import annotations
 
 The OpenAI SDK's ``AsyncHttpxClientWrapper.__del__`` schedules
 ``aclose()`` via ``asyncio.get_running_loop().create_task()``.  When GC

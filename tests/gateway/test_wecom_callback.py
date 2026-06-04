@@ -1,4 +1,5 @@
 """Tests for the WeCom callback-mode adapter."""
+from __future__ import annotations
 
 import asyncio
 from xml.etree import ElementTree as ET

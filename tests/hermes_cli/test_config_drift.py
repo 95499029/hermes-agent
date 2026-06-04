@@ -1,4 +1,5 @@
 """Regression tests for removed dead config keys.
+from __future__ import annotations
 
 This file guards against accidental re-introduction of config keys that were
 documented or declared at some point but never actually wired up to read code.

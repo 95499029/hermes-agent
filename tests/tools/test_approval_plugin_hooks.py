@@ -1,4 +1,5 @@
 """Tests for pre_approval_request / post_approval_response plugin hooks.
+from __future__ import annotations
 
 These hooks fire in tools/approval.py::check_all_command_guards whenever a
 dangerous command needs user approval. They are observer-only (return values

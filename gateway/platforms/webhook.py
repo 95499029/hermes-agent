@@ -1,4 +1,5 @@
 """Generic webhook platform adapter.
+from __future__ import annotations
 
 Runs an aiohttp HTTP server that receives webhook POSTs from external
 services (GitHub, GitLab, JIRA, Stripe, etc.), validates HMAC signatures,

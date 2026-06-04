@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Session management for the gateway.
 
 Handles:

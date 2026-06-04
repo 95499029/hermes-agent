@@ -1,4 +1,5 @@
 """Tests for _repair_tool_call_arguments — malformed JSON repair pipeline."""
+from __future__ import annotations
 
 import json
 

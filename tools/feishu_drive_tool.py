@@ -1,4 +1,5 @@
 """Feishu Drive Tools -- document comment operations via Feishu/Lark API.
+from __future__ import annotations
 
 Provides tools for listing, replying to, and adding document comments.
 Uses the same lazy-import + BaseRequest pattern as feishu_comment.py.

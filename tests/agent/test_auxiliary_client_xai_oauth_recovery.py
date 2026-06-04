@@ -1,4 +1,5 @@
 """Tests for xAI OAuth 403 error recovery in auxiliary_client.
+from __future__ import annotations
 
 xAI returns HTTP 403 (not 401) with "unauthenticated:bad-credentials" when
 an OAuth2 access token has expired.  These tests verify the three fixes:

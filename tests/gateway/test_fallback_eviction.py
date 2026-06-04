@@ -1,4 +1,5 @@
 """Tests for fallback-eviction gating on failed runs (#7130).
+from __future__ import annotations
 
 When a run fails, the gateway must NOT evict the cached agent — doing so
 forces MCP reinit on the next message, creating a CPU-burning restart loop.

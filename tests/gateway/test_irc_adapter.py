@@ -1,4 +1,5 @@
 """Tests for the IRC platform adapter plugin."""
+from __future__ import annotations
 
 import asyncio
 import pytest

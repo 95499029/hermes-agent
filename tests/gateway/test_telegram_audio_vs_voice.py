@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for #24870 — Telegram: audio file attachments must NOT be routed to STT.
 
 Telegram distinguishes three kinds of audio payloads:

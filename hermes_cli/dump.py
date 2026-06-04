@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Dump command for hermes CLI.
 
 Outputs a compact, plain-text summary of the user's Hermes setup

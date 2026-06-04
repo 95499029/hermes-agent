@@ -1,4 +1,5 @@
 """Tests for _send_mattermost, _send_matrix, _send_homeassistant, _send_dingtalk."""
+from __future__ import annotations
 
 import asyncio
 import os

@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Timezone-aware clock for Hermes.
 
 Provides a single ``now()`` helper that returns a timezone-aware datetime

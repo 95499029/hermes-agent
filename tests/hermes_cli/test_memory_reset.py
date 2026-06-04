@@ -1,4 +1,5 @@
 """Tests for the `hermes memory reset` CLI command.
+from __future__ import annotations
 
 Covers:
 - Reset both stores (MEMORY.md + USER.md)

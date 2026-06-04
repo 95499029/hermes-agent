@@ -1,4 +1,5 @@
 """Tests for hermes_cli/completion.py — shell completion script generation."""
+from __future__ import annotations
 
 import argparse
 import os

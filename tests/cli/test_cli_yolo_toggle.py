@@ -1,4 +1,5 @@
 """Regression tests for the CLI ``/yolo`` in-chat toggle.
+from __future__ import annotations
 
 Pre-fix bug (issue #33925): ``cli.HermesCLI._toggle_yolo`` mutated only
 ``os.environ["HERMES_YOLO_MODE"]``. That env var is captured once at

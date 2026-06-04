@@ -1,4 +1,5 @@
 """Tests for cloud browser provider runtime fallback to local Chromium.
+from __future__ import annotations
 
 Covers the fallback logic in _get_session_info() when a cloud provider
 is configured but fails at runtime (issue #10883).

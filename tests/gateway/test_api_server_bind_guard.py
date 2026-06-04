@@ -1,4 +1,5 @@
 """Tests for the API server bind-address startup guard.
+from __future__ import annotations
 
 Validates that is_network_accessible() correctly classifies addresses and
 that connect() refuses to start without API_SERVER_KEY.

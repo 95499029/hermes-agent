@@ -1,4 +1,5 @@
 """Tests for the symlink boundary check prefix confusion fix in skills_guard.py.
+from __future__ import annotations
 
 Regression test: the original check used startswith() without a trailing
 separator, so a symlink resolving to 'axolotl-backdoor/' passed the check

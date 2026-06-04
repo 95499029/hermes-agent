@@ -1,4 +1,5 @@
 """Custom / Ollama (local) provider profile.
+from __future__ import annotations
 
 Covers any endpoint registered as provider="custom", including local
 Ollama instances. Key quirks:

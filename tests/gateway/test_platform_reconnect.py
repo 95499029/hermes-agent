@@ -1,4 +1,5 @@
 """Tests for the gateway platform reconnection watcher."""
+from __future__ import annotations
 
 import asyncio
 import time

@@ -1,4 +1,5 @@
 """Unit tests for StreamingContextScrubber (agent/memory_manager.py).
+from __future__ import annotations
 
 Regression coverage for #5719 — memory-context spans split across stream
 deltas must not leak payload to the UI.  The one-shot sanitize_context()

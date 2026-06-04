@@ -1,4 +1,5 @@
 """Regression tests: pending-drain + finally-cleanup races must not spawn
+from __future__ import annotations
 duplicate agents OR silently drop messages that arrived during cleanup.
 
 Two related races in gateway/platforms/base.py:_process_message_background:

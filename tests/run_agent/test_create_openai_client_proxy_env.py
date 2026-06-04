@@ -1,4 +1,5 @@
 """Regression guard: _create_openai_client must honor HTTP(S)_PROXY env vars.
+from __future__ import annotations
 
 When #11277 re-landed TCP keepalives, ``_create_openai_client`` began passing
 a custom ``transport=httpx.HTTPTransport(...)`` to ``httpx.Client``. httpx only

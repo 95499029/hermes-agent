@@ -1,4 +1,5 @@
 """Tests for SessionDB.get_messages_around (anchored-window primitive).
+from __future__ import annotations
 
 Used by session_search both for the discovery shape (FTS5 match as anchor)
 and the scroll shape (user-supplied anchor). Returns a window of messages

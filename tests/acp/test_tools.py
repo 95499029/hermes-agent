@@ -1,4 +1,5 @@
 """Tests for acp_adapter.tools — tool kind mapping and ACP content building."""
+from __future__ import annotations
 
 
 from acp_adapter.edit_approval import EditProposal

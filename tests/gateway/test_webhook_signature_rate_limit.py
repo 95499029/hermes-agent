@@ -1,4 +1,5 @@
 """Test that HMAC signature validation happens BEFORE rate limiting.
+from __future__ import annotations
 
 This verifies the fix for bug #12544: invalid signature requests must NOT
 consume rate-limit quota. Before the fix, rate limiting was applied before

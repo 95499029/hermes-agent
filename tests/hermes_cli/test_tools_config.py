@@ -1,4 +1,5 @@
 """Tests for hermes_cli.tools_config platform tool persistence."""
+from __future__ import annotations
 
 from types import SimpleNamespace
 from unittest.mock import patch

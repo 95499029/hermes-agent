@@ -1,4 +1,5 @@
 """Tests for session reset completeness (fixes #2635).
+from __future__ import annotations
 
 /clear and /new must not carry stale state into the next session.
 Two fields were added after reset_session_state() was written and were

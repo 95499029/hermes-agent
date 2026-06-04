@@ -1,4 +1,5 @@
 """Progressive subdirectory hint discovery.
+from __future__ import annotations
 
 As the agent navigates into subdirectories via tool calls (read_file, terminal,
 search_files, etc.), this module discovers and loads project context files

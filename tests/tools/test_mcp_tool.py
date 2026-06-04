@@ -1,4 +1,5 @@
 """Tests for the MCP (Model Context Protocol) client support.
+from __future__ import annotations
 
 All tests use mocks -- no real MCP servers or subprocesses are started.
 """

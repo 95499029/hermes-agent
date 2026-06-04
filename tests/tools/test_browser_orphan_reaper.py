@@ -1,4 +1,5 @@
 """Tests for _reap_orphaned_browser_sessions() — kills orphaned agent-browser
+from __future__ import annotations
 daemons whose Python parent exited without cleaning up."""
 
 import os

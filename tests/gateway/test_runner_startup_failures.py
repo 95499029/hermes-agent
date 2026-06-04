@@ -1,4 +1,5 @@
 import pytest
+from __future__ import annotations
 from unittest.mock import AsyncMock
 
 from gateway.config import GatewayConfig, Platform, PlatformConfig

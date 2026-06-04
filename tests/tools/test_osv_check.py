@@ -1,4 +1,5 @@
 """Tests for OSV malware check on MCP extension packages."""
+from __future__ import annotations
 
 import json
 import pytest

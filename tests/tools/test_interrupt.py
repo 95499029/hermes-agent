@@ -1,4 +1,5 @@
 """Tests for the interrupt system.
+from __future__ import annotations
 
 Run with: python -m pytest tests/test_interrupt.py -v
 """

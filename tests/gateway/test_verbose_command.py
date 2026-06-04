@@ -1,4 +1,5 @@
 """Tests for gateway /verbose command (config-gated tool progress cycling)."""
+from __future__ import annotations
 
 from unittest.mock import AsyncMock, MagicMock
 

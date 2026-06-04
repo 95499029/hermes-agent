@@ -1,4 +1,5 @@
 """FAL_KEY env var normalization (whitespace-only treated as unset)."""
+from __future__ import annotations
 
 
 def test_fal_key_whitespace_is_unset(monkeypatch):

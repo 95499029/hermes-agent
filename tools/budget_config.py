@@ -1,4 +1,5 @@
 """Configurable budget constants for tool result persistence.
+from __future__ import annotations
 
 Per-tool resolution: pinned > config overrides > registry > default.
 """

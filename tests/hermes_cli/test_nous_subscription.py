@@ -1,4 +1,5 @@
 """Tests for Nous subscription feature detection."""
+from __future__ import annotations
 
 from hermes_cli.nous_account import NousPortalAccountInfo
 from hermes_cli import nous_subscription as ns

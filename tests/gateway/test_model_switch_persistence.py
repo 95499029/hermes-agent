@@ -1,4 +1,5 @@
 """Tests that gateway /model switch persists across messages.
+from __future__ import annotations
 
 The gateway /model command stores session overrides in
 ``_session_model_overrides``.  These must:

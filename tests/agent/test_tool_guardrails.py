@@ -1,4 +1,5 @@
 """Pure tool-call guardrail primitive tests."""
+from __future__ import annotations
 
 import json
 

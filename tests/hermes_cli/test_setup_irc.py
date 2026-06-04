@@ -1,4 +1,5 @@
 """Tests for IRC gateway configuration via `hermes setup gateway` UI.
+from __future__ import annotations
 
 Covers the full plugin-platform discovery → status → configure flow so that
 a fresh Hermes install (no state, no env vars) can set up IRC through the

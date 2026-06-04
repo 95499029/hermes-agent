@@ -1,4 +1,5 @@
 """Tests for the tool-result message builder — focuses on the untrusted-content
+from __future__ import annotations
 delimiter wrapping that hardens against indirect prompt injection (#496).
 
 Promptware defense: results from tools that fetch attacker-controllable content

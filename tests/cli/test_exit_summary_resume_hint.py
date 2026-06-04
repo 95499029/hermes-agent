@@ -1,4 +1,5 @@
 """Tests for the CLI exit summary's resume hint, including profile-flag support."""
+from __future__ import annotations
 
 from datetime import datetime
 from unittest.mock import MagicMock, patch

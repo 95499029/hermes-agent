@@ -1,4 +1,5 @@
 """Tests for API-key provider support (z.ai/GLM, Kimi, MiniMax)."""
+from __future__ import annotations
 
 import os
 

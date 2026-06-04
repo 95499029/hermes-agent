@@ -1,4 +1,5 @@
 """Trajectory saving utilities and static helpers.
+from __future__ import annotations
 
 _convert_to_trajectory_format stays as an AIAgent method (batch_runner.py
 calls agent._convert_to_trajectory_format). Only the static helpers and

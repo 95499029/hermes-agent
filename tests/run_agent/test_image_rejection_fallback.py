@@ -1,4 +1,5 @@
 """Tests for the image-rejection fallback in run_agent.
+from __future__ import annotations
 
 When a server rejects image content (e.g. text-only endpoints), the agent
 strips image parts from message history and retries text-only.  These tests

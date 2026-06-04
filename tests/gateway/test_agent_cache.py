@@ -1,4 +1,5 @@
 """Integration tests for gateway AIAgent caching.
+from __future__ import annotations
 
 Verifies that the agent cache correctly:
 - Reuses agents across messages (same config → same instance)

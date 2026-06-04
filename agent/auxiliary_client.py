@@ -40,6 +40,9 @@ Payment / credit exhaustion fallback:
   their OpenRouter balance but has Codex OAuth or another provider available.
 """
 
+from __future__ import annotations
+
+import asyncio
 import json
 import logging
 import os
@@ -1846,6 +1849,119 @@ def _try_custom_endpoint() -> Tuple[Optional[Any], Optional[str]]:
         _fallback_client, model, custom_key, custom_base, custom_mode,
     )
     return _fallback_client, model
+
+
+class VisionCustomClient:
+    """Routes vision requests to unified_api /vision endpoint.
+
+    Detects image content in messages and extracts base64 data to POST
+    directly to /vision, bypassing /chat/completions which only handles
+    text for local Qwen2.5-Coder-14B.
+    """
+
+    def __init__(self, base_url: str, api_key: str):
+        import urllib.request
+        self._base_url = base_url.rstrip("/")
+        self._api_key = api_key
+        self._urllib = urllib.request
+        self.api_key = api_key
+        self.base_url = base_url
+
+    def chat(self):
+        return _VisionChatShim(self._base_url, self._api_key)
+
+    def close(self):
+        pass
+
+
+class _VisionChatShim:
+    """chat.completions-compatible shim that routes vision calls to /vision."""
+
+    def __init__(self, base_url: str, api_key: str):
+        import urllib.request
+        import urllib.error
+        self._base_url = base_url.rstrip("/")
+        self._api_key = api_key
+        self._urllib_request = urllib.request
+        self._urllib_error = urllib.error
+
+    def create(self, **kwargs) -> Any:
+        messages = kwargs.get("messages", [])
+        model = kwargs.get("model", "")
+
+        # Extract image from the last user message with image_url content
+        image_b64 = None
+        prompt_text = "Describe this image in detail."
+
+        for msg in reversed(messages):
+            content = msg.get("content", "")
+            if isinstance(content, list):
+                for part in content:
+                    if part.get("type") == "image_url":
+                        url = part.get("image_url", {})
+                        if isinstance(url, dict):
+                            url = url.get("url", "")
+                        if url.startswith("data:"):
+                            _, _, b64data = url.partition(",")
+                            image_b64 = b64data
+                            break
+                    elif part.get("type") == "text":
+                        prompt_text = part.get("text", prompt_text)
+            elif isinstance(content, str):
+                prompt_text = content
+
+            if image_b64:
+                break
+
+        if not image_b64:
+            raise RuntimeError("Vision request with no image data")
+
+        # Build the /vision request
+        import json
+        req_body = json.dumps({
+            "image": image_b64,
+            "prompt": prompt_text,
+        }).encode("utf-8")
+
+        req = self._urllib_request.Request(
+            f"{self._base_url}/vision",
+            data=req_body,
+            headers={
+                "Content-Type": "application/json",
+                "X-API-Key": self._api_key,
+            },
+            method="POST",
+        )
+
+        try:
+            with self._urllib_request.urlopen(req, timeout=120) as resp:
+                resp_body = resp.read()
+            result = json.loads(resp_body.decode("utf-8"))
+            description = result.get("description", "")
+
+            # Return a chat.completions-compatible response object
+            class _VisionResponse:
+                def __init__(self, text):
+                    self.choices = [
+                        type("obj", (object,), {
+                            "message": type("obj", (object,), {
+                                "role": "assistant",
+                                "content": text,
+                            })(),
+                            "finish_reason": "stop",
+                            "index": 0,
+                        })(),
+                    ]
+                    self.model = model
+                    self.object = "chat.completion"
+
+            return _VisionResponse(description)
+
+        except self._urllib_error.HTTPError as e:
+            body = e.read().decode("utf-8") if e.fp else ""
+            raise RuntimeError(f"Vision API error {e.code}: {body}")
+        except Exception as e:
+            raise RuntimeError(f"Vision API error: {e}")
 
 
 def _build_xai_oauth_aux_client(model: str) -> Tuple[Optional[Any], Optional[str]]:
@@ -3958,6 +4074,17 @@ def resolve_vision_provider_client(
             async_client, async_model = _to_async_client(sync_client, final_model, is_vision=True)
             return resolved_provider, async_client, async_model
         return resolved_provider, sync_client, final_model
+
+    # Detect local unified_api: if base_url is http://127.0.0.1:8080 or http://localhost:8080
+    # and this is a vision task, route directly to /vision instead of /chat/completions
+    if resolved_base_url and task == "vision":
+        base_url_lower = resolved_base_url.lower().rstrip("/")
+        if any(h in base_url_lower for h in ("127.0.0.1:8080", "localhost:8080", "localhost:8090")):
+            logger.info("Vision: routing to local unified_api /vision endpoint")
+            vision_client = VisionCustomClient(resolved_base_url, resolved_api_key or "no-key-required")
+            if async_mode:
+                return "custom", _to_async_client(vision_client, resolved_model, is_vision=True)
+            return "custom", vision_client, resolved_model
 
     if resolved_base_url:
         provider_for_base_override = (

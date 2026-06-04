@@ -1,4 +1,5 @@
 """Tests that verify SQL injection mitigations in insights and state modules."""
+from __future__ import annotations
 
 import re
 

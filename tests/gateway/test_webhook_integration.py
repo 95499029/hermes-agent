@@ -1,4 +1,5 @@
 """Integration tests for the generic webhook platform adapter.
+from __future__ import annotations
 
 These tests exercise end-to-end flows through the webhook adapter:
 1. GitHub PR webhook → agent MessageEvent created

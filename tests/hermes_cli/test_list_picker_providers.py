@@ -1,4 +1,5 @@
 """Tests for ``list_picker_providers`` — the /model picker filter.
+from __future__ import annotations
 
 ``list_picker_providers`` wraps ``list_authenticated_providers`` and
 post-processes the result for interactive pickers (Telegram, Discord):

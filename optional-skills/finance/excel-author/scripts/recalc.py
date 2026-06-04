@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Recalculate an .xlsx file's formulas using LibreOffice headless.
 
 Usage: python recalc.py <path.xlsx> [timeout_seconds]

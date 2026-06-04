@@ -1,4 +1,5 @@
 """Tests for hermes-api-server toolset and API server tool availability."""
+from __future__ import annotations
 from unittest.mock import patch, MagicMock
 
 

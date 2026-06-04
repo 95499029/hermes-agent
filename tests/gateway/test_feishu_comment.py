@@ -1,4 +1,5 @@
 """Tests for feishu_comment — event filtering, access control integration, wiki reverse lookup."""
+from __future__ import annotations
 
 import asyncio
 import unittest

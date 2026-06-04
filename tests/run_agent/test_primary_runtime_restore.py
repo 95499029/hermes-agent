@@ -1,4 +1,5 @@
 """Tests for per-turn primary runtime restoration and transport recovery.
+from __future__ import annotations
 
 Verifies that:
 1. Fallback is turn-scoped: a new turn restores the primary model/provider

@@ -1,4 +1,5 @@
 """Tests for GHSA-96vc-wcxf-jjff and GHSA-qg5c-hvr5-hjgr.
+from __future__ import annotations
 
 Two related ACP approval-flow issues:
 - 96vc: ACP didn't set HERMES_EXEC_ASK, so `check_all_command_guards`

@@ -1,4 +1,5 @@
 """Local OpenAI-compatible proxy that forwards to OAuth-authenticated upstreams.
+from __future__ import annotations
 
 Lets external apps (OpenViking, Karakeep, Open WebUI, ...) ride the user's
 already-logged-in provider subscription instead of needing a static API key

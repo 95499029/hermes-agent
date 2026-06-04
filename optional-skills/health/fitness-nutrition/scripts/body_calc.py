@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 body_calc.py — All-in-one fitness calculator.
 

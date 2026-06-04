@@ -1,4 +1,5 @@
 """Pixel art video — overlay procedural animations onto a source image.
+from __future__ import annotations
 
 Takes any image (typically pre-processed with pixel_art()) and overlays
 animated pixel effects (stars, rain, fireflies, etc.), then encodes to MP4

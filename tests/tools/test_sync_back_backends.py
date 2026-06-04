@@ -1,4 +1,5 @@
 """Tests for backend-specific bulk download implementations and cleanup() wiring."""
+from __future__ import annotations
 
 import asyncio
 import subprocess

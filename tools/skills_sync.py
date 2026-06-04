@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Skills Sync -- Manifest-based seeding and updating of bundled skills.
 

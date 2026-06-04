@@ -1,4 +1,5 @@
 """Regression coverage for the bundled Kanban Codex lane skill."""
+from __future__ import annotations
 
 import json
 from pathlib import Path

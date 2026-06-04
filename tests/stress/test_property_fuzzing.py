@@ -1,4 +1,5 @@
 """Randomized property testing for the Kanban kernel.
+from __future__ import annotations
 
 Generates 1000 random operation sequences, each 20-50 ops, on small
 task graphs. After each step, checks the full invariant set:

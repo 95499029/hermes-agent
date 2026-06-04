@@ -1,4 +1,5 @@
 """Tests that /stop interrupts streaming retry loops immediately.
+from __future__ import annotations
 
 When the agent is interrupted during a streaming API call, the outer poll
 loop closes the HTTP connection.  The inner `_call()` thread sees a

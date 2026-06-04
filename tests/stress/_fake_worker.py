@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Fake worker process that exercises the real subprocess contract.
 
 Reads HERMES_KANBAN_TASK from env, heartbeats periodically, does short

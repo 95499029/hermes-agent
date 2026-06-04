@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Session-scoped context variables for the Hermes gateway.
 
 Replaces the previous ``os.environ``-based session state

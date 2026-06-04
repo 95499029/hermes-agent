@@ -1,4 +1,5 @@
 """Tests for agent/display.py — build_tool_preview() and inline diff previews."""
+from __future__ import annotations
 
 import json
 import pytest

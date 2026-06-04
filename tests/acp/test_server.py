@@ -1,4 +1,5 @@
 """Tests for acp_adapter.server — HermesACPAgent ACP server."""
+from __future__ import annotations
 
 import asyncio
 import os

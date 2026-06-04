@@ -1,4 +1,5 @@
 from contextlib import nullcontext
+from __future__ import annotations
 
 from cli import HermesCLI
 

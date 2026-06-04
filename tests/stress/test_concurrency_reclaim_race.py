@@ -1,4 +1,5 @@
 """Target the reclaim race specifically.
+from __future__ import annotations
 
 Workers claim tasks with a 1s TTL but sleep 2s before completing. The
 reclaimer runs every 200ms. Scenario: worker claims, reclaimer expires

@@ -1,4 +1,5 @@
 """Tests for secret exfiltration prevention in browser and web tools."""
+from __future__ import annotations
 
 import json
 from unittest.mock import patch, MagicMock

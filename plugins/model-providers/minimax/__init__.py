@@ -1,4 +1,5 @@
 """MiniMax provider profiles (international + China).
+from __future__ import annotations
 
 Both use anthropic_messages api_mode — their inference_base_url
 ends with /anthropic which triggers auto-detection to anthropic_messages.

@@ -1,4 +1,5 @@
 """AWS Bedrock Converse API adapter for Hermes Agent.
+from __future__ import annotations
 
 Provides native integration with Amazon Bedrock using the Converse API,
 bypassing the OpenAI-compatible endpoint in favor of direct AWS SDK calls.

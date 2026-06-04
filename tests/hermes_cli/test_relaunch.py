@@ -1,4 +1,5 @@
 """Tests for hermes_cli.relaunch — unified self-relaunch utility."""
+from __future__ import annotations
 
 import sys
 

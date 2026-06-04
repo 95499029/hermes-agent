@@ -1,4 +1,5 @@
 """Regression tests for dashboard cron job profile routing."""
+from __future__ import annotations
 
 import pytest
 from fastapi import HTTPException

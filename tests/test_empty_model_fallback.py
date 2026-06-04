@@ -1,4 +1,5 @@
 """Tests for empty model fallback — when provider is configured but model is missing."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

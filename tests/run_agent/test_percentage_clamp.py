@@ -1,4 +1,5 @@
 """Tests for percentage clamping at 100% across display paths.
+from __future__ import annotations
 
 PR #3480 capped context pressure percentage at 100% in agent/display.py
 but missed the same unclamped pattern in 4 other files. When token counts

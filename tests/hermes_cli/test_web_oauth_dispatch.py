@@ -1,4 +1,5 @@
 """Regression tests for the OAuth dispatcher in hermes_cli.web_server.
+from __future__ import annotations
 
 Bug history (2026-05-09): the `_OAUTH_PROVIDER_CATALOG` had two entries
 flagged ``flow: "pkce"`` — anthropic and minimax-oauth — and the

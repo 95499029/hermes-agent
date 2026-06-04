@@ -1,4 +1,5 @@
 """Tests for hermes_cli.cron command handling."""
+from __future__ import annotations
 
 from argparse import Namespace
 

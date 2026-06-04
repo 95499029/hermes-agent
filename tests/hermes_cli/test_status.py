@@ -1,4 +1,5 @@
 from types import SimpleNamespace
+from __future__ import annotations
 
 from hermes_cli.status import show_status
 

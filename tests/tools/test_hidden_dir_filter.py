@@ -1,4 +1,5 @@
 """Tests for the hidden directory filter in skills listing.
+from __future__ import annotations
 
 Regression test: the original filter used hardcoded forward-slash strings
 like '/.git/' which never match on Windows where Path uses backslashes.

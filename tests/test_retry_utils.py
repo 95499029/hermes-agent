@@ -1,4 +1,5 @@
 """Tests for agent.retry_utils jittered backoff."""
+from __future__ import annotations
 
 import threading
 

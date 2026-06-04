@@ -1,4 +1,5 @@
 """Tests for gateway/hooks.py — event hook system."""
+from __future__ import annotations
 
 from unittest.mock import patch
 

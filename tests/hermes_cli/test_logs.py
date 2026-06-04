@@ -1,4 +1,5 @@
 """Tests for hermes_cli.logs — log viewing and filtering."""
+from __future__ import annotations
 
 from datetime import datetime, timedelta
 

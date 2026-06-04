@@ -1,4 +1,5 @@
 """Tests for ${ENV_VAR} substitution in config.yaml values."""
+from __future__ import annotations
 
 import pytest
 from hermes_cli.config import _expand_env_vars, load_config

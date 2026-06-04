@@ -1,4 +1,5 @@
 """Tests for _normalize_chat_content in the API server adapter."""
+from __future__ import annotations
 
 from gateway.platforms.api_server import _normalize_chat_content
 

@@ -1,4 +1,5 @@
 """Tests for PII redaction in gateway session context prompts."""
+from __future__ import annotations
 
 from gateway.session import (
     SessionContext,

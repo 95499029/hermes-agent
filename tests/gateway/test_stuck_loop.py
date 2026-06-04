@@ -1,4 +1,5 @@
 """Tests for stuck-session loop detection (#7536).
+from __future__ import annotations
 
 When a session is active across 3+ consecutive gateway restarts (the agent
 gets stuck, gateway restarts, same session gets stuck again), the session

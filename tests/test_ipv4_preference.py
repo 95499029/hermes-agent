@@ -1,4 +1,5 @@
 """Tests for network.force_ipv4 — the socket.getaddrinfo monkey-patch."""
+from __future__ import annotations
 
 import importlib
 import socket

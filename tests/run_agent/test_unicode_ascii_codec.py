@@ -1,4 +1,5 @@
 """Tests for UnicodeEncodeError recovery with ASCII codec.
+from __future__ import annotations
 
 Covers the fix for issue #6843 — systems with ASCII locale (LANG=C)
 that can't encode non-ASCII characters in API request payloads.

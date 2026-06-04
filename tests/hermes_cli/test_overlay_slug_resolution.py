@@ -1,4 +1,5 @@
 """Test that overlay providers with mismatched models.dev keys resolve correctly.
+from __future__ import annotations
 
 HERMES_OVERLAYS keys may be models.dev IDs (e.g. "github-copilot") while
 _PROVIDER_MODELS and config.yaml use Hermes IDs ("copilot").  The slug

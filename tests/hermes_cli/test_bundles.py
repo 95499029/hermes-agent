@@ -1,4 +1,5 @@
 """Tests for hermes_cli/bundles.py — the `hermes bundles` CLI subcommand."""
+from __future__ import annotations
 
 import argparse
 

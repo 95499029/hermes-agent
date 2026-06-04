@@ -1,4 +1,5 @@
 """Parity tests: pin the exact current transport behavior per provider.
+from __future__ import annotations
 
 These tests document the flag-based contract between run_agent.py and
 ChatCompletionsTransport.build_kwargs(). When the next PR wires profiles

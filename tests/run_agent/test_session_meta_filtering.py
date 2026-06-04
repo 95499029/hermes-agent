@@ -1,4 +1,5 @@
 """Tests for session_meta filtering — issue #4715.
+from __future__ import annotations
 
 Ensures that transcript-only session_meta messages never reach the
 chat-completions API, via both the API-boundary guard in

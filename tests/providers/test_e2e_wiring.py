@@ -1,4 +1,5 @@
 """E2E tests: verify _build_kwargs_from_profile produces correct output.
+from __future__ import annotations
 
 These tests call _build_kwargs_from_profile on the transport directly,
 without importing run_agent (which would cause xdist worker contamination).

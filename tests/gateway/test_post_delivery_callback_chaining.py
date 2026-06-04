@@ -1,4 +1,5 @@
 """Tests for ``BasePlatformAdapter.register_post_delivery_callback`` chaining.
+from __future__ import annotations
 
 When two features want to run after the final response lands on the same
 session (e.g. background-review release + temporary-progress cleanup), the

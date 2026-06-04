@@ -1,4 +1,5 @@
 """Tests for agent/prompt_caching.py — Anthropic cache control injection."""
+from __future__ import annotations
 
 
 from agent.prompt_caching import (

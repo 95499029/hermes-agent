@@ -1,4 +1,5 @@
 """Tests for Telegram text message aggregation.
+from __future__ import annotations
 
 When a user sends a long message, Telegram clients split it into multiple
 updates.  The TelegramAdapter should buffer rapid successive text messages

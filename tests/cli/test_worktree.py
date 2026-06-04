@@ -1,4 +1,5 @@
 """Tests for git worktree isolation (CLI --worktree / -w flag).
+from __future__ import annotations
 
 Verifies worktree creation, cleanup, .worktreeinclude handling,
 .gitignore management, and integration with the CLI.  (#652)

@@ -1,4 +1,5 @@
 from unittest.mock import AsyncMock, MagicMock
+from __future__ import annotations
 
 import pytest
 

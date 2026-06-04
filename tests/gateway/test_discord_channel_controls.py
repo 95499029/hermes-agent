@@ -1,4 +1,5 @@
 """Tests for Discord ignored_channels and no_thread_channels config."""
+from __future__ import annotations
 
 from types import SimpleNamespace
 from datetime import datetime, timezone

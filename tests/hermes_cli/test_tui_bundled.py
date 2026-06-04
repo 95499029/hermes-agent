@@ -1,4 +1,5 @@
 
+from __future__ import annotations
 
 def test_tui_finds_bundled_entry_js(tmp_path):
     """_find_bundled_tui finds entry.js bundled in the package."""

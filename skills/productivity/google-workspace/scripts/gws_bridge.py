@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Bridge between Hermes OAuth token and gws CLI.
 
 Refreshes the token if expired, then executes gws with the valid access token.

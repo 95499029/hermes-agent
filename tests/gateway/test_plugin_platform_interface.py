@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Interface compliance tests for all plugin-based gateway platforms.
 
 Discovers platforms dynamically under ``plugins/platforms/`` — no manual

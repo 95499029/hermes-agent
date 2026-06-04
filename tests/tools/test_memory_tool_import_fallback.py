@@ -1,4 +1,5 @@
 """Regression tests for memory-tool import fallbacks."""
+from __future__ import annotations
 
 import builtins
 import importlib

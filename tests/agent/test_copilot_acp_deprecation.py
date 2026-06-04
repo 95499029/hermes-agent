@@ -1,4 +1,5 @@
 """Tests for gh-copilot CLI deprecation detection and GitHub Models Azure URL mapping."""
+from __future__ import annotations
 
 import pytest
 

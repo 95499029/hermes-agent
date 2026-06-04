@@ -1,4 +1,5 @@
 """Tests for tools/skills_hub.py — source adapters, lock file, taps, dedup logic."""
+from __future__ import annotations
 
 import json
 from unittest.mock import patch, MagicMock

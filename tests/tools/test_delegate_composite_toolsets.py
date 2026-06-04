@@ -1,4 +1,5 @@
 """Tests for composite toolset expansion in delegate_task intersection."""
+from __future__ import annotations
 
 import unittest
 

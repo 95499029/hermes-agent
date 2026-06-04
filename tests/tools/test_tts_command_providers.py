@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for custom command-type TTS providers.
 
 These tests cover the ``tts.providers.<name>`` registry: built-in

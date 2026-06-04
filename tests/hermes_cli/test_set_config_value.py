@@ -1,4 +1,5 @@
 """Tests for set_config_value — verifying secrets route to .env and config to config.yaml."""
+from __future__ import annotations
 
 import argparse
 import os

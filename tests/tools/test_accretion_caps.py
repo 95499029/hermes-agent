@@ -1,4 +1,5 @@
 """Accretion caps for _read_tracker (file_tools) and _completion_consumed
+from __future__ import annotations
 (process_registry).
 
 Both structures are process-lifetime singletons that previously grew

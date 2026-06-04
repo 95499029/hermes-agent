@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Extract text from documents using pymupdf. Lightweight (~25MB), no models.
 
 Usage:

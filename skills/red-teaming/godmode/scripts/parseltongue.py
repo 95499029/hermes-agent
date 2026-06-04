@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Parseltongue v4 — Input Obfuscation Engine
 Ported from G0DM0D3 (elder-plinius/G0DM0D3) JavaScript to Python.

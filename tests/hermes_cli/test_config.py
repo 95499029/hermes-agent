@@ -1,4 +1,5 @@
 """Tests for hermes_cli configuration management."""
+from __future__ import annotations
 
 import os
 from pathlib import Path

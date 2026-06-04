@@ -1,4 +1,5 @@
 """Tests for the Microsoft Graph webhook adapter."""
+from __future__ import annotations
 
 import asyncio
 

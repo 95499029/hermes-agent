@@ -1,4 +1,5 @@
 """Regression test: _compress_context tolerates plugin engines with strict signatures.
+from __future__ import annotations
 
 Added to ``ContextEngine.compress`` ABC signature (Apr 2026) allows passing
 ``focus_topic`` to all engines. Older plugins written against the prior ABC

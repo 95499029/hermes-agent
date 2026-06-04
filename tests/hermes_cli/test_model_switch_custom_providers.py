@@ -1,4 +1,5 @@
 """Regression tests for /model support of config.yaml custom_providers.
+from __future__ import annotations
 
 The terminal `hermes model` flow already exposes `custom_providers`, but the
 shared slash-command pipeline (`/model` in CLI/gateway/Telegram) historically

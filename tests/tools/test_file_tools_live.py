@@ -1,4 +1,5 @@
 """Live integration tests for file operations and terminal tools.
+from __future__ import annotations
 
 These tests run REAL commands through the LocalEnvironment -- no mocks.
 They verify that shell noise is properly filtered, commands actually work,

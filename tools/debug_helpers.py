@@ -1,4 +1,5 @@
 """Shared debug session infrastructure for Hermes tools.
+from __future__ import annotations
 
 Replaces the identical DEBUG_MODE / _log_debug_call / _save_debug_log /
 get_debug_session_info boilerplate previously duplicated across web_tools,

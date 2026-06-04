@@ -1,4 +1,5 @@
 """Tests for auxiliary model config bridging — verifies that config.yaml values
+from __future__ import annotations
 are properly mapped to environment variables by both CLI and gateway loaders.
 
 Also tests the vision_tools and browser_tool model override env vars.

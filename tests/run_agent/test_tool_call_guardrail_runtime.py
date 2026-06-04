@@ -1,4 +1,5 @@
 """Runtime tests for tool-call loop guardrails."""
+from __future__ import annotations
 
 import json
 import uuid

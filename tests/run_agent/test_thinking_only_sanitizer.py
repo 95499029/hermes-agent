@@ -1,4 +1,5 @@
 """Tests for the thinking-only assistant message sanitizer.
+from __future__ import annotations
 
 Covers _is_thinking_only_assistant() + _drop_thinking_only_and_merge_users()
 in run_agent.py. The sanitizer runs on the per-call api_messages copy and

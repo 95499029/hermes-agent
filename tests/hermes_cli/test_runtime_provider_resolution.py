@@ -1,4 +1,5 @@
 import pytest
+from __future__ import annotations
 
 from hermes_cli import runtime_provider as rp
 

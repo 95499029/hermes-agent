@@ -1,4 +1,5 @@
 """Tests for notify_on_complete background process feature.
+from __future__ import annotations
 
 Covers:
   - ProcessSession.notify_on_complete field

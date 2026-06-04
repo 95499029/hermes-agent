@@ -1,4 +1,5 @@
 """Tests for skill fuzzy patching via tools.fuzzy_match."""
+from __future__ import annotations
 
 import json
 

@@ -1,4 +1,5 @@
 """Regression tests for invalid/None terminal command handling."""
+from __future__ import annotations
 
 import json
 

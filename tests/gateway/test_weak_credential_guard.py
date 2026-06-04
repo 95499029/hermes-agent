@@ -1,4 +1,5 @@
 """Tests for gateway weak credential rejection at startup.
+from __future__ import annotations
 
 Ported from openclaw/openclaw#64586: rejects known-weak placeholder
 tokens at gateway startup instead of letting them silently fail

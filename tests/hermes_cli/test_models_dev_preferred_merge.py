@@ -1,4 +1,5 @@
 """Tests for the models.dev-preferred merge behavior in provider_model_ids
+from __future__ import annotations
 and list_authenticated_providers.
 
 These guard the contract:

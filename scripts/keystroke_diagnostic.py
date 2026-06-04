@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """Diagnose how prompt_toolkit identifies keystrokes in the current terminal.
 
 Useful when adding a keybinding to Hermes (or any prompt_toolkit app) and you

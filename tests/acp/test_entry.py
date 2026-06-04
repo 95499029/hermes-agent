@@ -1,4 +1,5 @@
 """Tests for acp_adapter.entry startup wiring."""
+from __future__ import annotations
 
 import sys
 

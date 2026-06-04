@@ -1,4 +1,5 @@
 """Tests for Ollama num_ctx context length detection and injection.
+from __future__ import annotations
 
 Covers:
   agent/model_metadata.py — query_ollama_num_ctx()

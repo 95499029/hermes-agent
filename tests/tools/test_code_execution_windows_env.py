@@ -1,4 +1,5 @@
 """Tests for execute_code env scrubbing on Windows.
+from __future__ import annotations
 
 On Windows the child process needs a small set of OS-essential env vars
 (SYSTEMROOT, WINDIR, COMSPEC, ...) to run.  Without SYSTEMROOT in particular,

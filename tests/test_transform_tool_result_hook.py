@@ -1,4 +1,5 @@
 """Tests for the ``transform_tool_result`` plugin hook wired into
+from __future__ import annotations
 ``model_tools.handle_function_call``.
 
 Mirrors the ``transform_terminal_output`` hook tests from Phase 1 but

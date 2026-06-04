@@ -1,4 +1,5 @@
 """Tests for the defensive subparser routing workaround (bpo-9338).
+from __future__ import annotations
 
 The main() function in hermes_cli/main.py sets subparsers.required=True
 when argv contains a known subcommand name.  This forces deterministic

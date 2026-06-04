@@ -1,4 +1,5 @@
 """Regression guard for #4466: DISCORD_ALLOW_BOTS works without DISCORD_ALLOWED_USERS.
+from __future__ import annotations
 
 The bug had two sequential gates both rejecting bot messages:
 

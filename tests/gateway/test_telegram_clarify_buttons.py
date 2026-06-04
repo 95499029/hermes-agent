@@ -1,4 +1,5 @@
 """Tests for Telegram inline keyboard clarify buttons.
+from __future__ import annotations
 
 Mirrors test_telegram_approval_buttons.py for the new ``send_clarify`` and
 ``cl:`` callback dispatch added in feat/clarify-gateway-buttons.

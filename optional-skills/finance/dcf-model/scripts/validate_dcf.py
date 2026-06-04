@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 DCF Model Validation Script
 Validates Excel DCF models for formula errors and common DCF mistakes

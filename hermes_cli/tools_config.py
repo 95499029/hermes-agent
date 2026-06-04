@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Unified tool configuration for Hermes Agent.
 
 `hermes tools` and `hermes setup tools` both enter this module.

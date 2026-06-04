@@ -1,4 +1,5 @@
 """Tests for MCP dynamic tool discovery (notifications/tools/list_changed)."""
+from __future__ import annotations
 
 import asyncio
 from types import SimpleNamespace

@@ -1,4 +1,5 @@
 """Tests for /resume status lines going to stderr in quiet mode (#11793).
+from __future__ import annotations
 
 The fix in cli._init_agent routes three messages to stderr when
 ``tool_progress_mode == "off"`` (set by ``hermes chat --quiet``):

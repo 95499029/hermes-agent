@@ -1,4 +1,5 @@
 """Tests for cron/scheduler.py — origin resolution, delivery routing, and error logging."""
+from __future__ import annotations
 
 import json
 import logging

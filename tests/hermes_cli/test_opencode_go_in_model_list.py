@@ -1,4 +1,5 @@
 """Test that opencode-go appears in /model list when credentials are set."""
+from __future__ import annotations
 
 import os
 from unittest.mock import patch

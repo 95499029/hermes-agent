@@ -1,4 +1,5 @@
 """Regression test for #33175: switch_model() must roll back to the pre-swap
+from __future__ import annotations
 state if the client rebuild raises.
 
 Before the fix, ``agent.model`` and ``agent.provider`` were assigned BEFORE

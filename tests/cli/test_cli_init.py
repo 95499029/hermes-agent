@@ -1,4 +1,5 @@
 """Tests for HermesCLI initialization -- catches configuration bugs
+from __future__ import annotations
 that only manifest at runtime (not in mocked unit tests)."""
 
 import os

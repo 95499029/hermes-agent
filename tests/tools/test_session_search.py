@@ -1,4 +1,5 @@
 """Tests for the single-shape session_search tool.
+from __future__ import annotations
 
 Three calling shapes:
   1. DISCOVERY — pass query → FTS5 + anchored window + bookends per hit

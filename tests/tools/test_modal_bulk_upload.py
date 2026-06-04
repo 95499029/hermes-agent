@@ -1,4 +1,5 @@
 """Tests for Modal bulk upload via tar/base64 archive."""
+from __future__ import annotations
 
 import asyncio
 import base64

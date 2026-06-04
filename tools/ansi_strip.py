@@ -1,4 +1,5 @@
 """Strip ANSI escape sequences from subprocess output.
+from __future__ import annotations
 
 Used by terminal_tool, code_execution_tool, and process_registry to clean
 command output before returning it to the model.  This prevents ANSI codes

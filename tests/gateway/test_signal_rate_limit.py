@@ -1,4 +1,5 @@
 """Tests for the SignalAttachmentScheduler token-bucket simulator."""
+from __future__ import annotations
 import asyncio
 
 import pytest

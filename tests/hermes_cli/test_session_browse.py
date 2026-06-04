@@ -1,4 +1,5 @@
 """Tests for the interactive session browser (`hermes sessions browse`).
+from __future__ import annotations
 
 Covers:
 - _session_browse_picker logic (curses mocked, fallback tested)

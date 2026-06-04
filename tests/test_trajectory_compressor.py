@@ -1,4 +1,5 @@
 """Tests for trajectory_compressor.py — config, metrics, and compression logic."""
+from __future__ import annotations
 
 import importlib
 import os

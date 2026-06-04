@@ -1,4 +1,5 @@
 """Tests for _resolve_path() — TERMINAL_CWD-aware path resolution in file_tools."""
+from __future__ import annotations
 
 import os
 from pathlib import Path

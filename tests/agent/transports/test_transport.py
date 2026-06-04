@@ -1,4 +1,5 @@
 """Tests for the transport ABC, registry, and AnthropicTransport."""
+from __future__ import annotations
 
 import pytest
 from types import SimpleNamespace

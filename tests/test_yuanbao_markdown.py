@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 test_yuanbao_markdown.py - Unit tests for yuanbao_markdown.py
 
 Run (no pytest needed):

@@ -1,4 +1,5 @@
 """Tests for transcription_tools.py — local (faster-whisper) and OpenAI providers.
+from __future__ import annotations
 
 Tests cover provider selection, config loading, validation, and transcription
 dispatch.  All external dependencies (faster_whisper, openai) are mocked.

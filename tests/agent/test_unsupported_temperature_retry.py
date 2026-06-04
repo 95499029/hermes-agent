@@ -1,4 +1,5 @@
 """Regression tests for the universal "unsupported temperature" retry in
+from __future__ import annotations
 ``agent.auxiliary_client``.
 
 Auxiliary callers (context compression, session search,

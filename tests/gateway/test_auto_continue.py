@@ -1,4 +1,5 @@
 """Tests for the auto-continue feature (#4493).
+from __future__ import annotations
 
 When the gateway restarts mid-agent-work, the session transcript ends on a
 tool result that the agent never processed.  The auto-continue logic detects

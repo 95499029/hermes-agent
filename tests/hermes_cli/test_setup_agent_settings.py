@@ -1,4 +1,5 @@
 """Tests for agent-settings copy in the interactive setup wizard."""
+from __future__ import annotations
 
 from hermes_cli.setup import setup_agent_settings
 

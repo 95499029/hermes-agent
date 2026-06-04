@@ -1,4 +1,5 @@
 """Tests for terminal/file tool availability in local dev environments."""
+from __future__ import annotations
 
 import importlib
 

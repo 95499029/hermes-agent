@@ -1,4 +1,5 @@
 """Tests that init_session() respects the configured cwd.
+from __future__ import annotations
 
 The bug: when terminal.cwd is set in config.yaml, the configured path was
 displayed in the TUI banner but actual terminal commands ran in os.getcwd()

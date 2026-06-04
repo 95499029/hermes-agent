@@ -1,4 +1,5 @@
 """Tests for step_callback backward compatibility.
+from __future__ import annotations
 
 Verifies that the gateway's step_callback normalization keeps
 ``tool_names`` as a list of strings for backward-compatible hooks,

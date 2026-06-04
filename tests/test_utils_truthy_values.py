@@ -1,4 +1,5 @@
 """Tests for shared truthy-value helpers."""
+from __future__ import annotations
 
 from utils import env_var_enabled, is_truthy_value
 

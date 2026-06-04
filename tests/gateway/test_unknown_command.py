@@ -1,4 +1,5 @@
 """Tests for gateway warning when an unrecognized /command is dispatched.
+from __future__ import annotations
 
 Without this warning, unknown slash commands get forwarded to the LLM as plain
 text, which often leads to silent failure (e.g. the model inventing a bogus

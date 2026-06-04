@@ -1,4 +1,5 @@
 """_tui_need_npm_install: auto npm when node_modules is behind the lockfile."""
+from __future__ import annotations
 
 import os
 import types

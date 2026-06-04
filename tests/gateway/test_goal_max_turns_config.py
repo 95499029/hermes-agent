@@ -1,4 +1,5 @@
 import pytest
+from __future__ import annotations
 
 from gateway.config import GatewayConfig, Platform, PlatformConfig
 from gateway.platforms.base import MessageEvent, MessageType

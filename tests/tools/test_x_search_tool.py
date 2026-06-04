@@ -1,4 +1,5 @@
 """Tests for the X (Twitter) Search tool backed by xAI Responses API.
+from __future__ import annotations
 
 Covers:
 - HTTP request shape (URL, headers, payload, model from config)

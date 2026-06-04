@@ -1,4 +1,5 @@
 """Tests for credential_pool .env fallback and auth credential_pool lookup.
+from __future__ import annotations
 
 Covers the fix from #15914 / PR #15920:
 - _seed_from_env reads API keys from ~/.hermes/.env when not in os.environ

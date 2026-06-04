@@ -1,4 +1,5 @@
 """Tests for tui_gateway JSON-RPC protocol plumbing."""
+from __future__ import annotations
 
 import io
 import json

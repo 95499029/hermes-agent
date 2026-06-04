@@ -1,4 +1,5 @@
 """Tests for `_pin_kanban_board_env` helper invoked by `cmd_chat`.
+from __future__ import annotations
 
 Regression coverage for #20074: a chat session must export the active kanban
 board into `HERMES_KANBAN_BOARD` at boot so subprocess shell-outs (e.g.

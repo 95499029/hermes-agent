@@ -1,4 +1,5 @@
 """Tests for agent/anthropic_adapter.py — Anthropic Messages API adapter."""
+from __future__ import annotations
 
 import json
 import sys

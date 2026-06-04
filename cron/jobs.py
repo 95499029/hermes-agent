@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Cron job storage and management.
 
 Jobs are stored in ~/.hermes/cron/jobs.json

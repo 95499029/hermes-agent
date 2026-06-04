@@ -1,4 +1,5 @@
 """Regression tests for Google Workspace OAuth setup.
+from __future__ import annotations
 
 These tests cover the headless/manual auth-code flow where the browser step and
 code exchange happen in separate process invocations.

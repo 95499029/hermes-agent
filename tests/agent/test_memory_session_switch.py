@@ -1,4 +1,5 @@
 """Tests for the on_session_switch hook and session_id propagation.
+from __future__ import annotations
 
 Covers #6672: memory providers must be notified when AIAgent.session_id
 rotates mid-process (via /resume, /branch, /reset, /new, or context

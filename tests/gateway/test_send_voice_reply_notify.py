@@ -1,4 +1,5 @@
 """Regression test for issue #27970 Bug 2.
+from __future__ import annotations
 
 The auto Telegram voice reply (``GatewayRunner._send_voice_reply``) is the
 final response of a turn. It must mark its metadata as ``notify=True`` so

@@ -1,4 +1,5 @@
 """Tests for ``hermes debug`` CLI command and debug utilities."""
+from __future__ import annotations
 
 import os
 import urllib.error

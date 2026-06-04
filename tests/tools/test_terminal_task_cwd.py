@@ -1,4 +1,5 @@
 """Regression tests for task/session cwd propagation in terminal_tool."""
+from __future__ import annotations
 
 import json
 

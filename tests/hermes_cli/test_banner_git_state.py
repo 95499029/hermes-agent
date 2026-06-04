@@ -1,4 +1,5 @@
 from unittest.mock import MagicMock, patch
+from __future__ import annotations
 
 
 def test_format_banner_version_label_without_git_state():

@@ -1,4 +1,5 @@
 """Tests for context compression persistence in the gateway.
+from __future__ import annotations
 
 Verifies that when context compression fires during run_conversation(),
 the compressed messages are properly persisted to both SQLite (via the

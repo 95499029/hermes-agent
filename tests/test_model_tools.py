@@ -1,4 +1,5 @@
 """Tests for model_tools.py — function call dispatch, agent-loop interception, legacy toolsets."""
+from __future__ import annotations
 
 import json
 from unittest.mock import ANY, call, patch

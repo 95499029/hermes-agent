@@ -1,4 +1,5 @@
 """Tests for cron job context_from feature (issue #5439 Option C)."""
+from __future__ import annotations
 
 import logging
 import sys

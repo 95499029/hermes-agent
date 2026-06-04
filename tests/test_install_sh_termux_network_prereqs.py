@@ -1,4 +1,5 @@
 """Regression tests for Termux network prerequisite handling in install.sh."""
+from __future__ import annotations
 
 from pathlib import Path
 

@@ -1,4 +1,5 @@
 """Tests for progressive subdirectory hint discovery."""
+from __future__ import annotations
 
 import pytest
 from pathlib import Path

@@ -1,4 +1,5 @@
 """Regression test: cancel_background_tasks must drain late-arrival tasks.
+from __future__ import annotations
 
 During gateway shutdown, a message arriving while
 cancel_background_tasks is mid-await can spawn a fresh

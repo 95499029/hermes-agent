@@ -1,4 +1,5 @@
 """Tests for agent/prompt_builder.py — context scanning, truncation, skills index."""
+from __future__ import annotations
 
 import builtins
 import importlib

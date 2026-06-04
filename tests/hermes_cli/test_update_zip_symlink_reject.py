@@ -1,4 +1,5 @@
 """Regression: _update_via_zip must reject ZIP members with symlink mode.
+from __future__ import annotations
 
 A symlink member in a downloaded update ZIP would let an attacker who can
 serve / MITM the update mirror plant a symlink that extractall() then

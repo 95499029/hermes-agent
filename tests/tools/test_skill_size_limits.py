@@ -1,4 +1,5 @@
 """Tests for skill content size limits.
+from __future__ import annotations
 
 Agent writes (create/edit/patch/write_file) are constrained to
 MAX_SKILL_CONTENT_CHARS (100k) and MAX_SKILL_FILE_BYTES (1 MiB).

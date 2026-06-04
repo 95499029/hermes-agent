@@ -1,4 +1,5 @@
 """Tests for edge cases in tools/file_operations.py.
+from __future__ import annotations
 
 Covers:
 - ``_is_likely_binary()`` content-analysis branch (dead-code removal regression guard)

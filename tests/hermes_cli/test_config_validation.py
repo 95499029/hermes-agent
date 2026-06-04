@@ -1,4 +1,5 @@
 """Tests for config.yaml structure validation (validate_config_structure)."""
+from __future__ import annotations
 
 
 from hermes_cli.config import validate_config_structure, ConfigIssue

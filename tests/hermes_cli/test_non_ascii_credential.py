@@ -1,4 +1,5 @@
 """Tests for non-ASCII credential detection and sanitization.
+from __future__ import annotations
 
 Covers the fix for issue #6843 — API keys containing Unicode lookalike
 characters (e.g. ʋ U+028B instead of v) cause UnicodeEncodeError when

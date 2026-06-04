@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Cron job management tools for Hermes Agent.
 
 Expose a single compressed action-oriented tool to avoid schema/context bloat.

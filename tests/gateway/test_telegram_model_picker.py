@@ -1,4 +1,5 @@
 """Tests for Telegram model picker thread fallback."""
+from __future__ import annotations
 
 import sys
 from types import SimpleNamespace

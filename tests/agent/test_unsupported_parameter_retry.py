@@ -1,4 +1,5 @@
 """Regression tests for the generic unsupported-parameter detector in
+from __future__ import annotations
 ``agent.auxiliary_client``.
 
 The original temperature-specific detector (PR #15621) was generalized so the

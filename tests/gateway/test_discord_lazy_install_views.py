@@ -1,4 +1,5 @@
 """Regression: Discord UI view classes must be defined after lazy-install.
+from __future__ import annotations
 
 When discord.py is NOT installed at module load time, the
 ``if DISCORD_AVAILABLE:`` guard at the bottom of gateway/platforms/discord.py

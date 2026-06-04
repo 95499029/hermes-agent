@@ -1,4 +1,5 @@
 """Tests for /update gateway slash command.
+from __future__ import annotations
 
 Tests both the _handle_update_command handler (spawns update process) and
 the _send_update_notification startup hook (sends results after restart).

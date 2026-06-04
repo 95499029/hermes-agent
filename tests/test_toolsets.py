@@ -1,4 +1,5 @@
 """Tests for toolsets.py — toolset resolution, validation, and composition."""
+from __future__ import annotations
 
 from tools.registry import ToolRegistry
 from toolsets import (

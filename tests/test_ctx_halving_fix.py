@@ -1,4 +1,5 @@
 """Tests for the context-halving bugfix.
+from __future__ import annotations
 
 Background
 ----------

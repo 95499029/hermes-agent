@@ -1,4 +1,5 @@
 """GMI Cloud provider profile."""
+from __future__ import annotations
 
 from hermes_cli import __version__ as _HERMES_VERSION
 from providers import register_provider

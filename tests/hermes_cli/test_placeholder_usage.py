@@ -1,4 +1,5 @@
 """Tests for CLI placeholder text in config/setup output."""
+from __future__ import annotations
 
 import os
 from argparse import Namespace

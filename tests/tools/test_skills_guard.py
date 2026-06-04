@@ -1,4 +1,5 @@
 """Tests for tools/skills_guard.py - security scanner for skills."""
+from __future__ import annotations
 
 import tempfile
 from pathlib import Path

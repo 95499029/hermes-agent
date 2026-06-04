@@ -1,4 +1,5 @@
 """Tests for WhatsApp connect() error handling.
+from __future__ import annotations
 
 Regression tests for two bugs in WhatsAppAdapter.connect():
 

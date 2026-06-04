@@ -1,4 +1,5 @@
 from hermes_cli import cli_output
+from __future__ import annotations
 
 
 def test_password_prompt_uses_masked_secret_prompt(monkeypatch):

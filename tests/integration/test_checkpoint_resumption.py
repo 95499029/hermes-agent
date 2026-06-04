@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Test script to verify checkpoint behavior in batch_runner.py
 

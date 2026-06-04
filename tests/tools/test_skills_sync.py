@@ -1,4 +1,5 @@
 """Tests for tools/skills_sync.py — manifest-based skill seeding and updating."""
+from __future__ import annotations
 
 import json
 from pathlib import Path

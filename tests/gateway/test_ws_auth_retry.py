@@ -1,4 +1,5 @@
 """Tests for auth-aware retry in Mattermost WS and Matrix sync loops.
+from __future__ import annotations
 
 Both Mattermost's _ws_loop and Matrix's _sync_loop previously caught all
 exceptions with a broad ``except Exception`` and retried forever. Permanent

@@ -1,4 +1,5 @@
 """Regression tests: failed-connect path must call adapter.disconnect().
+from __future__ import annotations
 
 When adapter.connect() returns False or raises, the adapter may have
 allocated resources (aiohttp.ClientSession, poll tasks, child

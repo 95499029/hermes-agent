@@ -1,4 +1,5 @@
 """Tests for the process_loop RuntimeWarning fix -- issue #19285.
+from __future__ import annotations
 
 In Python 3.10+, calling asyncio.get_event_loop() from a non-main thread
 that has no current event loop emits a DeprecationWarning (3.10/3.11) or

@@ -1,4 +1,5 @@
 """Tests for tools/skill_manager_tool.py — skill creation, editing, and deletion."""
+from __future__ import annotations
 
 import json
 from contextlib import contextmanager

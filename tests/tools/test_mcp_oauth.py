@@ -1,4 +1,5 @@
 """Tests for tools/mcp_oauth.py — OAuth 2.1 PKCE support for MCP servers."""
+from __future__ import annotations
 
 import json
 import os

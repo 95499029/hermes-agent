@@ -1,4 +1,5 @@
 """Tests for tools/checkpoint_manager.py — CheckpointManager (v2 single-store)."""
+from __future__ import annotations
 
 import json
 import logging

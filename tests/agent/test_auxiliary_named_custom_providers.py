@@ -1,4 +1,5 @@
 """Tests for named custom provider and 'main' alias resolution in auxiliary_client."""
+from __future__ import annotations
 
 from unittest.mock import patch, MagicMock
 

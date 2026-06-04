@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 test_yuanbao_proto.py - yuanbao_proto 单元测试
 
 测试覆盖：

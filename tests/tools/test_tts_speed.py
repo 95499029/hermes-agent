@@ -1,4 +1,5 @@
 """Tests for TTS speed configuration across providers."""
+from __future__ import annotations
 
 import asyncio
 from unittest.mock import AsyncMock, MagicMock, patch

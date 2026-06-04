@@ -1,4 +1,5 @@
 """Tests for cron job script injection feature.
+from __future__ import annotations
 
 Tests cover:
 - Script field in job creation / storage / update

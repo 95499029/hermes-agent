@@ -1,4 +1,5 @@
 """
+from __future__ import annotations
 Tests for the Cron Jobs API endpoints on the API server adapter.
 
 Covers:

@@ -1,4 +1,5 @@
 """System prompt assembly -- identity, platform hints, skills index, context files.
+from __future__ import annotations
 
 All functions are stateless. AIAgent._build_system_prompt() calls these to
 assemble pieces, then combines them with memory and ephemeral prompts.

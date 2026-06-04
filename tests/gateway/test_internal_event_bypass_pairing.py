@@ -1,4 +1,5 @@
 """Tests that internal synthetic events (e.g. background process completion)
+from __future__ import annotations
 bypass user authorization and do not trigger DM pairing.
 
 Regression test for the bug where ``_run_process_watcher`` with

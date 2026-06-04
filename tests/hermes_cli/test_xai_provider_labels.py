@@ -1,4 +1,5 @@
 """Regression tests for xAI provider label disambiguation."""
+from __future__ import annotations
 
 from hermes_cli.models import provider_label
 from hermes_cli.providers import get_label

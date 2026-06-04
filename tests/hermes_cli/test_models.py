@@ -1,4 +1,5 @@
 """Tests for the hermes_cli models module."""
+from __future__ import annotations
 
 from unittest.mock import patch, MagicMock
 
