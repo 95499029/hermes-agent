@@ -77,7 +77,14 @@ def cron_list(show_all: bool = False):
     for job in jobs:
         job_id = job.get("id", "?")
         name = job.get("name", "(unnamed)")
-        schedule = job.get("schedule_display", job.get("schedule", {}).get("value", "?"))
+        # 2026-06-16 patch: 防御 schema 缺字段 (schedule/repeat) 撞 list 渲染
+        raw_schedule = job.get("schedule")
+        if isinstance(raw_schedule, dict):
+            schedule = job.get("schedule_display") or raw_schedule.get("display") or raw_schedule.get("value") or raw_schedule.get("expr", "?")
+        elif isinstance(raw_schedule, str):
+            schedule = job.get("schedule_display") or raw_schedule
+        else:
+            schedule = "?"
         state = job.get("state", "scheduled" if job.get("enabled", True) else "paused")
         next_run = job.get("next_run_at", "?")
 
