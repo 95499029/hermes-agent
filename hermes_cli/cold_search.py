@@ -1,13 +1,19 @@
-"""Cold-layer full-text search over ~/.hermes/memories/cold/.
+"""Cold-layer (历史层) full-text search over ~/.hermes/memories/cold/.
+
+Naming note: the directory on disk is still called `cold/` for backward
+compatibility with any existing tools that hardcode the path. In user-facing
+strings (CLI output, docs) we call this the "历史层" (history/archive tier)
+per the local Tiered Memory architecture. New code should use the term
+"历史层" in user-facing strings; the file/column/directory names stay.
 
 A tiny local FTS5 index lives at ~/.hermes/memories/cold/.fts.sqlite.
 We build it from the *.md archive files written by memory_tier.demote()
 and refresh it lazily on every search call (cheap because N is small — the
-typical cold layer has tens of files, not thousands).
+typical history tier has tens of files, not thousands).
 
 Why not pull in a vector plugin? The design doc calls for hybrid search
-(BM25 + vector) but the warm-layer memory in this codebase is small and
-high-signal; BM25 over the cold layer gives 90% of the value with zero
+(BM25 + vector) but the 通用层 memory in this codebase is small and
+high-signal; BM25 over the 历史层 gives 90% of the value with zero
 external dependency. We can add a vector layer (e.g. sqlite-vss or the
 ``holographic`` plugin) later without changing this module's contract.
 
@@ -107,7 +113,7 @@ def rebuild() -> dict:
 
 
 def search(query: str, limit: int = 10) -> list[dict]:
-    """BM25-ranked full-text search over cold layer archives.
+    """BM25-ranked full-text search over 历史层 archives.
 
     Returns a list of dicts with: path, title, snippet, score. Empty result
     list if the query is empty or no matches.
@@ -162,7 +168,7 @@ def search(query: str, limit: int = 10) -> list[dict]:
 
 
 def stats() -> dict:
-    """Quick health-check stats for the cold layer."""
+    """Quick health-check stats for the 历史层."""
     cold = _cold_dir()
     on_disk = sum(1 for _ in cold.glob("*.md"))
     index_exists = _index_path().exists()

@@ -11064,7 +11064,7 @@ def cmd_memory(args):
 
         result = demote(args.needle)
         if result.get("ok"):
-            print(f"\n  ✓ Demoted to cold layer")
+            print(f"\n  ✓ Demoted to 历史层")
             print(f"  archived: {result.get('cold_file')}")
             print(f"  MEMORY.md now: {result.get('remaining_facts')} facts, {result.get('size')} B\n")
         else:
@@ -11077,10 +11077,10 @@ def cmd_memory(args):
         limit = s["limit"]
         pct = (warm_b / limit * 100) if limit else 0
         bar = _progress_bar(pct)
-        print("\n  Warm layer (MEMORY.md)")
+        print("\n  通用层 (MEMORY.md)")
         print(f"    facts : {s['warm_facts']}")
         print(f"    bytes : {warm_b:,} / {limit:,}  [{bar}] {pct:.0f}%")
-        print(f"  Cold layer (memories/cold/)")
+        print(f"  历史层 (memories/cold/)")
         print(f"    files : {s['cold_files']}\n")
     elif sub == "rebalance":
         from hermes_cli.memory_tier import rebalance
@@ -11103,7 +11103,7 @@ def cmd_memory(args):
 
         results = search(args.query, limit=args.limit)
         if not results:
-            print(f"\n  No cold-layer matches for: {args.query!r}\n")
+            print(f"\n  No 历史层 matches for: {args.query!r}\n")
             return
         print(f"\n  Cold-layer matches for: {args.query!r}  ({len(results)} result(s))\n")
         for i, r in enumerate(results, 1):

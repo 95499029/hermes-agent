@@ -1,6 +1,6 @@
 """Memory consolidation — the nightly janitor.
 
-Runs the warm-layer (MEMORY.md) and cold-layer (memories/cold/) through a
+Runs the 通用层 (MEMORY.md) and 历史层 (memories/cold/) through a
 set of housekeeping passes:
 
   1. PII redact           — strip API keys / phone / id before any write
@@ -176,12 +176,12 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Memory consolidation janitor")
     p.add_argument("--apply", action="store_true", help="Mutate state (default is dry run)")
     p.add_argument("--all", action="store_true", help="Run every pass")
-    p.add_argument("--pii", action="store_true", help="Run PII scan on warm layer")
+    p.add_argument("--pii", action="store_true", help="Run PII scan on 通用层")
     p.add_argument("--ttl", type=int, default=60, help="TTL in days (default: 60)")
     p.add_argument("--ttl-demote", action="store_true", help="Demote cold files older than --ttl")
     p.add_argument("--conflict", action="store_true", help="Run conflict detector")
     p.add_argument("--rebalance", action="store_true", help="Re-classify facts under sections")
-    p.add_argument("--cold-pii", action="store_true", help="PII-scan cold layer too")
+    p.add_argument("--cold-pii", action="store_true", help="PII-scan 历史层 too")
     p.add_argument("--json", action="store_true", help="Print metrics as JSON")
     p.add_argument("--out", type=Path, default=None, help="Write metrics JSON to file")
     args = p.parse_args(argv)

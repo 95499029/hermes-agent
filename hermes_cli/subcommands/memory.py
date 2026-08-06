@@ -51,7 +51,7 @@ def build_memory_parser(subparsers, *, cmd_memory: Callable) -> None:
         help="Which store to reset: 'all' (default), 'memory', or 'user'",
     )
 
-    # --- warm-layer tier operations (P1 task 3 of tiered memory plan) ---
+    # --- 通用层 tier operations (P1 task 3 of tiered memory plan) ---
     _promote = memory_sub.add_parser(
         "promote",
         help="Add a fact to MEMORY.md (no-op on near-duplicate)",
@@ -62,7 +62,7 @@ def build_memory_parser(subparsers, *, cmd_memory: Callable) -> None:
     )
     _demote = memory_sub.add_parser(
         "demote",
-        help="Remove a fact from MEMORY.md and archive it to cold layer",
+        help="Remove a fact from MEMORY.md and archive it to 历史层",
     )
     _demote.add_argument(
         "needle",
@@ -70,7 +70,7 @@ def build_memory_parser(subparsers, *, cmd_memory: Callable) -> None:
     )
     memory_sub.add_parser(
         "stats",
-        help="Show warm-layer stats (fact count, bytes, cold-layer size)",
+        help="Show 通用层 stats (fact count, bytes, 历史层 size)",
     )
     memory_sub.add_parser(
         "rebalance",
@@ -78,7 +78,7 @@ def build_memory_parser(subparsers, *, cmd_memory: Callable) -> None:
     )
     _search_parser = memory_sub.add_parser(
         "search",
-        help="Full-text search over the cold-layer archive (local FTS5 index)",
+        help="Full-text search over the 历史层 archive (local FTS5 index)",
     )
     _search_parser.add_argument(
         "query",
@@ -93,7 +93,7 @@ def build_memory_parser(subparsers, *, cmd_memory: Callable) -> None:
     )
     _search_parser = memory_sub.add_parser(
         "index",
-        help="Rebuild the cold-layer FTS5 index (auto-runs on each search call)",
+        help="Rebuild the 历史层 FTS5 index (auto-runs on each search call)",
     )
 
     memory_parser.set_defaults(func=cmd_memory)

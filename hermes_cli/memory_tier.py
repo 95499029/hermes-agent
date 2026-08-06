@@ -1,6 +1,6 @@
-"""Memory tier operations: promote facts into MEMORY.md, demote out to cold layer.
+"""Memory tier operations: promote facts into MEMORY.md, demote out to 历史层.
 
-Implements the warm-layer promotion/demotion rules described in the
+Implements the 通用层 promotion/demotion rules described in the
 Tiered Memory Architecture design doc. Designed to live outside main.py
 so the god-file doesn't grow further.
 
@@ -12,7 +12,7 @@ File format is plain Markdown (Hermes convention):
     - fact one
     - fact two
 
-Cold layer: ~/.hermes/memories/cold/<timestamp>-<slug>.md
+历史层: ~/.hermes/memories/cold/<timestamp>-<slug>.md
 (one archived fact per file, human-readable, grep-friendly).
 """
 from __future__ import annotations
@@ -91,7 +91,7 @@ def _read_lines(path: Path) -> list[str]:
     return path.read_text(encoding="utf-8").split("\n")
 
 
-# Section routing rules for warm-layer facts. Each section is matched against a
+# Section routing rules for 通用层 facts. Each section is matched against a
 # set of keywords; a fact that hits any keyword goes to that section. The order
 # matters — the first match wins — so put the most specific section first.
 _SECTION_RULES: list[tuple[str, list[str]]] = [
@@ -243,7 +243,7 @@ def promote(fact: str) -> dict:
 
 def demote(needle: str) -> dict:
     """Remove the first fact whose text contains ``needle`` (case-insensitive).
-    Archive it to the cold layer."""
+    Archive it to the 历史层."""
     if not needle or not needle.strip():
         return {"ok": False, "reason": "empty needle"}
     path = _memory_path()
@@ -261,7 +261,7 @@ def demote(needle: str) -> dict:
         return {"ok": False, "reason": "no match"}
     matched = facts[match_idx]
     new_facts = facts[:match_idx] + facts[match_idx + 1:]
-    # Archive to cold layer.
+    # Archive to 历史层.
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     cold_file = _cold_dir() / f"{ts}-{_slug(matched)}.md"
     cold_file.write_text(f"# Archived {ts}\n\n{matched}\n", encoding="utf-8")
@@ -276,8 +276,8 @@ def demote(needle: str) -> dict:
     # Rebalance so remaining facts land under their correct ## sections
     # (otherwise demote leaves the file in flat-trailing-facts form).
     rebalance_result = rebalance()
-    # Refresh the cold-layer FTS5 index so this new archive is searchable
-    # immediately. Cheap: typical cold layer has tens of files.
+    # Refresh the 历史层 FTS5 index so this new archive is searchable
+    # immediately. Cheap: typical 历史层 has tens of files.
     indexed_ok = False
     try:
         from hermes_cli import cold_search  # local import — avoid cycles
@@ -297,7 +297,7 @@ def demote(needle: str) -> dict:
 
 
 def stats() -> dict:
-    """Return warm-layer stats for `hermes memory stats` and dashboards.
+    """Return 通用层 stats for `hermes memory stats` and dashboards.
 
     `limit` is read live from config.yaml so the progress bar stays accurate
     even if the user customises memory_char_limit.
