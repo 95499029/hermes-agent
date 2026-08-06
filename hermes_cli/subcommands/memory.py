@@ -95,5 +95,18 @@ def build_memory_parser(subparsers, *, cmd_memory: Callable) -> None:
         "index",
         help="Rebuild the 历史层 FTS5 index (auto-runs on each search call)",
     )
+    _cons = memory_sub.add_parser(
+        "consolidate",
+        help="Run the nightly janitor (PII scan, TTL demote, rebalance, conflict)",
+    )
+    _cons.add_argument("--apply", action="store_true", help="Mutate state (default dry-run)")
+    _cons.add_argument("--all", action="store_true", help="Run every pass (default if none given)")
+    _cons.add_argument("--pii", action="store_true", help="PII scan the warm layer")
+    _cons.add_argument("--ttl-demote", action="store_true", help="Move cold files older than --ttl into stale/")
+    _cons.add_argument("--ttl", type=int, default=60, help="TTL days (default: 60)")
+    _cons.add_argument("--conflict", action="store_true", help="Run conflict detector")
+    _cons.add_argument("--rebalance", action="store_true", help="Re-classify facts under sections")
+    _cons.add_argument("--cold-pii", action="store_true", help="PII-scan cold layer too")
+    _cons.add_argument("--json", action="store_true", help="Print metrics as JSON")
 
     memory_parser.set_defaults(func=cmd_memory)

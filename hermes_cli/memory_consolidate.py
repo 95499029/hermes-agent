@@ -29,7 +29,12 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import pii as _pii
+# Support both `python -m hermes_cli.memory_consolidate` and direct script run.
+try:
+    from . import pii as _pii
+except ImportError:  # direct script execution
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    import pii as _pii  # type: ignore[no-redef]
 
 
 # --- PII: thin re-export so existing CLI flags stay stable -----------------

@@ -11121,6 +11121,24 @@ def cmd_memory(args):
             print(f"  index size: {result.get('index_size'):,} B\n")
         else:
             print(f"\n  ✗ {result.get('reason', 'failed')}\n")
+    elif sub == "consolidate":
+        from hermes_cli.memory_consolidate import main as consolidate_main
+
+        # Reconstruct argv for the standalone script.
+        argv = []
+        if getattr(args, "apply", False):
+            argv.append("--apply")
+        if getattr(args, "json", False):
+            argv.append("--json")
+        for flag in ("pii", "ttl_demote", "conflict", "rebalance", "cold_pii"):
+            if getattr(args, flag, False):
+                argv.append(f"--{flag.replace('_', '-')}")
+        if getattr(args, "ttl", 60) != 60:
+            argv += ["--ttl", str(args.ttl)]
+        if not any(p in argv for p in ("--pii", "--ttl-demote", "--conflict",
+                                        "--rebalance", "--cold-pii")):
+            argv.append("--all")
+        consolidate_main(argv)
     else:
         from hermes_cli.memory_setup import memory_command
 

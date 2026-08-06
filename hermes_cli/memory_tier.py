@@ -124,17 +124,43 @@ def _classify_section(fact: str) -> str:
 def rebalance() -> dict:
     """Re-organise existing facts under their correct ## section.
 
-    Reads the current file, groups every bullet under the most recent ## header,
-    then re-emits the document with facts placed under their classified section
-    (one section per header, facts interleaved by original order).
+    Two file formats are supported:
 
-    Idempotent: running it twice is a no-op.
+    - Bullet format (`- xxx` lines under `## title` headings): facts are
+      physically moved under the correct `## section` based on keyword routing.
+
+    - §-delimited format (Hermes convention — bare paragraphs split by `§`):
+      facts already live as flat paragraphs; this function is a no-op but
+      reports per-section counts so the user sees what's where.
+
+    Returns a status dict. Idempotent: safe to call multiple times.
     """
     path = _memory_path()
     if not path.exists():
         return {"ok": False, "reason": "MEMORY.md missing"}
+    text = path.read_text(encoding="utf-8")
+    if "\n§\n" in text or text.lstrip().startswith("§"):
+        # §-delimited format: just report keyword-classified groupings.
+        chunks = [c.strip() for c in text.split("§") if c.strip()]
+        # Skip the first chunk if it's the title (# Header / meta-rule).
+        body = []
+        for c in chunks:
+            first_line = c.splitlines()[0].lstrip()
+            if first_line.startswith("# ") or first_line.startswith(">"):
+                continue
+            body.append(c)
+        sections: dict[str, list[str]] = {}
+        for fact in body:
+            sec = _classify_section(fact)
+            sections.setdefault(sec, []).append(fact)
+        return {
+            "ok": True,
+            "action": "no-op (§-format already structured)",
+            "sections": {k: len(v) for k, v in sections.items()},
+            "size": path.stat().st_size,
+        }
     lines = _read_lines(path)
-    # Phase 1: collect facts as (raw_fact_text, classified_section)
+    # Phase 1: collect facts as (raw_fact_text, original_section)
     facts_with_section: list[tuple[str, str]] = []
     current_section: str | None = None
     top_header: list[str] = []  # everything before the first ## heading
@@ -148,8 +174,8 @@ def rebalance() -> dict:
         else:
             if current_section is None:
                 top_header.append(line)
-    # Phase 2: re-classify each fact (overrides whatever section it landed in
-    # originally) and group by classified section in original-order traversal.
+    # Phase 2: re-classify each fact by keyword (overrides the section it
+    # landed in originally) and group by classified section, preserving order.
     grouped: dict[str, list[str]] = {}
     for raw, _original in facts_with_section:
         section = _classify_section(raw)
@@ -177,11 +203,39 @@ def rebalance() -> dict:
 def _split_facts(lines: list[str]) -> tuple[list[str], list[str]]:
     """Return (header_lines, fact_lines).
 
-    header_lines = everything that is NOT a bullet (`- `).
-    fact_lines   = the bullet lines, trimmed of the leading "- ".
+    header_lines = everything that is NOT a bullet (`- `) or a §-delimited chunk.
+    fact_lines   = the bullet lines OR bare-paragraph chunks when § is present.
+
+    Hermes uses bare-§ splitting (see agent/learning_graph.py:_memory_cards),
+    so when § separators appear we treat each paragraph between them as a
+    fact; otherwise fall back to bullet detection.
     """
-    header: list[str] = []
-    facts: list[str] = []
+    # Rebuild full text so we can detect § separators as chunk boundaries.
+    text = "\n".join(lines)
+    if "\n§\n" in text or text.lstrip().startswith("§"):
+        # §-split mode: treat each paragraph as one fact. Header lines stay
+        # anything before the first § that's not part of the meta-rule block.
+        parts = [p.strip() for p in text.split("§")]
+        header: list[str] = []
+        facts: list[str] = []
+        # The first "part" is the front matter (title + optional meta-rule).
+        # Every subsequent part is a fact chunk.
+        for i, p in enumerate(parts):
+            if not p:
+                continue
+            if i == 0:
+                # Front matter: keep the title line and the meta-rule as header.
+                for line in p.split("\n"):
+                    if line.lstrip().startswith("- "):
+                        facts.append(line.lstrip()[2:].rstrip())
+                    else:
+                        header.append(line)
+            else:
+                facts.append(p)
+        return header, facts
+    # Fallback: bullet-detection mode.
+    header = []
+    facts = []
     for line in lines:
         if line.lstrip().startswith(_FACT_LINE_PREFIX):
             facts.append(line.lstrip()[len(_FACT_LINE_PREFIX):].rstrip())
