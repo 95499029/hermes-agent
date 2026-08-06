@@ -88,8 +88,13 @@ def rebuild() -> dict:
                     text = path.read_text(encoding="utf-8")
                 except OSError:
                     continue
+                # Strip the front matter so it doesn't dominate queries.
                 title = path.stem  # filename without .md (timestamp-slug form)
                 body = _strip_frontmatter(text)
+                # PII redact before indexing so secrets don't leak into the
+                # full-text search index or BM25 snippets.
+                from hermes_cli import pii as _pii
+                body = _pii.redact(body)[0]
                 conn.execute(
                     "INSERT INTO cold_fts(path, title, body) VALUES (?, ?, ?)",
                     (path.name, title, body),
@@ -109,9 +114,21 @@ def search(query: str, limit: int = 10) -> list[dict]:
 
     Side effect: ensures the index is up-to-date before searching. We rebuild
     on first call when the index is stale (file count on disk > index rows).
+
+    Note on FTS5 query syntax: hyphens, asterisks and parentheses are
+    operators in FTS5's MATCH expression. We wrap the user query in double
+    quotes (phrase syntax) only when the raw query contains operator
+    characters, otherwise we pass it through so multi-word AND/OR-style
+    queries still work as the user wrote them.
     """
     if not query or not query.strip():
         return []
+    raw = query.strip()
+    # Only wrap in quotes if the query contains operator characters that
+    # would be parsed as FTS5 syntax (NOT keywords like OR/AND — those are
+    # intentional user input).
+    needs_phrase = bool(re.search(r"[-*()]", raw))
+    safe = f'"{raw.replace(chr(34), chr(34)*2)}"' if needs_phrase else raw
     cold = _cold_dir()
     on_disk = sum(1 for _ in cold.glob("*.md"))
     conn = _connect()
@@ -129,7 +146,7 @@ def search(query: str, limit: int = 10) -> list[dict]:
             "FROM cold_fts "
             "WHERE cold_fts MATCH ? "
             "ORDER BY score DESC LIMIT ?",
-            (query.strip(), limit),
+            (safe, limit),
         ).fetchall()
     finally:
         conn.close()
