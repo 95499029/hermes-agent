@@ -50,4 +50,31 @@ def build_memory_parser(subparsers, *, cmd_memory: Callable) -> None:
         default="all",
         help="Which store to reset: 'all' (default), 'memory', or 'user'",
     )
+
+    # --- warm-layer tier operations (P1 task 3 of tiered memory plan) ---
+    _promote = memory_sub.add_parser(
+        "promote",
+        help="Add a fact to MEMORY.md (no-op on near-duplicate)",
+    )
+    _promote.add_argument(
+        "fact",
+        help='Fact text, quoted. Use § to separate facts: hermes memory promote "fact one § fact two"',
+    )
+    _demote = memory_sub.add_parser(
+        "demote",
+        help="Remove a fact from MEMORY.md and archive it to cold layer",
+    )
+    _demote.add_argument(
+        "needle",
+        help="Substring to match (case-insensitive, first occurrence wins)",
+    )
+    memory_sub.add_parser(
+        "stats",
+        help="Show warm-layer stats (fact count, bytes, cold-layer size)",
+    )
+    memory_sub.add_parser(
+        "rebalance",
+        help="Re-organise existing facts under their correct ## section (idempotent)",
+    )
+
     memory_parser.set_defaults(func=cmd_memory)

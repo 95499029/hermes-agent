@@ -11038,6 +11038,61 @@ def cmd_memory(args):
             "\n  Memory reset complete. New sessions will start with a blank slate."
         )
         print(f"  Files were in: {display_hermes_home()}/memories/\n")
+    elif sub == "promote":
+        from hermes_cli.memory_tier import promote
+
+        # Allow inline § separators so users can paste multiple facts at once.
+        facts = [f.strip() for f in args.fact.split("§") if f.strip()]
+        if not facts:
+            print("\n  ✗ No fact provided.\n")
+            return
+        results = [promote(f) for f in facts]
+        promoted = sum(1 for r in results if r.get("action") == "promoted")
+        noop = sum(1 for r in results if r.get("action") == "noop")
+        last = results[-1]
+        if last.get("ok"):
+            if len(facts) > 1:
+                msg = f"promoted {promoted}, skipped {noop} duplicate(s)"
+            else:
+                msg = "added" if last.get("action") == "promoted" else "already present (duplicate)"
+            print(f"\n  ✓ MEMORY.md: {msg}")
+            print(f"  facts={last.get('total_facts')}  size={last.get('size')} B\n")
+        else:
+            print(f"\n  ✗ {last.get('reason', 'failed')}\n")
+    elif sub == "demote":
+        from hermes_cli.memory_tier import demote
+
+        result = demote(args.needle)
+        if result.get("ok"):
+            print(f"\n  ✓ Demoted to cold layer")
+            print(f"  archived: {result.get('cold_file')}")
+            print(f"  MEMORY.md now: {result.get('remaining_facts')} facts, {result.get('size')} B\n")
+        else:
+            print(f"\n  ✗ {result.get('reason', 'failed')}\n")
+    elif sub == "stats":
+        from hermes_cli.memory_tier import stats, _progress_bar
+
+        s = stats()
+        warm_b = s["warm_bytes"]
+        limit = s["limit"]
+        pct = (warm_b / limit * 100) if limit else 0
+        bar = _progress_bar(pct)
+        print("\n  Warm layer (MEMORY.md)")
+        print(f"    facts : {s['warm_facts']}")
+        print(f"    bytes : {warm_b:,} / {limit:,}  [{bar}] {pct:.0f}%")
+        print(f"  Cold layer (memories/cold/)")
+        print(f"    files : {s['cold_files']}\n")
+    elif sub == "rebalance":
+        from hermes_cli.memory_tier import rebalance
+
+        result = rebalance()
+        if result.get("ok"):
+            print("\n  ✓ MEMORY.md rebalanced")
+            for section, count in result.get("sections", {}).items():
+                print(f"    {section}: {count} fact(s)")
+            print(f"  size: {result.get('size')} B\n")
+        else:
+            print(f"\n  ✗ {result.get('reason', 'failed')}\n")
     else:
         from hermes_cli.memory_setup import memory_command
 
