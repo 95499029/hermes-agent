@@ -276,12 +276,23 @@ def demote(needle: str) -> dict:
     # Rebalance so remaining facts land under their correct ## sections
     # (otherwise demote leaves the file in flat-trailing-facts form).
     rebalance_result = rebalance()
+    # Refresh the cold-layer FTS5 index so this new archive is searchable
+    # immediately. Cheap: typical cold layer has tens of files.
+    indexed_ok = False
+    try:
+        from hermes_cli import cold_search  # local import — avoid cycles
+        cold_search.rebuild()
+        indexed_ok = True
+    except Exception:
+        # Indexing failure must not block the demote operation.
+        indexed_ok = False
     return {
         "ok": True,
         "action": "demoted",
         "cold_file": str(cold_file),
         "remaining_facts": len(new_facts),
         "size": rebalance_result.get("size", path.stat().st_size),
+        "indexed": indexed_ok,
     }
 
 

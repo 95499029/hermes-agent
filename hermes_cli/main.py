@@ -11093,6 +11093,34 @@ def cmd_memory(args):
             print(f"  size: {result.get('size')} B\n")
         else:
             print(f"\n  ✗ {result.get('reason', 'failed')}\n")
+    elif sub == "search":
+        from hermes_cli.cold_search import search, stats as cold_stats
+
+        # Surface staleness so the user knows the index rebuilt on demand.
+        meta = cold_stats()
+        if meta.get("stale"):
+            print(f"\n  ⓘ Index stale ({meta['indexed_rows']}/{meta['files_on_disk']} files) — rebuilding…")
+
+        results = search(args.query, limit=args.limit)
+        if not results:
+            print(f"\n  No cold-layer matches for: {args.query!r}\n")
+            return
+        print(f"\n  Cold-layer matches for: {args.query!r}  ({len(results)} result(s))\n")
+        for i, r in enumerate(results, 1):
+            score = r["score"]
+            print(f"  {i}. {r['path']}  (score={score})")
+            print(f"     {r['snippet']}")
+        print()
+    elif sub == "index":
+        from hermes_cli.cold_search import rebuild
+
+        result = rebuild()
+        if result.get("ok"):
+            print(f"\n  ✓ Cold-layer FTS5 index rebuilt")
+            print(f"  files: {result.get('files')}")
+            print(f"  index size: {result.get('index_size'):,} B\n")
+        else:
+            print(f"\n  ✗ {result.get('reason', 'failed')}\n")
     else:
         from hermes_cli.memory_setup import memory_command
 

@@ -76,5 +76,24 @@ def build_memory_parser(subparsers, *, cmd_memory: Callable) -> None:
         "rebalance",
         help="Re-organise existing facts under their correct ## section (idempotent)",
     )
+    _search_parser = memory_sub.add_parser(
+        "search",
+        help="Full-text search over the cold-layer archive (local FTS5 index)",
+    )
+    _search_parser.add_argument(
+        "query",
+        help="BM25 search query — terms separated by spaces",
+    )
+    _search_parser.add_argument(
+        "--limit",
+        "-n",
+        type=int,
+        default=10,
+        help="Max results to return (default: 10)",
+    )
+    _search_parser = memory_sub.add_parser(
+        "index",
+        help="Rebuild the cold-layer FTS5 index (auto-runs on each search call)",
+    )
 
     memory_parser.set_defaults(func=cmd_memory)
