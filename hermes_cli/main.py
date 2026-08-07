@@ -11840,6 +11840,24 @@ def main():
         logging.getLogger(__name__).debug("journey CLI wiring failed: %s", _exc)
 
     # =========================================================================
+    # study command — distill durable principles from books/long articles
+    # =========================================================================
+    study_parser = subparsers.add_parser(
+        "study",
+        help="Distill durable principles from a book or long article",
+        description=(
+            "Read a book (PDF/EPUB/DOCX/TXT) or long article URL, "
+            "extract generalizable principles, and optionally promote "
+            "them to MEMORY.md."
+        ),
+    )
+    try:
+        from hermes_cli.subcommands.study import register_cli as _register_study_cli
+
+        _register_study_cli(study_parser)
+    except Exception as _exc:
+        logging.getLogger(__name__).debug("study CLI wiring failed: %s", _exc)
+    # =========================================================================
     # memory command  (parser built in hermes_cli/subcommands/memory.py)
     # =========================================================================
     build_memory_parser(subparsers, cmd_memory=cmd_memory)
