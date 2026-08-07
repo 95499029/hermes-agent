@@ -11857,6 +11857,25 @@ def main():
         _register_study_cli(study_parser)
     except Exception as _exc:
         logging.getLogger(__name__).debug("study CLI wiring failed: %s", _exc)
+
+    # =========================================================================
+    # reflect command — show today's learning signals (Plan 2)
+    # =========================================================================
+    reflect_parser = subparsers.add_parser(
+        "reflect",
+        help="Show what Hermes learned today (journey + memory + curator)",
+        description=(
+            "Aggregate today's signals: journey nodes created, memory facts "
+            "promoted/demoted, skills used, and curator state. Output as human "
+            "summary or --json for machine-readable."
+        ),
+    )
+    try:
+        from hermes_cli.subcommands.reflect import register_cli as _register_reflect_cli
+
+        _register_reflect_cli(reflect_parser)
+    except Exception as _exc:
+        logging.getLogger(__name__).debug("reflect CLI wiring failed: %s", _exc)
     # =========================================================================
     # memory command  (parser built in hermes_cli/subcommands/memory.py)
     # =========================================================================
