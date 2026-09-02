@@ -279,7 +279,7 @@ class TestCompanionFiles:
         return REPO_ROOT / "skills" / "software-development" / SKILL_NAME
 
     def test_conversation_example_exists(self):
-        f = self._skill_root() / "examples" / "conversation-1-gitlab-issue.md"
+        f = self._skill_root() / "references" / "conversation-1-gitlab-issue.md"
         assert f.exists(), f"missing: {f}"
         text = f.read_text(encoding="utf-8")
         assert len(text) >= 1_500, f"example too thin: {len(text)} chars"

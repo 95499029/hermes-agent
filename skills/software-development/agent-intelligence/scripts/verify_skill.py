@@ -28,7 +28,8 @@ REQUIRED_FILES = [
     "references/trust-tier-examples.md",
     "references/source-ranking-heuristics.md",
     "references/preflight-checklist.md",
-    "examples/conversation-1-gitlab-issue.md",
+    "references/conversation-1-gitlab-issue.md",
+    "scripts/verify_skill.py",
 ]
 
 # Strings that must appear in SKILL.md body
@@ -63,7 +64,8 @@ MIN_SIZE = {
     "references/trust-tier-examples.md": 2_000,
     "references/source-ranking-heuristics.md": 2_000,
     "references/preflight-checklist.md": 800,
-    "examples/conversation-1-gitlab-issue.md": 1_500,
+    "references/conversation-1-gitlab-issue.md": 1_500,
+    "scripts/verify_skill.py": 1_500,
 }
 
 # Trust tiers must appear in risk-ascending order

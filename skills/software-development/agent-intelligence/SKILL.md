@@ -252,8 +252,8 @@ Source rank: primary > crawler > search > recall.
 ## References
 
 This skill ships companion reference files for deeper coverage of its
-central tables. Load them on demand when the table itself is not
-enough:
+central tables, plus a preflight checklist and a worked example. Load
+them on demand when the table itself is not enough:
 
 - `references/trust-tier-examples.md` — concrete real-Hermes examples
   per trust tier, plus the "default-unknown" rule for when you're not
@@ -264,16 +264,14 @@ enough:
 - `references/preflight-checklist.md` — a 7-line checklist to paste
   into your scratchpad before the first tool call. Use it on every
   non-trivial task.
-
-## See also
-
-Companion files shipped alongside this skill:
-
-- `examples/conversation-1-gitlab-issue.md` — full multi-turn
+- `references/conversation-1-gitlab-issue.md` — full multi-turn
   transcript for the "What's the status of GitLab issue #1234?"
   request, showing the same conversation done two ways (without the
   three questions: 4 tool calls, no answer; with the three
   questions: 1 tool call, complete answer with citation).
+
+## See also
+
 - `scripts/verify_skill.py` — zero-dependency stdlib script that
   checks the skill's structural integrity. Run with
   `python scripts/verify_skill.py` (no pytest / pip required). Exit
