@@ -251,16 +251,33 @@ Source rank: primary > crawler > search > recall.
 
 ## References
 
-This skill ships two companion reference files for deeper coverage of
-its two central tables. Load them on demand when the table itself is
-not enough:
+This skill ships companion reference files for deeper coverage of its
+central tables. Load them on demand when the table itself is not
+enough:
 
-- `references/trust-tier-examples.md` — three real examples per tier,
-  plus the "default-unknown" rule for when you're not sure which tier
-  applies.
+- `references/trust-tier-examples.md` — concrete real-Hermes examples
+  per trust tier, plus the "default-unknown" rule for when you're not
+  sure which tier applies.
 - `references/source-ranking-heuristics.md` — how to recognise each
   source tier in the wild, the failure modes of each, and when to
   switch tiers mid-task.
+- `references/preflight-checklist.md` — a 7-line checklist to paste
+  into your scratchpad before the first tool call. Use it on every
+  non-trivial task.
+
+## See also
+
+Companion files shipped alongside this skill:
+
+- `examples/conversation-1-gitlab-issue.md` — full multi-turn
+  transcript for the "What's the status of GitLab issue #1234?"
+  request, showing the same conversation done two ways (without the
+  three questions: 4 tool calls, no answer; with the three
+  questions: 1 tool call, complete answer with citation).
+- `scripts/verify_skill.py` — zero-dependency stdlib script that
+  checks the skill's structural integrity. Run with
+  `python scripts/verify_skill.py` (no pytest / pip required). Exit
+  code 0 = intact; non-zero = at least one issue.
 
 ## Pitfalls
 
@@ -287,6 +304,29 @@ not enough:
 7. **One `web_extract` failure means "can't read this site"** — try a
    JSON endpoint, a GitHub raw file, the package's CDN before giving
    up.
+
+## Self-check
+
+Before declaring the task complete, run this 7-line mental check
+against your own work. A copy of it lives at
+`references/preflight-checklist.md` for pasting into a scratchpad.
+
+- **Context**: did I load only what I needed? (no full directories,
+  no full catalog dumps)
+- **Source**: for every non-trivial claim, do I have a URL + fetch
+  date? (or did I cite recall and say so?)
+- **Blast radius**: for every write call, did I show the diff and get
+  approval before the call?
+- **Cache**: did I leave system prompt / toolset / memory constant
+  through this session?
+- **Trust tier**: was the highest tier I called a Tier ≤ what this
+  task actually required?
+- **Pattern fit**: does the closest Pattern (A / B / C / D) match what
+  I did, or did I improvise?
+- **Pitfall check**: did I avoid the seven pitfalls listed above?
+
+If any item fails, the failure usually traces back to skipping one of
+the three questions at the start. Re-run with the questions explicit.
 
 ## Verification
 

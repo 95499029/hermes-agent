@@ -220,6 +220,14 @@ class TestSkillFilesystem:
             assert tier in text, f"source tier {tier!r} not in reference"
         assert len(text) >= 2_000, f"reference too thin: {len(text)} chars"
 
+    def test_preflight_checklist_reference_exists(self):
+        f = self._skill_root() / "references" / "preflight-checklist.md"
+        assert f.exists(), f"missing: {f}"
+        text = f.read_text(encoding="utf-8")
+        # All three questions must be referenced in the checklist
+        for q in ("Context", "Source", "Blast"):
+            assert q in text, f"checklist missing question: {q!r}"
+
     def test_soul_md_references_agent_intelligence(self):
         """The user-level SOUL.md must mention agent-intelligence so the
         agent knows to load it on new sessions."""
@@ -234,6 +242,96 @@ class TestSkillFilesystem:
         # Must mention all three questions by name to bind the reference
         for q in ("context", "source", "blast radius"):
             assert q in text, f"SOUL.md missing one of context/source/blast radius: {q!r}"
+
+
+class TestSelfCheckSection:
+    """The SKILL.md self-check section is the in-skill version of
+    preflight-checklist.md — same questions, same purpose. Keep them
+    in sync or one of them rots."""
+
+    @pytest.fixture
+    def body(self):
+        _ensure_skill_present()
+        data = json.loads(skill_view(SKILL_NAME, preprocess=False))
+        return data.get("content") or ""
+
+    def test_self_check_section_present(self, body):
+        assert "## Self-check" in body, "self-check section missing"
+
+    def test_self_check_mentions_three_questions(self, body):
+        # Find the Self-check section and verify it covers all three
+        i = body.find("## Self-check")
+        assert i >= 0
+        # Self-check is followed by Verification; everything between is
+        # the section's body.
+        j = body.find("## Verification", i)
+        assert j >= 0, "Verification section must follow Self-check"
+        section = body[i:j]
+        for q in ("Context", "Source", "Blast"):
+            assert q in section, f"Self-check missing topic: {q}"
+
+
+class TestCompanionFiles:
+    """The skill ships a worked example and a self-verification script.
+    Both must exist and be functional."""
+
+    def _skill_root(self):
+        return REPO_ROOT / "skills" / "software-development" / SKILL_NAME
+
+    def test_conversation_example_exists(self):
+        f = self._skill_root() / "examples" / "conversation-1-gitlab-issue.md"
+        assert f.exists(), f"missing: {f}"
+        text = f.read_text(encoding="utf-8")
+        assert len(text) >= 1_500, f"example too thin: {len(text)} chars"
+        # Must contain the GitLab example by content (not just filename)
+        assert "GitLab issue" in text
+        # Must contrast with/without framing (this is the lesson)
+        assert "without" in text.lower() and "with the framing" in text.lower()
+
+    def test_verify_script_exists_and_runs_clean(self):
+        f = self._skill_root() / "scripts" / "verify_skill.py"
+        assert f.exists(), f"missing: {f}"
+        # Run it; must exit 0 against the current skill root
+        import subprocess
+        r = subprocess.run(
+            [sys.executable, str(f)],
+            capture_output=True, text=True,
+            cwd=str(self._skill_root()),
+        )
+        assert r.returncode == 0, (
+            f"verify_skill.py failed (exit {r.returncode}): {r.stdout}\n{r.stderr}"
+        )
+        assert "OK" in r.stdout
+
+    def test_verify_script_detects_missing_required_phrase(self):
+        """Sanity: the verify script must actually catch a regression,
+        not just always exit 0."""
+        import subprocess
+        import tempfile
+
+        f = self._skill_root() / "scripts" / "verify_skill.py"
+        # Make a tmp copy of the skill with a corrupted SKILL.md
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_skill = Path(tmp) / "agent-intelligence"
+            shutil = __import__("shutil")
+            shutil.copytree(self._skill_root(), tmp_skill)
+            bad = tmp_skill / "SKILL.md"
+            bad.write_text(
+                bad.read_text(encoding="utf-8").replace(
+                    "blast radius", "BLAST REMOVED"
+                ),
+                encoding="utf-8",
+            )
+            r = subprocess.run(
+                [sys.executable, str(f), "--skill-root", str(tmp_skill)],
+                capture_output=True, text=True,
+            )
+            assert r.returncode != 0, (
+                "verify_skill.py did not catch the missing 'blast radius' phrase"
+            )
+            assert "blast radius" in r.stdout, (
+                "verify_skill.py output should name the missing phrase"
+            )
 
 
 if __name__ == "__main__":
