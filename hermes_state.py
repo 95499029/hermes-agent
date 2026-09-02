@@ -2022,6 +2022,32 @@ def apply_database_pragmas(
         except sqlite3.OperationalError:
             pass
 
+    # Bug8 fix: enable incremental auto-vacuum. SQLite's default
+        # auto_vacuum=0 (NONE) only marks freed pages as reusable, but the
+        # file never shrinks — long-running Hermes installs accumulate
+        # delete-heavy churn (compression, message archival) and the
+        # state.db file monotonically grows until something forces a full
+        # VACUUM. Switch to INCREMENTAL so freed pages are returned to
+        # the filesystem in the background via incremental_vacuum calls,
+        # controlled by database.auto_vacuum in config.yaml (defaults to
+        # 'incremental' if unset; pass 'none' to opt out).
+        raw_auto_vacuum = cfg_get(cfg, "database", "auto_vacuum", default="incremental")
+        av_mode = str(raw_auto_vacuum).strip().lower() if raw_auto_vacuum is not None else "incremental"
+        av_int = {"none": 0, "full": 1, "incremental": 2}.get(av_mode)
+        if av_int is None:
+            logger.warning("%s: ignoring unknown database.auto_vacuum=%r "
+                            "(expected none/full/incremental)", db_label, raw_auto_vacuum)
+        else:
+            try:
+                conn.execute("PRAGMA auto_vacuum=%d" % av_int)
+            except sqlite3.OperationalError:
+                # auto_vacuum cannot be changed on an existing DB without a
+                # full VACUUM; the new value still applies to the file
+                # created next time. Logged so an operator can run VACUUM
+                # in a quiet window if they want the existing file to shrink.
+                logger.info("%s: PRAGMA auto_vacuum not applied on existing DB; "
+                            "new value will take effect on next DB creation", db_label)
+
     # Last, so it wins over nothing and loses to nothing: the sizing pragmas
     # above cannot change durability, and the macOS enforcement ran earlier
     # during WAL activation (see _apply_synchronous_pragma for why that

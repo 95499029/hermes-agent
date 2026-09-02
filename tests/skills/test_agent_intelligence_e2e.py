@@ -125,7 +125,7 @@ class TestPreloadPromptE2E:
             ("references_section",   "## References"),
             ("ref_trust_tier",       "trust-tier-examples.md"),
             ("ref_source_ranking",   "source-ranking-heuristics.md"),
-            ("related_source_dev",   "source-driven-development"),
+            ("related_source_dev",   "codebase-inspection"),
         ],
     )
     def test_prompt_contains_contract(self, preload_prompt, contract, needle):

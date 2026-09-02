@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [delegation, multi-agent, swarm, sub-agent, context-economics]
-    related_skills: [agent-intelligence, systematic-debugging, source-driven-development]
+    related_skills: [agent-intelligence, systematic-debugging, codebase-inspection]
     notes: |
       Distilled from a published experiment by EvoMap / EvoX where
       "swarm" (sub-agents reporting directly into a numbered-result

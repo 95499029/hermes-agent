@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [agent, context-economics, tool-trust, tool-search, decision-routing]
-    related_skills: [systematic-debugging, requesting-code-review, hermes-agent, source-driven-development, doubt-driven-development, simplify-code, security-and-hardening]
+    related_skills: [systematic-debugging, requesting-code-review, hermes-agent, simplify-code, hermes-agent-skill-authoring, codebase-inspection]
 ---
 
 # Agent Intelligence

@@ -1,6 +1,6 @@
 ---
 name: agent-intelligence-lite
-description: "Always-on: context economics and tool trust tiers in 3 lines."
+description: "Always-on: context economics and tool trust tiers."
 version: 0.1.0
 author: Hermes Agent
 license: MIT

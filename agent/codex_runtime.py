@@ -155,6 +155,13 @@ def _record_codex_app_server_usage(agent, turn) -> dict[str, Any]:
 
     input_tokens = _coerce_usage_int(usage.get("inputTokens"))
     cache_read_tokens = _coerce_usage_int(usage.get("cachedInputTokens"))
+    # Bug10 fix: Codex app-server `cacheWriteInputTokens` was being hard-coded to 0,
+    # dropping the cache-creation cost from the session totals. The provider
+    # returns this field whenever a cache prefix is created, so the prior
+    # behaviour silently undercounted cache-write usage and broke the
+    # cache_write_tokens / cache_read_tokens ratio that prompt-caching
+    # decisions depend on. See upstream issue openai/codex#38158.
+    cache_write_tokens = _coerce_usage_int(usage.get("cacheWriteInputTokens"))
     output_tokens = _coerce_usage_int(usage.get("outputTokens"))
     reasoning_tokens = _coerce_usage_int(usage.get("reasoningOutputTokens"))
     reported_total = _coerce_usage_int(usage.get("totalTokens"))
@@ -163,7 +170,7 @@ def _record_codex_app_server_usage(agent, turn) -> dict[str, Any]:
         input_tokens=input_tokens,
         output_tokens=output_tokens,
         cache_read_tokens=cache_read_tokens,
-        cache_write_tokens=0,
+        cache_write_tokens=cache_write_tokens,
         reasoning_tokens=reasoning_tokens,
         raw_usage=usage,
     )
