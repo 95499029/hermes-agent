@@ -277,6 +277,90 @@ them on demand when the table itself is not enough:
   `python scripts/verify_skill.py` (no pytest / pip required). Exit
   code 0 = intact; non-zero = at least one issue.
 
+## Anti-Patterns from `AGENTS.md`
+
+These are the project-level hard constraints that the
+agent-intelligence skill must respect even when its own reasoning
+suggests otherwise. Each one is a documented failure mode that
+has happened to other contributors; violating it is not "creative
+latitude", it's a regression.
+
+### "Be helpful" is not "expand the core"
+
+> Hermes core is a narrow waist; capability lives at the edges.
+
+If a user asks for a new feature and the only path is adding to
+`model_tools.py` or `toolsets.py`, **don't**. The Footprint Ladder
+in `AGENTS.md` ranks options: extend existing code, CLI command +
+skill, service-gated tool, plugin, MCP server, new core tool (last
+resort). The agent-intelligence skill is itself an example — it's
+a skill, not a new model tool. Every tool added to core ships on
+every API call.
+
+**Anti-pattern**: "The user wants a faster path; I'll add a small
+new core tool that does X directly." The footprint cost is
+multiplied by every future call.
+
+### "Make it automatic" is not "mutate the system prompt mid-session"
+
+> Per-conversation prompt caching is sacred.
+
+If a user asks for behaviour that *seems* to require changing the
+system prompt, agent instructions, or skill selection mid-session,
+**don't**. The cost of cache invalidation dwarfs the savings.
+Defer to next session unless the user explicitly opts in with
+`--now` or equivalent. This is documented in the cache-aware
+slash-command pattern (`/skills install --now` is the canonical
+example).
+
+**Anti-pattern**: "The user wants agent-intelligence active by
+default; I'll prepend it to every system prompt at session start."
+That's not a violation of *this* skill — that's a load-bearing
+core change. The right path is putting the contract in `SOUL.md`
+(permanent) and shipping the skill as a reference.
+
+### "Trust the contributor" is not "skip the contract test"
+
+> Tests are behaviour contracts, not snapshots.
+
+The 67 skill tests in `tests/skills/` exist so that a future edit
+to `SKILL.md` cannot silently drop a guarantee (e.g. removing the
+**Trust tier** order would invert the safety gradient). The test
+suite catches that on the next CI run.
+
+**Anti-pattern**: "I'll rewrite the skill more concisely." Yes, but
+*after* running `pytest tests/skills/` to confirm no contract is
+lost, not by deleting the test that catches it.
+
+### "It works in my session" is not "it works on the platform"
+
+> Plugins live in their own directory; plugins must not modify core.
+
+If you discover that agent-intelligence needs to behave differently
+on, say, Telegram sessions (where the gateway platform adds
+constraints), the answer is **not** to add a Telegram branch in
+`gateway/run.py`. The answer is to write a Telegram-specific
+plugin that registers a hook. The core stays clean.
+
+**Anti-pattern**: "Telegram users complained that
+agent-intelligence auto-loads too eagerly; let me suppress it in
+the platform handler." Now every platform has a copy of the
+suppression logic.
+
+### More skills is not more value
+
+> Don't add speculative hooks; don't add hooks without a consumer.
+
+Every new skill listed in the catalogue is shown to the model on
+every session. A skill with no real consumer is just noise the
+model has to scan. The 81 skills in your `~/.hermes/skills/`
+catalogue already include this one and several others you don't
+use — adding more makes things worse, not better.
+
+**Anti-pattern**: "The user asked for a tag-classification skill;
+I added it to the catalogue." Verify the skill has a real,
+recurring consumer before adding.
+
 ## Pitfalls
 
 1. **Listing tools to "show the user what's available"** — this leaks

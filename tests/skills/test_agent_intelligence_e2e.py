@@ -333,6 +333,45 @@ class TestCompanionFiles:
                 "verify_skill.py output should name the missing phrase"
             )
 
+    def test_verify_script_supports_swarm_collaboration_profile(self):
+        """verify_skill.py must support both bundled meta-skills via
+        --skill. A regression that drops swarm-collaboration from
+        the SKILL_PROFILES dict breaks the second-skill story."""
+        import subprocess
+        f = self._skill_root() / "scripts" / "verify_skill.py"
+        # Help text must list both skills
+        r = subprocess.run(
+            [sys.executable, str(f), "--help"],
+            capture_output=True, text=True,
+        )
+        assert "agent-intelligence" in r.stdout
+        assert "swarm-collaboration" in r.stdout
+        # Mutation: corrupt swarm-collaboration, verify catches it
+        import tempfile
+        swarm_root = (REPO_ROOT / "skills" / "autonomous-ai-agents"
+                      / "swarm-collaboration")
+        if not swarm_root.exists():
+            pytest.skip("swarm-collaboration not in repo yet")
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_skill = Path(tmp) / "swarm-collaboration"
+            shutil = __import__("shutil")
+            shutil.copytree(swarm_root, tmp_skill)
+            bad = (tmp_skill / "SKILL.md").read_text(encoding="utf-8")
+            bad = bad.replace("### 1. Direct result routing",
+                               "### 1. REMOVED")
+            (tmp_skill / "SKILL.md").write_text(bad, encoding="utf-8")
+            r2 = subprocess.run(
+                [sys.executable, str(f),
+                 "--skill", "swarm-collaboration",
+                 "--skill-root", str(tmp_skill)],
+                capture_output=True, text=True,
+            )
+            assert r2.returncode != 0, (
+                "verify_skill.py did not catch the missing "
+                "'Direct result routing' principle"
+            )
+            assert "Direct result routing" in r2.stdout
+
 
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-q"]))
