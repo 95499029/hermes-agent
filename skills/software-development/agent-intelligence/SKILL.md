@@ -361,6 +361,29 @@ use — adding more makes things worse, not better.
 I added it to the catalogue." Verify the skill has a real,
 recurring consumer before adding.
 
+## When loading this skill
+
+Hermes loads SOUL.md from `HERMES_HOME` (default
+`~/.hermes/SOUL.md` on most installs, or `J:\Hermes\data\SOUL.md`
+on this Windows box). The permanent three-question / five-tier
+contract needs to be **in that file**, not in this skill. If you
+want the agent to apply the contract to every task without you
+having to load this skill explicitly:
+
+1. Edit `J:\Hermes\data\SOUL.md` (the real one, not the project
+   repo copy) and append a "## 智能调度铁律" section. See
+   `references/preflight-checklist.md` for the canonical
+   template.
+2. Restart hermes so the SOUL.md content goes into the system
+   prompt.
+
+Common mistake: writing the contract to `J:\Hermes\SOUL.md` (the
+project repo path) and expecting hermes to pick it up. Hermes reads
+`HERMES_HOME/SOUL.md`, which is usually a different path. Audit
+in this conversation found 12 prior sessions had run with the
+default "Be direct" identity because the user-level SOUL.md was
+never written.
+
 ## Pitfalls
 
 1. **Listing tools to "show the user what's available"** — this leaks

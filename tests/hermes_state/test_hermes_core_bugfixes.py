@@ -131,3 +131,112 @@ class TestBug8AutoVacuum:
 
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-v"]))
+
+class TestBug9PerMessageTokenCount:
+    """Bug9 fix: ``update_message_token_count`` lets a caller backfill
+    the per-message token_count on an already-persisted message row.
+
+    Before this method existed, the Codex app-server runtime wrote the
+    session-level aggregates correctly but never updated the
+    per-message row, leaving ``messages.token_count`` 100% NULL for
+    assistant messages (714/714 in the audit that surfaced this).
+    """
+
+    def test_method_exists_with_correct_signature(self):
+        """The new method must exist and accept session_id, message_id, token_count."""
+        from hermes_state import SessionDB
+        import inspect
+        sig = inspect.signature(SessionDB.update_message_token_count)
+        params = list(sig.parameters)
+        assert params[:3] == ["self", "session_id", "message_id"]
+        # 4th param must be token_count (may have **kwargs after)
+        assert "token_count" in params
+
+    def test_update_message_token_count_writes_correct_row(self, tmp_path):
+        """Round-trip: write a message row, then call
+        update_message_token_count, then read back."""
+        import os
+        os.environ["HERMES_HOME"] = str(tmp_path)
+        from hermes_state import SessionDB
+        sid = "test-session-bug9"
+
+        db = SessionDB(tmp_path / "test.db")
+        try:
+            db.ensure_session(sid)
+            # Insert a fake assistant message
+            db.append_message(
+                sid,
+                role="assistant",
+                content="hello",
+                timestamp=1000.0,
+            )
+            # Find its row id
+            with db._read_ctx() as conn:
+                row = conn.execute(
+                    "SELECT id FROM messages WHERE session_id = ? AND role = 'assistant'",
+                    (sid,),
+                ).fetchone()
+            assert row is not None, "message row not persisted"
+            mid = int(row[0])
+
+            # Pre-condition: token_count is NULL
+            with db._read_ctx() as conn:
+                pre = conn.execute(
+                    "SELECT token_count FROM messages WHERE id = ?", (mid,)
+                ).fetchone()
+            assert pre is not None
+            assert pre[0] is None, f"expected NULL, got {pre[0]}"
+
+            # The fix: update_message_token_count
+            ok = db.update_message_token_count(sid, mid, 12345)
+            assert ok is True, "update_message_token_count returned False on valid input"
+
+            # Post-condition: token_count is the new value
+            with db._read_ctx() as conn:
+                post = conn.execute(
+                    "SELECT token_count FROM messages WHERE id = ?", (mid,)
+                ).fetchone()
+            assert post[0] == 12345, f"expected 12345, got {post[0]}"
+        finally:
+            db.close()
+
+    def test_update_message_token_count_wrong_session_returns_false(self, tmp_path):
+        """The WHERE clause includes session_id so a wrong session returns
+        False (no row updated) rather than silently updating the wrong row."""
+        import os
+        os.environ["HERMES_HOME"] = str(tmp_path)
+        from hermes_state import SessionDB
+
+        db = SessionDB(tmp_path / "test.db")
+        try:
+            db.ensure_session("session-A")
+            db.append_message("session-A", role="assistant", content="x", timestamp=1.0)
+            with db._read_ctx() as conn:
+                row = conn.execute(
+                    "SELECT id FROM messages WHERE session_id = ?", ("session-A",)
+                ).fetchone()
+            mid = int(row[0])
+            # Try to update with WRONG session
+            ok = db.update_message_token_count("session-B", mid, 999)
+            assert ok is False, "wrong session should return False (no rows updated)"
+            # Verify the row's token_count is still NULL
+            with db._read_ctx() as conn:
+                post = conn.execute(
+                    "SELECT token_count FROM messages WHERE id = ?", (mid,)
+                ).fetchone()
+            assert post[0] is None, "wrong session should not have updated the row"
+        finally:
+            db.close()
+
+    def test_update_message_token_count_zero_id_returns_false(self, tmp_path):
+        """Defensive: message_id=0 (or falsy) must return False, not error."""
+        import os
+        os.environ["HERMES_HOME"] = str(tmp_path)
+        from hermes_state import SessionDB
+        db = SessionDB(tmp_path / "test.db")
+        try:
+            db.ensure_session("test-zero")
+            assert db.update_message_token_count("any", 0, 100) is False
+            assert db.update_message_token_count("any", None, 100) is False
+        finally:
+            db.close()

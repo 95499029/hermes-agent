@@ -9372,6 +9372,51 @@ class SessionDB(SessionSearchMixin, SessionSchemaMixin, SessionPortabilityMixin)
             # update_token_counts path these call sites still guard for.
             self.update_token_counts(session_id, **kwargs)
 
+    def update_message_token_count(
+        self,
+        session_id: str,
+        message_id: int,
+        token_count: int,
+    ) -> bool:
+        """Bug9 fix: update ``messages.token_count`` for a single message
+        row after the API response returns.
+
+        Before this method, the Codex app-server runtime (and any other
+        early-return path that bypasses ``conversation_loop``) wrote the
+        session-level aggregates correctly but never updated the
+        per-message row, leaving ``messages.token_count`` 100% NULL for
+        assistant messages. This blocked per-turn diagnostics
+        ("which turn in session X consumed the most cache_write?") that
+        the session aggregates cannot answer.
+
+        The fix is targeted: the existing ``append_message`` and
+        ``append_messages_batch`` already write the message row before
+        the API response, so this method only needs to backfill the
+        token_count column. Returns True on success, False on missing
+        message_id (a torn flush or wrong session) so the caller can
+        log without raising.
+        """
+
+        def _do(conn: sqlite3.Connection) -> bool:
+            cur = conn.execute(
+                "UPDATE messages SET token_count = ? "
+                "WHERE id = ? AND session_id = ?",
+                (int(token_count), int(message_id), session_id),
+            )
+            return cur.rowcount > 0
+
+        if not message_id:
+            return False
+        try:
+            return self._execute_write(_do)
+        except Exception as exc:
+            logger.debug(
+                "update_message_token_count failed (session=%s, "
+                "message_id=%s): %s",
+                session_id, message_id, exc,
+            )
+            return False
+
     def flush_token_counts(self, timeout: float = 5.0) -> bool:
         """Block until every queued token delta has been applied.
 

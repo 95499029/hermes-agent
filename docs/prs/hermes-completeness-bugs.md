@@ -204,3 +204,76 @@ area, not the agent core. Marked as known follow-up.
 - All work pushed to fork under `feat/agent-intelligence-lite-swarm-and-templates`
   (hash `a6a8425456` pre-bugfix, see follow-up commit for the new
   hash).
+
+---
+
+## Update: 2026-09-02 follow-up commit (this PR)
+
+Three follow-up actions in this commit:
+
+### Bug9 — FIXED
+
+Added ``SessionDB.update_message_token_count(session_id, message_id,
+token_count)`` in `hermes_state.py`. Returns True on success, False
+on missing/wrong session/message_id (defensive; logs on exception).
+
+``codex_runtime.py:_record_codex_app_server_usage`` now backfills
+the per-message row at the end of each turn, after the
+session-level aggregates are written. The implementation:
+
+1. Walks the in-memory `messages` list in reverse to find the
+   latest assistant message
+2. Tries the `_db_message_id` sidecar first (authoritative)
+3. Falls back to `SELECT MAX(id) FROM messages WHERE session_id = ?
+   AND role = 'assistant'` if no sidecar
+4. Calls `update_message_token_count` with the row id and
+   `usage_result['total_tokens']`
+
+Tests in `tests/hermes_state/test_hermes_core_bugfixes.py`
+(`TestBug9PerMessageTokenCount`):
+- signature check
+- round-trip: append → update → read back
+- wrong session returns False (the WHERE clause includes session_id)
+- defensive: message_id=0 or None returns False without raising
+
+### Bug6 — DOCUMENTED (not fixed)
+
+The web_extract tool's ddgs error path returns the fix suggestion
+inside the error message ("Set web.extract_backend to firecrawl,
+keenable, exa, or parallel"), which works but wastes a turn. A
+proper fix would either auto-fallback to a configured secondary
+backend or surface the suggestion upfront via a pre-call check.
+Both are core behaviour changes; tracked for a future hermes-core
+PR.
+
+### Bug11 — DOCUMENTED (not a code bug)
+
+13/14 sessions had `ended_at IS NULL` because the user closed
+the hermes window directly (no `exit` command). The atexit hook
+in `hermes_state.py` only fires on graceful interpreter shutdown.
+The fix is operational, not a code change: use `exit` / `Ctrl-D`
+in the CLI to trigger a clean shutdown. If running under a process
+supervisor, configure it to send SIGTERM (not SIGKILL).
+
+### Why Bug8 still doesn't apply to the existing state.db
+
+The hermes_state.py fix sets `PRAGMA auto_vacuum=2` (INCREMENTAL)
+on db-init. This pragma writes to the SQLite file header at
+**file-creation time**; existing dbs cannot be retroactively
+upgraded — VACUUM rebuilds the file but preserves the original
+header value, and `PRAGMA auto_vacuum=N` on an existing file
+silently no-ops (returns 0 when read back).
+
+The existing 10.4 MB `J:\Hermes\data\state.db` therefore keeps
+`auto_vacuum=0` until hermes is restarted against a freshly
+created db. The fix takes effect for any **new** state.db
+(new profile, fresh install, or `state.db` removal + restart).
+
+### P0-1 / P0-2 partial completion
+
+VACUUM ran cleanly against the existing db (10.4 MB, 1708 messages,
+no errors). But Bug8's effect on the existing db remains blocked
+by SQLite's physical constraint described above.
+
+Bug10 takes effect for any subsequent Codex app-server session
+(the parse path is now used in codex_runtime.py:164).

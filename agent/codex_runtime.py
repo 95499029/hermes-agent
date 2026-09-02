@@ -906,6 +906,43 @@ def run_codex_app_server_turn(
     usage_result = _record_codex_app_server_usage(agent, turn)
     api_calls = 1
 
+    # Bug9 fix: also backfill the per-message token_count on the assistant
+    # message row that was just persisted. _record_codex_app_server_usage
+    # updates the session-level aggregates, but the per-message breakdown
+    # was 100% NULL before this call. We use the last assistant message
+    # in the in-memory messages list (the freshly-projected one from
+    # the projector above). If the message has no row id yet (rare, only
+    # when the flush was skipped), the call returns False silently.
+    if agent._session_db and agent.session_id and messages:
+        try:
+            for _msg in reversed(messages):
+                if _msg.get("role") == "assistant":
+                    # The append_message sidecar (when the row was
+                    # already persisted) is the authoritative id;
+                    # fall back to a SQL lookup if absent.
+                    _mid = _msg.get("_db_message_id")
+                    if _mid is None and hasattr(agent, "_session_db_created") and agent._session_db_created:
+                        try:
+                            _row = agent._session_db.execute(
+                                "SELECT MAX(id) FROM messages "
+                                "WHERE session_id = ? AND role = 'assistant'",
+                                (agent.session_id,),
+                            ).fetchone()
+                            _mid = int(_row[0]) if _row and _row[0] else None
+                        except Exception:
+                            _mid = None
+                    if _mid is not None:
+                        agent._session_db.update_message_token_count(
+                            agent.session_id,
+                            int(_mid),
+                            int(usage_result.get("total_tokens") or 0),
+                        )
+                    break
+        except Exception as exc:
+            logger.debug(
+                "codex app-server per-message token backfill failed: %s", exc
+            )
+
     # Now check the skill nudge AFTER iters were incremented — same
     # pattern the chat_completions path uses (line ~15432).
     should_review_skills = False
