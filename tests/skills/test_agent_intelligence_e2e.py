@@ -119,6 +119,13 @@ class TestPreloadPromptE2E:
             ("pattern_d",            "Pattern D"),
             ("pitfalls_section",     "## Pitfalls"),
             ("verification_section", "## Verification"),
+            ("examples_section",     "## Examples"),
+            ("example_1_gitlab",     "GitLab issue #1234"),
+            ("example_2_cloudflare", "Cloudflare DNS for staging"),
+            ("references_section",   "## References"),
+            ("ref_trust_tier",       "trust-tier-examples.md"),
+            ("ref_source_ranking",   "source-ranking-heuristics.md"),
+            ("related_source_dev",   "source-driven-development"),
         ],
     )
     def test_prompt_contains_contract(self, preload_prompt, contract, needle):
@@ -179,6 +186,54 @@ class TestSkillContractInvariants:
         # Strict ascending order
         for a, b in zip(positions, positions[1:]):
             assert a < b, f"trust tier order violated: {positions}"
+
+
+class TestSkillFilesystem:
+    """The skill ships with companion reference files in references/.
+    They must be present and loadable."""
+
+    def _skill_root(self):
+        return REPO_ROOT / "skills" / "software-development" / SKILL_NAME
+
+    def test_references_dir_exists(self):
+        d = self._skill_root() / "references"
+        assert d.exists(), "references/ directory missing"
+        assert d.is_dir()
+
+    def test_trust_tier_reference_exists_and_substantial(self):
+        f = self._skill_root() / "references" / "trust-tier-examples.md"
+        assert f.exists(), f"missing: {f}"
+        text = f.read_text(encoding="utf-8")
+        # All five tiers should have at least one example under each
+        for tier in ("Read-only public", "Read-only authenticated",
+                     "Write to local sandbox", "Write to remote",
+                     "Destructive"):
+            assert tier in text, f"trust tier {tier!r} not in reference"
+        assert len(text) >= 2_000, f"reference too thin: {len(text)} chars"
+
+    def test_source_ranking_reference_exists_and_substantial(self):
+        f = self._skill_root() / "references" / "source-ranking-heuristics.md"
+        assert f.exists(), f"missing: {f}"
+        text = f.read_text(encoding="utf-8")
+        for tier in ("Live primary source", "Crawler-grade secondary",
+                     "Search-aggregated", "Training-data recall"):
+            assert tier in text, f"source tier {tier!r} not in reference"
+        assert len(text) >= 2_000, f"reference too thin: {len(text)} chars"
+
+    def test_soul_md_references_agent_intelligence(self):
+        """The user-level SOUL.md must mention agent-intelligence so the
+        agent knows to load it on new sessions."""
+        soul = Path(r"J:\Hermes\SOUL.md")
+        if not soul.exists():
+            pytest.skip("SOUL.md not at J:\\Hermes\\SOUL.md")
+        text = soul.read_text(encoding="utf-8")
+        assert "agent-intelligence" in text, (
+            "SOUL.md does not mention agent-intelligence — skill will not "
+            "be auto-loaded by the routing logic"
+        )
+        # Must mention all three questions by name to bind the reference
+        for q in ("context", "source", "blast radius"):
+            assert q in text, f"SOUL.md missing one of context/source/blast radius: {q!r}"
 
 
 if __name__ == "__main__":

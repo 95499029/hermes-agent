@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [agent, context-economics, tool-trust, tool-search, decision-routing]
-    related_skills: [systematic-debugging, requesting-code-review, hermes-agent]
+    related_skills: [systematic-debugging, requesting-code-review, hermes-agent, source-driven-development, doubt-driven-development, simplify-code, security-and-hardening]
 ---
 
 # Agent Intelligence
@@ -179,6 +179,58 @@ Good:
 4. Only after exhausting structured sources should you fall back to
    browser automation.
 
+## Examples
+
+Two worked conversations showing how the three questions change the
+agent's tool choice. Each shows the same user request answered two
+ways: once without the skill's framing (typical), once with it.
+
+### Example 1 — "What's the status of GitLab issue #1234?"
+
+**Without the framing**: agent sees `gitlab` MCP, `web_search`,
+`web_extract`, `browser_navigate` all available. Tries `web_search`
+("gitlab issue 1234 <project>"), gets a noisy list, picks the first
+hit, falls back to `browser_navigate` to load the actual issue page.
+Burns 4 tool calls and several thousand tokens. May fail with login.
+
+**With the framing**:
+
+1. Q1 — Context: I need the JSON for issue 1234 — title, state,
+   assignee, last update. One source.
+2. Q2 — Source: project-local GitLab is on this network, I have the
+   MCP, and its `get_issue` endpoint is Tier 2 (authenticated read).
+   No JSON endpoint exposed publicly, but the MCP is the canonical
+   path.
+3. Q3 — Blast radius: read-only. Tier 2 — call directly.
+
+Result: one tool call (`gitlab.get_issue(id="1234")`). Answer
+includes the URL `https://gitlab.<host>/<group>/<repo>/-/issues/1234`
+and the fetch date.
+
+### Example 2 — "Update Cloudflare DNS for staging"
+
+**Without the framing**: agent calls Cloudflare MCP's
+`update_dns_record` directly, the user asked so it must be fine,
+change goes through. Two hours later, staging goes dark because the
+record pointed at a decommissioned IP.
+
+**With the framing**:
+
+1. Q1 — Context: I need the current record (so I know what I'm
+   changing), the target IP, and confirmation of which zone is
+   "staging".
+2. Q2 — Source: Cloudflare MCP for both read and write — Tier 2
+   read to verify current state, Tier 4 write to change.
+3. Q3 — Blast radius: Tier 4. Production DNS change. Stop here.
+
+> I am about to change DNS record `staging.example.com` (currently
+> `1.2.3.4`) to `5.6.7.8` in zone `example.com` via Cloudflare MCP.
+> Reply "go" to apply.
+
+User replies "go". Agent reads current state, applies change, reads
+back the new state to confirm. Includes the before/after diff in the
+final message.
+
 ## Quick Reference
 
 ```
@@ -196,6 +248,19 @@ Tier 5 destructive             → per-action human approval
 Cache: do not change system prompt / toolset / memory mid-session.
 Source rank: primary > crawler > search > recall.
 ```
+
+## References
+
+This skill ships two companion reference files for deeper coverage of
+its two central tables. Load them on demand when the table itself is
+not enough:
+
+- `references/trust-tier-examples.md` — three real examples per tier,
+  plus the "default-unknown" rule for when you're not sure which tier
+  applies.
+- `references/source-ranking-heuristics.md` — how to recognise each
+  source tier in the wild, the failure modes of each, and when to
+  switch tiers mid-task.
 
 ## Pitfalls
 
