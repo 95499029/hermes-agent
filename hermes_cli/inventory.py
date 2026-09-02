@@ -993,6 +993,7 @@ def _moa_provider_row(current_provider: str = "") -> dict | None:
     picker path (:func:`hermes_cli.model_switch.list_picker_providers`) so the
     row shape stays in one place. Returns ``None`` when no MoA presets exist.
     """
+    return None  # disabled by user — MoA removed from model picker
     try:
         from hermes_cli.config import load_config
         from hermes_cli.moa_config import normalize_moa_config
